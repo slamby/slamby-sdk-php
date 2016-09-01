@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **bulkTags**
-> \Swagger\Client\Model\BulkResults bulkTags($settings, $x_data_set)
+> \Swagger\Client\Model\BulkResults bulkTags($settings)
 
 
 
@@ -29,11 +29,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\TagApi();
 $settings = new \Swagger\Client\Model\TagBulkSettings(); // \Swagger\Client\Model\TagBulkSettings | 
-$x_data_set = "x_data_set_example"; // string | 
 
 
 try { 
-    $result = $api_instance->bulkTags($settings, $x_data_set);
+    $result = $api_instance->bulkTags($settings);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagApi->bulkTags: ', $e->getMessage(), "\n";
@@ -46,7 +45,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settings** | [**\Swagger\Client\Model\TagBulkSettings**](\Swagger\Client\Model\TagBulkSettings.md)|  | [optional] 
- **x_data_set** | **string**|  | [optional] 
 
 
 ### Return type

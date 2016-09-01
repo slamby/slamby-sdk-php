@@ -97,13 +97,12 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentBulkSettings $settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return \Swagger\Client\Model\BulkResults
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkDocuments($settings = null, $x_data_set = null)
+    public function bulkDocuments($settings = null)
     {
-        list($response) = $this->bulkDocumentsWithHttpInfo ($settings, $x_data_set);
+        list($response) = $this->bulkDocumentsWithHttpInfo ($settings);
         return $response; 
     }
 
@@ -114,11 +113,10 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentBulkSettings $settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return Array of \Swagger\Client\Model\BulkResults, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkDocumentsWithHttpInfo($settings = null, $x_data_set = null)
+    public function bulkDocumentsWithHttpInfo($settings = null)
     {
         
   
@@ -135,11 +133,7 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($x_data_set !== null) {
-            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
-        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -194,13 +188,12 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentCopySettings $copy_settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function copyDocuments($copy_settings = null, $x_data_set = null)
+    public function copyDocuments($copy_settings = null)
     {
-        list($response) = $this->copyDocumentsWithHttpInfo ($copy_settings, $x_data_set);
+        list($response) = $this->copyDocumentsWithHttpInfo ($copy_settings);
         return $response; 
     }
 
@@ -211,11 +204,10 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentCopySettings $copy_settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function copyDocumentsWithHttpInfo($copy_settings = null, $x_data_set = null)
+    public function copyDocumentsWithHttpInfo($copy_settings = null)
     {
         
   
@@ -232,11 +224,7 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($x_data_set !== null) {
-            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
-        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -564,14 +552,13 @@ class DocumentApi
      * 
      *
      * @param string $scroll_id  (required)
-     * @param string $x_data_set  (optional)
      * @param \Swagger\Client\Model\DocumentFilterSettings $filter_settings  (optional)
      * @return \Swagger\Client\Model\PaginatedListObject
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getFilteredDocuments($scroll_id, $x_data_set = null, $filter_settings = null)
+    public function getFilteredDocuments($scroll_id, $filter_settings = null)
     {
-        list($response) = $this->getFilteredDocumentsWithHttpInfo ($scroll_id, $x_data_set, $filter_settings);
+        list($response) = $this->getFilteredDocumentsWithHttpInfo ($scroll_id, $filter_settings);
         return $response; 
     }
 
@@ -582,12 +569,11 @@ class DocumentApi
      * 
      *
      * @param string $scroll_id  (required)
-     * @param string $x_data_set  (optional)
      * @param \Swagger\Client\Model\DocumentFilterSettings $filter_settings  (optional)
      * @return Array of \Swagger\Client\Model\PaginatedListObject, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getFilteredDocumentsWithHttpInfo($scroll_id, $x_data_set = null, $filter_settings = null)
+    public function getFilteredDocumentsWithHttpInfo($scroll_id, $filter_settings = null)
     {
         
         // verify the required parameter 'scroll_id' is set
@@ -608,11 +594,7 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($x_data_set !== null) {
-            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
-        }
         // path params
         
         if ($scroll_id !== null) {
@@ -675,13 +657,12 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentSampleSettings $sample_settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return \Swagger\Client\Model\PaginatedListObject
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getSampleDocuments($sample_settings = null, $x_data_set = null)
+    public function getSampleDocuments($sample_settings = null)
     {
-        list($response) = $this->getSampleDocumentsWithHttpInfo ($sample_settings, $x_data_set);
+        list($response) = $this->getSampleDocumentsWithHttpInfo ($sample_settings);
         return $response; 
     }
 
@@ -692,11 +673,10 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentSampleSettings $sample_settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return Array of \Swagger\Client\Model\PaginatedListObject, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getSampleDocumentsWithHttpInfo($sample_settings = null, $x_data_set = null)
+    public function getSampleDocumentsWithHttpInfo($sample_settings = null)
     {
         
   
@@ -713,11 +693,7 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($x_data_set !== null) {
-            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
-        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -772,13 +748,12 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentMoveSettings $move_settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function moveDocuments($move_settings = null, $x_data_set = null)
+    public function moveDocuments($move_settings = null)
     {
-        list($response) = $this->moveDocumentsWithHttpInfo ($move_settings, $x_data_set);
+        list($response) = $this->moveDocumentsWithHttpInfo ($move_settings);
         return $response; 
     }
 
@@ -789,11 +764,10 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentMoveSettings $move_settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function moveDocumentsWithHttpInfo($move_settings = null, $x_data_set = null)
+    public function moveDocumentsWithHttpInfo($move_settings = null)
     {
         
   
@@ -810,11 +784,7 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($x_data_set !== null) {
-            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
-        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);

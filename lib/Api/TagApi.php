@@ -97,13 +97,12 @@ class TagApi
      * 
      *
      * @param \Swagger\Client\Model\TagBulkSettings $settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return \Swagger\Client\Model\BulkResults
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkTags($settings = null, $x_data_set = null)
+    public function bulkTags($settings = null)
     {
-        list($response) = $this->bulkTagsWithHttpInfo ($settings, $x_data_set);
+        list($response) = $this->bulkTagsWithHttpInfo ($settings);
         return $response; 
     }
 
@@ -114,11 +113,10 @@ class TagApi
      * 
      *
      * @param \Swagger\Client\Model\TagBulkSettings $settings  (optional)
-     * @param string $x_data_set  (optional)
      * @return Array of \Swagger\Client\Model\BulkResults, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkTagsWithHttpInfo($settings = null, $x_data_set = null)
+    public function bulkTagsWithHttpInfo($settings = null)
     {
         
   
@@ -135,11 +133,7 @@ class TagApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        // header params
         
-        if ($x_data_set !== null) {
-            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
-        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
