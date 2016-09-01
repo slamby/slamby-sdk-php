@@ -92,38 +92,38 @@ class ClassifierServiceApi
   
     
     /**
-     * activateService
+     * classifierActivateService
      *
      * 
      *
      * @param string $id  (required)
      * @param \Swagger\Client\Model\ClassifierActivateSettings $classifier_activate_settings  (optional)
-     * @return void
+     * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function activateService($id, $classifier_activate_settings = null)
+    public function classifierActivateService($id, $classifier_activate_settings = null)
     {
-        list($response) = $this->activateServiceWithHttpInfo ($id, $classifier_activate_settings);
+        list($response) = $this->classifierActivateServiceWithHttpInfo ($id, $classifier_activate_settings);
         return $response; 
     }
 
 
     /**
-     * activateServiceWithHttpInfo
+     * classifierActivateServiceWithHttpInfo
      *
      * 
      *
      * @param string $id  (required)
      * @param \Swagger\Client\Model\ClassifierActivateSettings $classifier_activate_settings  (optional)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function activateServiceWithHttpInfo($id, $classifier_activate_settings = null)
+    public function classifierActivateServiceWithHttpInfo($id, $classifier_activate_settings = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling activateService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling classifierActivateService');
         }
   
         // parse inputs
@@ -171,13 +171,21 @@ class ClassifierServiceApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams
+                $headerParams, '\Swagger\Client\Model\Process'
             );
             
-            return array(null, $statusCode, $httpHeader);
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Process', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 202:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Process', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             case 400:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
@@ -193,7 +201,7 @@ class ClassifierServiceApi
     }
     
     /**
-     * deactivateService
+     * classifierDeactivateService
      *
      * 
      *
@@ -201,15 +209,15 @@ class ClassifierServiceApi
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function deactivateService($id)
+    public function classifierDeactivateService($id)
     {
-        list($response) = $this->deactivateServiceWithHttpInfo ($id);
+        list($response) = $this->classifierDeactivateServiceWithHttpInfo ($id);
         return $response; 
     }
 
 
     /**
-     * deactivateServiceWithHttpInfo
+     * classifierDeactivateServiceWithHttpInfo
      *
      * 
      *
@@ -217,12 +225,12 @@ class ClassifierServiceApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function deactivateServiceWithHttpInfo($id)
+    public function classifierDeactivateServiceWithHttpInfo($id)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling deactivateService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling classifierDeactivateService');
         }
   
         // parse inputs
@@ -288,7 +296,7 @@ class ClassifierServiceApi
     }
     
     /**
-     * exportDictionaries
+     * classifierExportDictionaries
      *
      * 
      *
@@ -297,15 +305,15 @@ class ClassifierServiceApi
      * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function exportDictionaries($id, $settings = null)
+    public function classifierExportDictionaries($id, $settings = null)
     {
-        list($response) = $this->exportDictionariesWithHttpInfo ($id, $settings);
+        list($response) = $this->classifierExportDictionariesWithHttpInfo ($id, $settings);
         return $response; 
     }
 
 
     /**
-     * exportDictionariesWithHttpInfo
+     * classifierExportDictionariesWithHttpInfo
      *
      * 
      *
@@ -314,12 +322,12 @@ class ClassifierServiceApi
      * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function exportDictionariesWithHttpInfo($id, $settings = null)
+    public function classifierExportDictionariesWithHttpInfo($id, $settings = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling exportDictionaries');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling classifierExportDictionaries');
         }
   
         // parse inputs
@@ -397,7 +405,7 @@ class ClassifierServiceApi
     }
     
     /**
-     * getService
+     * classifierGetService
      *
      * 
      *
@@ -405,15 +413,15 @@ class ClassifierServiceApi
      * @return \Swagger\Client\Model\ClassifierService
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getService($id)
+    public function classifierGetService($id)
     {
-        list($response) = $this->getServiceWithHttpInfo ($id);
+        list($response) = $this->classifierGetServiceWithHttpInfo ($id);
         return $response; 
     }
 
 
     /**
-     * getServiceWithHttpInfo
+     * classifierGetServiceWithHttpInfo
      *
      * 
      *
@@ -421,12 +429,12 @@ class ClassifierServiceApi
      * @return Array of \Swagger\Client\Model\ClassifierService, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getServiceWithHttpInfo($id)
+    public function classifierGetServiceWithHttpInfo($id)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling getService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling classifierGetService');
         }
   
         // parse inputs
@@ -496,7 +504,7 @@ class ClassifierServiceApi
     }
     
     /**
-     * prepareService
+     * classifierPrepareService
      *
      * 
      *
@@ -505,15 +513,15 @@ class ClassifierServiceApi
      * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function prepareService($id, $classifier_prepare_settings = null)
+    public function classifierPrepareService($id, $classifier_prepare_settings = null)
     {
-        list($response) = $this->prepareServiceWithHttpInfo ($id, $classifier_prepare_settings);
+        list($response) = $this->classifierPrepareServiceWithHttpInfo ($id, $classifier_prepare_settings);
         return $response; 
     }
 
 
     /**
-     * prepareServiceWithHttpInfo
+     * classifierPrepareServiceWithHttpInfo
      *
      * 
      *
@@ -522,12 +530,12 @@ class ClassifierServiceApi
      * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function prepareServiceWithHttpInfo($id, $classifier_prepare_settings = null)
+    public function classifierPrepareServiceWithHttpInfo($id, $classifier_prepare_settings = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling prepareService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling classifierPrepareService');
         }
   
         // parse inputs
@@ -605,7 +613,7 @@ class ClassifierServiceApi
     }
     
     /**
-     * recommendService
+     * classifierRecommendService
      *
      * 
      *
@@ -614,15 +622,15 @@ class ClassifierServiceApi
      * @return \Swagger\Client\Model\ClassifierRecommendationResult[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function recommendService($id, $request = null)
+    public function classifierRecommendService($id, $request = null)
     {
-        list($response) = $this->recommendServiceWithHttpInfo ($id, $request);
+        list($response) = $this->classifierRecommendServiceWithHttpInfo ($id, $request);
         return $response; 
     }
 
 
     /**
-     * recommendServiceWithHttpInfo
+     * classifierRecommendServiceWithHttpInfo
      *
      * 
      *
@@ -631,12 +639,12 @@ class ClassifierServiceApi
      * @return Array of \Swagger\Client\Model\ClassifierRecommendationResult[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function recommendServiceWithHttpInfo($id, $request = null)
+    public function classifierRecommendServiceWithHttpInfo($id, $request = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling recommendService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling classifierRecommendService');
         }
   
         // parse inputs

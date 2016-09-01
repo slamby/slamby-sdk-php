@@ -40,7 +40,7 @@ use \ArrayAccess;
  * ClassifierPrepareSettings Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description These settings are required for the training (Prepare method)
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -61,7 +61,9 @@ class ClassifierPrepareSettings implements ArrayAccess
     static $swaggerTypes = array(
         'data_set_name' => 'string',
         'tag_id_list' => 'string[]',
-        'n_gram_list' => 'int[]'
+        'n_gram_list' => 'int[]',
+        'compress_level' => 'int',
+        'compress_settings' => '\Swagger\Client\Model\CompressSettings'
     );
   
     static function swaggerTypes() {
@@ -75,7 +77,9 @@ class ClassifierPrepareSettings implements ArrayAccess
     static $attributeMap = array(
         'data_set_name' => 'DataSetName',
         'tag_id_list' => 'TagIdList',
-        'n_gram_list' => 'NGramList'
+        'n_gram_list' => 'NGramList',
+        'compress_level' => 'CompressLevel',
+        'compress_settings' => 'CompressSettings'
     );
   
     static function attributeMap() {
@@ -89,7 +93,9 @@ class ClassifierPrepareSettings implements ArrayAccess
     static $setters = array(
         'data_set_name' => 'setDataSetName',
         'tag_id_list' => 'setTagIdList',
-        'n_gram_list' => 'setNGramList'
+        'n_gram_list' => 'setNGramList',
+        'compress_level' => 'setCompressLevel',
+        'compress_settings' => 'setCompressSettings'
     );
   
     static function setters() {
@@ -103,7 +109,9 @@ class ClassifierPrepareSettings implements ArrayAccess
     static $getters = array(
         'data_set_name' => 'getDataSetName',
         'tag_id_list' => 'getTagIdList',
-        'n_gram_list' => 'getNGramList'
+        'n_gram_list' => 'getNGramList',
+        'compress_level' => 'getCompressLevel',
+        'compress_settings' => 'getCompressSettings'
     );
   
     static function getters() {
@@ -112,22 +120,34 @@ class ClassifierPrepareSettings implements ArrayAccess
 
     
     /**
-      * $data_set_name 
+      * $data_set_name The DataSet name where the Classifier will be trained from
       * @var string
       */
     protected $data_set_name;
     
     /**
-      * $tag_id_list 
+      * $tag_id_list The list of the tag Ids which will be trained
       * @var string[]
       */
     protected $tag_id_list;
     
     /**
-      * $n_gram_list 
+      * $n_gram_list The list of the NGrams which will be trained. The maximum NGram can be the DataSet's NGram
       * @var int[]
       */
     protected $n_gram_list;
+    
+    /**
+      * $compress_level 
+      * @var int
+      */
+    protected $compress_level;
+    
+    /**
+      * $compress_settings 
+      * @var \Swagger\Client\Model\CompressSettings
+      */
+    protected $compress_settings;
     
 
     /**
@@ -143,6 +163,8 @@ class ClassifierPrepareSettings implements ArrayAccess
             $this->data_set_name = $data["data_set_name"];
             $this->tag_id_list = $data["tag_id_list"];
             $this->n_gram_list = $data["n_gram_list"];
+            $this->compress_level = $data["compress_level"];
+            $this->compress_settings = $data["compress_settings"];
         }
     }
     
@@ -157,7 +179,7 @@ class ClassifierPrepareSettings implements ArrayAccess
   
     /**
      * Sets data_set_name
-     * @param string $data_set_name 
+     * @param string $data_set_name The DataSet name where the Classifier will be trained from
      * @return $this
      */
     public function setDataSetName($data_set_name)
@@ -178,7 +200,7 @@ class ClassifierPrepareSettings implements ArrayAccess
   
     /**
      * Sets tag_id_list
-     * @param string[] $tag_id_list 
+     * @param string[] $tag_id_list The list of the tag Ids which will be trained
      * @return $this
      */
     public function setTagIdList($tag_id_list)
@@ -199,13 +221,55 @@ class ClassifierPrepareSettings implements ArrayAccess
   
     /**
      * Sets n_gram_list
-     * @param int[] $n_gram_list 
+     * @param int[] $n_gram_list The list of the NGrams which will be trained. The maximum NGram can be the DataSet's NGram
      * @return $this
      */
     public function setNGramList($n_gram_list)
     {
         
         $this->n_gram_list = $n_gram_list;
+        return $this;
+    }
+    
+    /**
+     * Gets compress_level
+     * @return int
+     */
+    public function getCompressLevel()
+    {
+        return $this->compress_level;
+    }
+  
+    /**
+     * Sets compress_level
+     * @param int $compress_level 
+     * @return $this
+     */
+    public function setCompressLevel($compress_level)
+    {
+        
+        $this->compress_level = $compress_level;
+        return $this;
+    }
+    
+    /**
+     * Gets compress_settings
+     * @return \Swagger\Client\Model\CompressSettings
+     */
+    public function getCompressSettings()
+    {
+        return $this->compress_settings;
+    }
+  
+    /**
+     * Sets compress_settings
+     * @param \Swagger\Client\Model\CompressSettings $compress_settings 
+     * @return $this
+     */
+    public function setCompressSettings($compress_settings)
+    {
+        
+        $this->compress_settings = $compress_settings;
         return $this;
     }
     

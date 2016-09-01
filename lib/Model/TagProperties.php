@@ -40,7 +40,7 @@ use \ArrayAccess;
  * TagProperties Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Contains calculated values for the tag
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -59,7 +59,7 @@ class TagProperties implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'path' => '\Swagger\Client\Model\PathItem[]',
+        'paths' => '\Swagger\Client\Model\PathItem[]',
         'level' => 'int',
         'is_leaf' => 'bool',
         'document_count' => 'int',
@@ -75,7 +75,7 @@ class TagProperties implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'path' => 'Path',
+        'paths' => 'Paths',
         'level' => 'Level',
         'is_leaf' => 'IsLeaf',
         'document_count' => 'DocumentCount',
@@ -91,7 +91,7 @@ class TagProperties implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'path' => 'setPath',
+        'paths' => 'setPaths',
         'level' => 'setLevel',
         'is_leaf' => 'setIsLeaf',
         'document_count' => 'setDocumentCount',
@@ -107,7 +107,7 @@ class TagProperties implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'path' => 'getPath',
+        'paths' => 'getPaths',
         'level' => 'getLevel',
         'is_leaf' => 'getIsLeaf',
         'document_count' => 'getDocumentCount',
@@ -120,31 +120,31 @@ class TagProperties implements ArrayAccess
 
     
     /**
-      * $path 
+      * $paths A tag list contains parent path elements
       * @var \Swagger\Client\Model\PathItem[]
       */
-    protected $path;
+    protected $paths;
     
     /**
-      * $level 
+      * $level The level of the tag in the hierarchy (root level is: 0)
       * @var int
       */
     protected $level;
     
     /**
-      * $is_leaf 
+      * $is_leaf If the tag is a leaf tag. Leaf tag means the tag is not a parent of any other tags
       * @var bool
       */
     protected $is_leaf;
     
     /**
-      * $document_count 
+      * $document_count Document count for the tag
       * @var int
       */
     protected $document_count;
     
     /**
-      * $word_count 
+      * $word_count Word count for the tag
       * @var int
       */
     protected $word_count;
@@ -160,7 +160,7 @@ class TagProperties implements ArrayAccess
         
 
         if ($data != null) {
-            $this->path = $data["path"];
+            $this->paths = $data["paths"];
             $this->level = $data["level"];
             $this->is_leaf = $data["is_leaf"];
             $this->document_count = $data["document_count"];
@@ -169,23 +169,23 @@ class TagProperties implements ArrayAccess
     }
     
     /**
-     * Gets path
+     * Gets paths
      * @return \Swagger\Client\Model\PathItem[]
      */
-    public function getPath()
+    public function getPaths()
     {
-        return $this->path;
+        return $this->paths;
     }
   
     /**
-     * Sets path
-     * @param \Swagger\Client\Model\PathItem[] $path 
+     * Sets paths
+     * @param \Swagger\Client\Model\PathItem[] $paths A tag list contains parent path elements
      * @return $this
      */
-    public function setPath($path)
+    public function setPaths($paths)
     {
         
-        $this->path = $path;
+        $this->paths = $paths;
         return $this;
     }
     
@@ -200,7 +200,7 @@ class TagProperties implements ArrayAccess
   
     /**
      * Sets level
-     * @param int $level 
+     * @param int $level The level of the tag in the hierarchy (root level is: 0)
      * @return $this
      */
     public function setLevel($level)
@@ -221,7 +221,7 @@ class TagProperties implements ArrayAccess
   
     /**
      * Sets is_leaf
-     * @param bool $is_leaf 
+     * @param bool $is_leaf If the tag is a leaf tag. Leaf tag means the tag is not a parent of any other tags
      * @return $this
      */
     public function setIsLeaf($is_leaf)
@@ -242,7 +242,7 @@ class TagProperties implements ArrayAccess
   
     /**
      * Sets document_count
-     * @param int $document_count 
+     * @param int $document_count Document count for the tag
      * @return $this
      */
     public function setDocumentCount($document_count)
@@ -263,7 +263,7 @@ class TagProperties implements ArrayAccess
   
     /**
      * Sets word_count
-     * @param int $word_count 
+     * @param int $word_count Word count for the tag
      * @return $this
      */
     public function setWordCount($word_count)

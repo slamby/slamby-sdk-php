@@ -40,7 +40,7 @@ use \ArrayAccess;
  * DataSetStats Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description DataSetStats object
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -104,7 +104,7 @@ class DataSetStats implements ArrayAccess
 
     
     /**
-      * $documents_count 
+      * $documents_count Shows the available document number
       * @var int
       */
     protected $documents_count;
@@ -135,7 +135,7 @@ class DataSetStats implements ArrayAccess
   
     /**
      * Sets documents_count
-     * @param int $documents_count 
+     * @param int $documents_count Shows the available document number
      * @return $this
      */
     public function setDocumentsCount($documents_count)

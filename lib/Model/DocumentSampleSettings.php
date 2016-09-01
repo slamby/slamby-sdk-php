@@ -60,12 +60,10 @@ class DocumentSampleSettings implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'string',
-        'tag_ids' => 'string[]',
-        'is_stratified' => 'bool',
-        'pagination' => '\Swagger\Client\Model\Pagination',
+        'tag_id_list' => 'string[]',
         'percent' => 'double',
         'size' => 'int',
-        'ids_only' => 'bool'
+        'field_list' => 'string[]'
     );
   
     static function swaggerTypes() {
@@ -78,12 +76,10 @@ class DocumentSampleSettings implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'Id',
-        'tag_ids' => 'TagIds',
-        'is_stratified' => 'IsStratified',
-        'pagination' => 'Pagination',
+        'tag_id_list' => 'TagIdList',
         'percent' => 'Percent',
         'size' => 'Size',
-        'ids_only' => 'IdsOnly'
+        'field_list' => 'FieldList'
     );
   
     static function attributeMap() {
@@ -96,12 +92,10 @@ class DocumentSampleSettings implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
-        'tag_ids' => 'setTagIds',
-        'is_stratified' => 'setIsStratified',
-        'pagination' => 'setPagination',
+        'tag_id_list' => 'setTagIdList',
         'percent' => 'setPercent',
         'size' => 'setSize',
-        'ids_only' => 'setIdsOnly'
+        'field_list' => 'setFieldList'
     );
   
     static function setters() {
@@ -114,12 +108,10 @@ class DocumentSampleSettings implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
-        'tag_ids' => 'getTagIds',
-        'is_stratified' => 'getIsStratified',
-        'pagination' => 'getPagination',
+        'tag_id_list' => 'getTagIdList',
         'percent' => 'getPercent',
         'size' => 'getSize',
-        'ids_only' => 'getIdsOnly'
+        'field_list' => 'getFieldList'
     );
   
     static function getters() {
@@ -128,46 +120,34 @@ class DocumentSampleSettings implements ArrayAccess
 
     
     /**
-      * $id 
+      * $id It must be a random string for every new sampling, but must be the same for the same sampling during pagination. \r\n            If you leave it empty then it'll be generated automatically, but then you can not use pagination
       * @var string
       */
     protected $id;
     
     /**
-      * $tag_ids 
+      * $tag_id_list You can create a sample from a whole dataset, or just from a given tag section. \r\n            To create a sample from the whole dataset please keep it empty. \r\n            To create a sample from a given number of tags please provide the tag ids
       * @var string[]
       */
-    protected $tag_ids;
+    protected $tag_id_list;
     
     /**
-      * $is_stratified 
-      * @var bool
-      */
-    protected $is_stratified;
-    
-    /**
-      * $pagination 
-      * @var \Swagger\Client\Model\Pagination
-      */
-    protected $pagination;
-    
-    /**
-      * $percent 
+      * $percent Defining the sample size, you can use percentage or a given number. \r\n            Using a percentage you can define the document number by a percentage. \r\n            This percentage will calculate the document number by using the available dataset document number. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 10% as a sampling size without stratified method, your sample size is 100.000 x 10% = 10.000
       * @var double
       */
     protected $percent;
     
     /**
-      * $size 
+      * $size Define your sample size by providing a simple integer. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 3.000 as a sampling size without stratified method, your sample size is 3.000
       * @var int
       */
     protected $size;
     
     /**
-      * $ids_only 
-      * @var bool
+      * $field_list Query returns only with the specified field(s)
+      * @var string[]
       */
-    protected $ids_only;
+    protected $field_list;
     
 
     /**
@@ -181,12 +161,10 @@ class DocumentSampleSettings implements ArrayAccess
 
         if ($data != null) {
             $this->id = $data["id"];
-            $this->tag_ids = $data["tag_ids"];
-            $this->is_stratified = $data["is_stratified"];
-            $this->pagination = $data["pagination"];
+            $this->tag_id_list = $data["tag_id_list"];
             $this->percent = $data["percent"];
             $this->size = $data["size"];
-            $this->ids_only = $data["ids_only"];
+            $this->field_list = $data["field_list"];
         }
     }
     
@@ -201,7 +179,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id It must be a random string for every new sampling, but must be the same for the same sampling during pagination. \r\n            If you leave it empty then it'll be generated automatically, but then you can not use pagination
      * @return $this
      */
     public function setId($id)
@@ -212,65 +190,23 @@ class DocumentSampleSettings implements ArrayAccess
     }
     
     /**
-     * Gets tag_ids
+     * Gets tag_id_list
      * @return string[]
      */
-    public function getTagIds()
+    public function getTagIdList()
     {
-        return $this->tag_ids;
+        return $this->tag_id_list;
     }
   
     /**
-     * Sets tag_ids
-     * @param string[] $tag_ids 
+     * Sets tag_id_list
+     * @param string[] $tag_id_list You can create a sample from a whole dataset, or just from a given tag section. \r\n            To create a sample from the whole dataset please keep it empty. \r\n            To create a sample from a given number of tags please provide the tag ids
      * @return $this
      */
-    public function setTagIds($tag_ids)
+    public function setTagIdList($tag_id_list)
     {
         
-        $this->tag_ids = $tag_ids;
-        return $this;
-    }
-    
-    /**
-     * Gets is_stratified
-     * @return bool
-     */
-    public function getIsStratified()
-    {
-        return $this->is_stratified;
-    }
-  
-    /**
-     * Sets is_stratified
-     * @param bool $is_stratified 
-     * @return $this
-     */
-    public function setIsStratified($is_stratified)
-    {
-        
-        $this->is_stratified = $is_stratified;
-        return $this;
-    }
-    
-    /**
-     * Gets pagination
-     * @return \Swagger\Client\Model\Pagination
-     */
-    public function getPagination()
-    {
-        return $this->pagination;
-    }
-  
-    /**
-     * Sets pagination
-     * @param \Swagger\Client\Model\Pagination $pagination 
-     * @return $this
-     */
-    public function setPagination($pagination)
-    {
-        
-        $this->pagination = $pagination;
+        $this->tag_id_list = $tag_id_list;
         return $this;
     }
     
@@ -285,7 +221,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets percent
-     * @param double $percent 
+     * @param double $percent Defining the sample size, you can use percentage or a given number. \r\n            Using a percentage you can define the document number by a percentage. \r\n            This percentage will calculate the document number by using the available dataset document number. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 10% as a sampling size without stratified method, your sample size is 100.000 x 10% = 10.000
      * @return $this
      */
     public function setPercent($percent)
@@ -306,7 +242,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets size
-     * @param int $size 
+     * @param int $size Define your sample size by providing a simple integer. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 3.000 as a sampling size without stratified method, your sample size is 3.000
      * @return $this
      */
     public function setSize($size)
@@ -317,23 +253,23 @@ class DocumentSampleSettings implements ArrayAccess
     }
     
     /**
-     * Gets ids_only
-     * @return bool
+     * Gets field_list
+     * @return string[]
      */
-    public function getIdsOnly()
+    public function getFieldList()
     {
-        return $this->ids_only;
+        return $this->field_list;
     }
   
     /**
-     * Sets ids_only
-     * @param bool $ids_only 
+     * Sets field_list
+     * @param string[] $field_list Query returns only with the specified field(s)
      * @return $this
      */
-    public function setIdsOnly($ids_only)
+    public function setFieldList($field_list)
     {
         
-        $this->ids_only = $ids_only;
+        $this->field_list = $field_list;
         return $this;
     }
     

@@ -59,7 +59,7 @@ class DocumentBulkSettings implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'documents' => '\Swagger\Client\Model\Object[]'
+        'documents' => 'object[]'
     );
   
     static function swaggerTypes() {
@@ -104,8 +104,8 @@ class DocumentBulkSettings implements ArrayAccess
 
     
     /**
-      * $documents 
-      * @var \Swagger\Client\Model\Object[]
+      * $documents Array of the documents to be saved
+      * @var object[]
       */
     protected $documents;
     
@@ -126,7 +126,7 @@ class DocumentBulkSettings implements ArrayAccess
     
     /**
      * Gets documents
-     * @return \Swagger\Client\Model\Object[]
+     * @return object[]
      */
     public function getDocuments()
     {
@@ -135,7 +135,7 @@ class DocumentBulkSettings implements ArrayAccess
   
     /**
      * Sets documents
-     * @param \Swagger\Client\Model\Object[] $documents 
+     * @param object[] $documents Array of the documents to be saved
      * @return $this
      */
     public function setDocuments($documents)

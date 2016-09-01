@@ -40,7 +40,7 @@ use \ArrayAccess;
  * ClassifierService Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description For the common properties detail check the [Service](#/definitions/Service)
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -63,6 +63,7 @@ class ClassifierService implements ArrayAccess
         'activate_settings' => '\Swagger\Client\Model\ClassifierActivateSettings',
         'id' => 'string',
         'name' => 'string',
+        'alias' => 'string',
         'description' => 'string',
         'status' => 'string',
         'type' => 'string',
@@ -83,6 +84,7 @@ class ClassifierService implements ArrayAccess
         'activate_settings' => 'ActivateSettings',
         'id' => 'Id',
         'name' => 'Name',
+        'alias' => 'Alias',
         'description' => 'Description',
         'status' => 'Status',
         'type' => 'Type',
@@ -103,6 +105,7 @@ class ClassifierService implements ArrayAccess
         'activate_settings' => 'setActivateSettings',
         'id' => 'setId',
         'name' => 'setName',
+        'alias' => 'setAlias',
         'description' => 'setDescription',
         'status' => 'setStatus',
         'type' => 'setType',
@@ -123,6 +126,7 @@ class ClassifierService implements ArrayAccess
         'activate_settings' => 'getActivateSettings',
         'id' => 'getId',
         'name' => 'getName',
+        'alias' => 'getAlias',
         'description' => 'getDescription',
         'status' => 'getStatus',
         'type' => 'getType',
@@ -148,37 +152,43 @@ class ClassifierService implements ArrayAccess
     protected $activate_settings;
     
     /**
-      * $id 
+      * $id Service unique identifier. It cannot be modified.
       * @var string
       */
     protected $id;
     
     /**
-      * $name 
+      * $name User-defined name for the service
       * @var string
       */
     protected $name;
     
     /**
-      * $description 
+      * $alias Alias name of the service. Services can be accessed via this name.\r\n            Alias can be modified. It is unique amongst the services.
+      * @var string
+      */
+    protected $alias;
+    
+    /**
+      * $description Service description
       * @var string
       */
     protected $description;
     
     /**
-      * $status 
+      * $status New - the service was created | \r\n            Busy - the service is working on something (e.g.: during the Prepare) | \r\n            Prepared - the service was prepared so you can activate it to use | \r\n            Active - the service so you can use it
       * @var string
       */
     protected $status;
     
     /**
-      * $type 
+      * $type Type of the service.\r\n            Currently supported types:\r\n            - Classifier\r\n            - Prc
       * @var string
       */
     protected $type;
     
     /**
-      * $process_id_list 
+      * $process_id_list Contains all the process ids which belong to this service
       * @var string[]
       */
     protected $process_id_list;
@@ -204,6 +214,7 @@ class ClassifierService implements ArrayAccess
             $this->activate_settings = $data["activate_settings"];
             $this->id = $data["id"];
             $this->name = $data["name"];
+            $this->alias = $data["alias"];
             $this->description = $data["description"];
             $this->status = $data["status"];
             $this->type = $data["type"];
@@ -265,7 +276,7 @@ class ClassifierService implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id Service unique identifier. It cannot be modified.
      * @return $this
      */
     public function setId($id)
@@ -286,13 +297,34 @@ class ClassifierService implements ArrayAccess
   
     /**
      * Sets name
-     * @param string $name 
+     * @param string $name User-defined name for the service
      * @return $this
      */
     public function setName($name)
     {
         
         $this->name = $name;
+        return $this;
+    }
+    
+    /**
+     * Gets alias
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+  
+    /**
+     * Sets alias
+     * @param string $alias Alias name of the service. Services can be accessed via this name.\r\n            Alias can be modified. It is unique amongst the services.
+     * @return $this
+     */
+    public function setAlias($alias)
+    {
+        
+        $this->alias = $alias;
         return $this;
     }
     
@@ -307,7 +339,7 @@ class ClassifierService implements ArrayAccess
   
     /**
      * Sets description
-     * @param string $description 
+     * @param string $description Service description
      * @return $this
      */
     public function setDescription($description)
@@ -328,7 +360,7 @@ class ClassifierService implements ArrayAccess
   
     /**
      * Sets status
-     * @param string $status 
+     * @param string $status New - the service was created | \r\n            Busy - the service is working on something (e.g.: during the Prepare) | \r\n            Prepared - the service was prepared so you can activate it to use | \r\n            Active - the service so you can use it
      * @return $this
      */
     public function setStatus($status)
@@ -352,7 +384,7 @@ class ClassifierService implements ArrayAccess
   
     /**
      * Sets type
-     * @param string $type 
+     * @param string $type Type of the service.\r\n            Currently supported types:\r\n            - Classifier\r\n            - Prc
      * @return $this
      */
     public function setType($type)
@@ -376,7 +408,7 @@ class ClassifierService implements ArrayAccess
   
     /**
      * Sets process_id_list
-     * @param string[] $process_id_list 
+     * @param string[] $process_id_list Contains all the process ids which belong to this service
      * @return $this
      */
     public function setProcessIdList($process_id_list)

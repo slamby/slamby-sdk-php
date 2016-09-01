@@ -2,7 +2,7 @@
 
 
 /**
- * Object
+ * DataSetUpdate
  *
  * PHP version 5
  *
@@ -37,29 +37,29 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * Object Class Doc Comment
+ * DataSetUpdate Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description DataSet update object
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Object implements ArrayAccess
+class DataSetUpdate implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'Object';
+    static $swaggerModelName = 'DataSetUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        
+        'name' => 'string'
     );
   
     static function swaggerTypes() {
@@ -71,7 +71,7 @@ class Object implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        
+        'name' => 'Name'
     );
   
     static function attributeMap() {
@@ -83,7 +83,7 @@ class Object implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        
+        'name' => 'setName'
     );
   
     static function setters() {
@@ -95,13 +95,19 @@ class Object implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        
+        'name' => 'getName'
     );
   
     static function getters() {
         return self::$getters;
     }
 
+    
+    /**
+      * $name Name of your dataset. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space. This field is unique
+      * @var string
+      */
+    protected $name;
     
 
     /**
@@ -114,8 +120,29 @@ class Object implements ArrayAccess
         
 
         if ($data != null) {
-            
+            $this->name = $data["name"];
         }
+    }
+    
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+  
+    /**
+     * Sets name
+     * @param string $name Name of your dataset. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space. This field is unique
+     * @return $this
+     */
+    public function setName($name)
+    {
+        
+        $this->name = $name;
+        return $this;
     }
     
     /**

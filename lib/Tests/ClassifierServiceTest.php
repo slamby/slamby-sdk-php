@@ -39,7 +39,7 @@ namespace Swagger\Client\Model;
  * ClassifierServiceTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description For the common properties detail check the [Service](#/definitions/Service)
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2

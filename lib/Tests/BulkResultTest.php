@@ -39,7 +39,7 @@ namespace Swagger\Client\Model;
  * BulkResultTest Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description \&quot;Result of a bulk save element.\r\n            If the save was successful then the StatusCode is 2XX. \r\n            If there was a problem, the StatusCode is not 2XX, and the error message is in the Error field.
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2

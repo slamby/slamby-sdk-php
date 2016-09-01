@@ -40,7 +40,7 @@ use \ArrayAccess;
  * Tag Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Tag object
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -116,25 +116,25 @@ class Tag implements ArrayAccess
 
     
     /**
-      * $id 
+      * $id The identifier of the tag. It must be unique across the DataSet
       * @var string
       */
     protected $id;
     
     /**
-      * $name 
+      * $name \"Name of the tag
       * @var string
       */
     protected $name;
     
     /**
-      * $parent_id 
+      * $parent_id The identifier of the parent of the tag. It must be the id of an existing tag
       * @var string
       */
     protected $parent_id;
     
     /**
-      * $properties 
+      * $properties Tag properties
       * @var \Swagger\Client\Model\TagProperties
       */
     protected $properties;
@@ -168,7 +168,7 @@ class Tag implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id The identifier of the tag. It must be unique across the DataSet
      * @return $this
      */
     public function setId($id)
@@ -189,7 +189,7 @@ class Tag implements ArrayAccess
   
     /**
      * Sets name
-     * @param string $name 
+     * @param string $name \"Name of the tag
      * @return $this
      */
     public function setName($name)
@@ -210,7 +210,7 @@ class Tag implements ArrayAccess
   
     /**
      * Sets parent_id
-     * @param string $parent_id 
+     * @param string $parent_id The identifier of the parent of the tag. It must be the id of an existing tag
      * @return $this
      */
     public function setParentId($parent_id)
@@ -231,7 +231,7 @@ class Tag implements ArrayAccess
   
     /**
      * Sets properties
-     * @param \Swagger\Client\Model\TagProperties $properties 
+     * @param \Swagger\Client\Model\TagProperties $properties Tag properties
      * @return $this
      */
     public function setProperties($properties)

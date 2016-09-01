@@ -116,25 +116,25 @@ class ClassifierRecommendationRequest implements ArrayAccess
 
     
     /**
-      * $text 
+      * $text The text the you want to classify
       * @var string
       */
     protected $text;
     
     /**
-      * $count 
+      * $count How many results you want to see in the response (default value is 3)
       * @var int
       */
     protected $count;
     
     /**
-      * $use_emphasizing 
+      * $use_emphasizing Use emphasizing algorithm during this recommendation
       * @var bool
       */
     protected $use_emphasizing;
     
     /**
-      * $need_tag_in_result 
+      * $need_tag_in_result If you want to see all the tag object in the response
       * @var bool
       */
     protected $need_tag_in_result;
@@ -168,7 +168,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
   
     /**
      * Sets text
-     * @param string $text 
+     * @param string $text The text the you want to classify
      * @return $this
      */
     public function setText($text)
@@ -189,7 +189,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
   
     /**
      * Sets count
-     * @param int $count 
+     * @param int $count How many results you want to see in the response (default value is 3)
      * @return $this
      */
     public function setCount($count)
@@ -210,7 +210,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
   
     /**
      * Sets use_emphasizing
-     * @param bool $use_emphasizing 
+     * @param bool $use_emphasizing Use emphasizing algorithm during this recommendation
      * @return $this
      */
     public function setUseEmphasizing($use_emphasizing)
@@ -231,7 +231,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
   
     /**
      * Sets need_tag_in_result
-     * @param bool $need_tag_in_result 
+     * @param bool $need_tag_in_result If you want to see all the tag object in the response
      * @return $this
      */
     public function setNeedTagInResult($need_tag_in_result)

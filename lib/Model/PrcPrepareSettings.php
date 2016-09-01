@@ -60,7 +60,9 @@ class PrcPrepareSettings implements ArrayAccess
       */
     static $swaggerTypes = array(
         'data_set_name' => 'string',
-        'tag_id_list' => 'string[]'
+        'tag_id_list' => 'string[]',
+        'compress_level' => 'int',
+        'compress_settings' => '\Swagger\Client\Model\CompressSettings'
     );
   
     static function swaggerTypes() {
@@ -73,7 +75,9 @@ class PrcPrepareSettings implements ArrayAccess
       */
     static $attributeMap = array(
         'data_set_name' => 'DataSetName',
-        'tag_id_list' => 'TagIdList'
+        'tag_id_list' => 'TagIdList',
+        'compress_level' => 'CompressLevel',
+        'compress_settings' => 'CompressSettings'
     );
   
     static function attributeMap() {
@@ -86,7 +90,9 @@ class PrcPrepareSettings implements ArrayAccess
       */
     static $setters = array(
         'data_set_name' => 'setDataSetName',
-        'tag_id_list' => 'setTagIdList'
+        'tag_id_list' => 'setTagIdList',
+        'compress_level' => 'setCompressLevel',
+        'compress_settings' => 'setCompressSettings'
     );
   
     static function setters() {
@@ -99,7 +105,9 @@ class PrcPrepareSettings implements ArrayAccess
       */
     static $getters = array(
         'data_set_name' => 'getDataSetName',
-        'tag_id_list' => 'getTagIdList'
+        'tag_id_list' => 'getTagIdList',
+        'compress_level' => 'getCompressLevel',
+        'compress_settings' => 'getCompressSettings'
     );
   
     static function getters() {
@@ -119,6 +127,18 @@ class PrcPrepareSettings implements ArrayAccess
       */
     protected $tag_id_list;
     
+    /**
+      * $compress_level 
+      * @var int
+      */
+    protected $compress_level;
+    
+    /**
+      * $compress_settings 
+      * @var \Swagger\Client\Model\CompressSettings
+      */
+    protected $compress_settings;
+    
 
     /**
      * Constructor
@@ -132,6 +152,8 @@ class PrcPrepareSettings implements ArrayAccess
         if ($data != null) {
             $this->data_set_name = $data["data_set_name"];
             $this->tag_id_list = $data["tag_id_list"];
+            $this->compress_level = $data["compress_level"];
+            $this->compress_settings = $data["compress_settings"];
         }
     }
     
@@ -174,6 +196,48 @@ class PrcPrepareSettings implements ArrayAccess
     {
         
         $this->tag_id_list = $tag_id_list;
+        return $this;
+    }
+    
+    /**
+     * Gets compress_level
+     * @return int
+     */
+    public function getCompressLevel()
+    {
+        return $this->compress_level;
+    }
+  
+    /**
+     * Sets compress_level
+     * @param int $compress_level 
+     * @return $this
+     */
+    public function setCompressLevel($compress_level)
+    {
+        
+        $this->compress_level = $compress_level;
+        return $this;
+    }
+    
+    /**
+     * Gets compress_settings
+     * @return \Swagger\Client\Model\CompressSettings
+     */
+    public function getCompressSettings()
+    {
+        return $this->compress_settings;
+    }
+  
+    /**
+     * Sets compress_settings
+     * @param \Swagger\Client\Model\CompressSettings $compress_settings 
+     * @return $this
+     */
+    public function setCompressSettings($compress_settings)
+    {
+        
+        $this->compress_settings = $compress_settings;
         return $this;
     }
     

@@ -92,38 +92,38 @@ class PrcServiceApi
   
     
     /**
-     * activateService
+     * prcActivateService
      *
      * 
      *
      * @param string $id  (required)
      * @param \Swagger\Client\Model\PrcActivateSettings $prc_activate_settings  (optional)
-     * @return void
+     * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function activateService($id, $prc_activate_settings = null)
+    public function prcActivateService($id, $prc_activate_settings = null)
     {
-        list($response) = $this->activateServiceWithHttpInfo ($id, $prc_activate_settings);
+        list($response) = $this->prcActivateServiceWithHttpInfo ($id, $prc_activate_settings);
         return $response; 
     }
 
 
     /**
-     * activateServiceWithHttpInfo
+     * prcActivateServiceWithHttpInfo
      *
      * 
      *
      * @param string $id  (required)
      * @param \Swagger\Client\Model\PrcActivateSettings $prc_activate_settings  (optional)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function activateServiceWithHttpInfo($id, $prc_activate_settings = null)
+    public function prcActivateServiceWithHttpInfo($id, $prc_activate_settings = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling activateService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcActivateService');
         }
   
         // parse inputs
@@ -171,13 +171,21 @@ class PrcServiceApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams
+                $headerParams, '\Swagger\Client\Model\Process'
             );
             
-            return array(null, $statusCode, $httpHeader);
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Process', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 202:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Process', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -185,7 +193,7 @@ class PrcServiceApi
     }
     
     /**
-     * deactivateService
+     * prcDeactivateService
      *
      * 
      *
@@ -193,15 +201,15 @@ class PrcServiceApi
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function deactivateService($id)
+    public function prcDeactivateService($id)
     {
-        list($response) = $this->deactivateServiceWithHttpInfo ($id);
+        list($response) = $this->prcDeactivateServiceWithHttpInfo ($id);
         return $response; 
     }
 
 
     /**
-     * deactivateServiceWithHttpInfo
+     * prcDeactivateServiceWithHttpInfo
      *
      * 
      *
@@ -209,12 +217,12 @@ class PrcServiceApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function deactivateServiceWithHttpInfo($id)
+    public function prcDeactivateServiceWithHttpInfo($id)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling deactivateService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcDeactivateService');
         }
   
         // parse inputs
@@ -272,7 +280,7 @@ class PrcServiceApi
     }
     
     /**
-     * exportDictionaries
+     * prcExportDictionaries
      *
      * 
      *
@@ -281,15 +289,15 @@ class PrcServiceApi
      * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function exportDictionaries($id, $settings = null)
+    public function prcExportDictionaries($id, $settings = null)
     {
-        list($response) = $this->exportDictionariesWithHttpInfo ($id, $settings);
+        list($response) = $this->prcExportDictionariesWithHttpInfo ($id, $settings);
         return $response; 
     }
 
 
     /**
-     * exportDictionariesWithHttpInfo
+     * prcExportDictionariesWithHttpInfo
      *
      * 
      *
@@ -298,12 +306,12 @@ class PrcServiceApi
      * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function exportDictionariesWithHttpInfo($id, $settings = null)
+    public function prcExportDictionariesWithHttpInfo($id, $settings = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling exportDictionaries');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcExportDictionaries');
         }
   
         // parse inputs
@@ -373,7 +381,7 @@ class PrcServiceApi
     }
     
     /**
-     * getService
+     * prcGetService
      *
      * 
      *
@@ -381,15 +389,15 @@ class PrcServiceApi
      * @return \Swagger\Client\Model\PrcService
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getService($id)
+    public function prcGetService($id)
     {
-        list($response) = $this->getServiceWithHttpInfo ($id);
+        list($response) = $this->prcGetServiceWithHttpInfo ($id);
         return $response; 
     }
 
 
     /**
-     * getServiceWithHttpInfo
+     * prcGetServiceWithHttpInfo
      *
      * 
      *
@@ -397,12 +405,12 @@ class PrcServiceApi
      * @return Array of \Swagger\Client\Model\PrcService, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getServiceWithHttpInfo($id)
+    public function prcGetServiceWithHttpInfo($id)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling getService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcGetService');
         }
   
         // parse inputs
@@ -468,7 +476,310 @@ class PrcServiceApi
     }
     
     /**
-     * prepareService
+     * prcIndexPartialService
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @return \Swagger\Client\Model\Process
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcIndexPartialService($id)
+    {
+        list($response) = $this->prcIndexPartialServiceWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * prcIndexPartialServiceWithHttpInfo
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcIndexPartialServiceWithHttpInfo($id)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcIndexPartialService');
+        }
+  
+        // parse inputs
+        $resourcePath = "/api/Services/Prc/{id}/IndexPartial";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\Process'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Process', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 202:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Process', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * prcIndexService
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @param \Swagger\Client\Model\PrcIndexSettings $prc_index_settings  (optional)
+     * @return \Swagger\Client\Model\Process
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcIndexService($id, $prc_index_settings = null)
+    {
+        list($response) = $this->prcIndexServiceWithHttpInfo ($id, $prc_index_settings);
+        return $response; 
+    }
+
+
+    /**
+     * prcIndexServiceWithHttpInfo
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @param \Swagger\Client\Model\PrcIndexSettings $prc_index_settings  (optional)
+     * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcIndexServiceWithHttpInfo($id, $prc_index_settings = null)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcIndexService');
+        }
+  
+        // parse inputs
+        $resourcePath = "/api/Services/Prc/{id}/Index";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($prc_index_settings)) {
+            $_tempBody = $prc_index_settings;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\Process'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Process', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 202:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Process', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * prcKeywordsService
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @param \Swagger\Client\Model\PrcKeywordsRequest $request  (optional)
+     * @param bool $is_strict  (optional)
+     * @return \Swagger\Client\Model\PrcKeywordsResult[]
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcKeywordsService($id, $request = null, $is_strict = null)
+    {
+        list($response) = $this->prcKeywordsServiceWithHttpInfo ($id, $request, $is_strict);
+        return $response; 
+    }
+
+
+    /**
+     * prcKeywordsServiceWithHttpInfo
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @param \Swagger\Client\Model\PrcKeywordsRequest $request  (optional)
+     * @param bool $is_strict  (optional)
+     * @return Array of \Swagger\Client\Model\PrcKeywordsResult[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcKeywordsServiceWithHttpInfo($id, $request = null, $is_strict = null)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcKeywordsService');
+        }
+  
+        // parse inputs
+        $resourcePath = "/api/Services/Prc/{id}/Keywords";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        // query params
+        
+        if ($is_strict !== null) {
+            $queryParams['isStrict'] = $this->apiClient->getSerializer()->toQueryValue($is_strict);
+        }
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($request)) {
+            $_tempBody = $request;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\PrcKeywordsResult[]'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PrcKeywordsResult[]', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PrcKeywordsResult[]', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * prcPrepareService
      *
      * 
      *
@@ -477,15 +788,15 @@ class PrcServiceApi
      * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function prepareService($id, $prc_prepare_settings = null)
+    public function prcPrepareService($id, $prc_prepare_settings = null)
     {
-        list($response) = $this->prepareServiceWithHttpInfo ($id, $prc_prepare_settings);
+        list($response) = $this->prcPrepareServiceWithHttpInfo ($id, $prc_prepare_settings);
         return $response; 
     }
 
 
     /**
-     * prepareServiceWithHttpInfo
+     * prcPrepareServiceWithHttpInfo
      *
      * 
      *
@@ -494,12 +805,12 @@ class PrcServiceApi
      * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function prepareServiceWithHttpInfo($id, $prc_prepare_settings = null)
+    public function prcPrepareServiceWithHttpInfo($id, $prc_prepare_settings = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling prepareService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcPrepareService');
         }
   
         // parse inputs
@@ -569,7 +880,108 @@ class PrcServiceApi
     }
     
     /**
-     * recommendService
+     * prcRecommendByIdService
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @param \Swagger\Client\Model\PrcRecommendationByIdRequest $request  (optional)
+     * @return \Swagger\Client\Model\PrcRecommendationResult[]
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcRecommendByIdService($id, $request = null)
+    {
+        list($response) = $this->prcRecommendByIdServiceWithHttpInfo ($id, $request);
+        return $response; 
+    }
+
+
+    /**
+     * prcRecommendByIdServiceWithHttpInfo
+     *
+     * 
+     *
+     * @param string $id  (required)
+     * @param \Swagger\Client\Model\PrcRecommendationByIdRequest $request  (optional)
+     * @return Array of \Swagger\Client\Model\PrcRecommendationResult[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function prcRecommendByIdServiceWithHttpInfo($id, $request = null)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcRecommendByIdService');
+        }
+  
+        // parse inputs
+        $resourcePath = "/api/Services/Prc/{id}/RecommendById";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($request)) {
+            $_tempBody = $request;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\PrcRecommendationResult[]'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PrcRecommendationResult[]', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PrcRecommendationResult[]', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * prcRecommendService
      *
      * 
      *
@@ -578,15 +990,15 @@ class PrcServiceApi
      * @return \Swagger\Client\Model\PrcRecommendationResult[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function recommendService($id, $request = null)
+    public function prcRecommendService($id, $request = null)
     {
-        list($response) = $this->recommendServiceWithHttpInfo ($id, $request);
+        list($response) = $this->prcRecommendServiceWithHttpInfo ($id, $request);
         return $response; 
     }
 
 
     /**
-     * recommendServiceWithHttpInfo
+     * prcRecommendServiceWithHttpInfo
      *
      * 
      *
@@ -595,12 +1007,12 @@ class PrcServiceApi
      * @return Array of \Swagger\Client\Model\PrcRecommendationResult[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function recommendServiceWithHttpInfo($id, $request = null)
+    public function prcRecommendServiceWithHttpInfo($id, $request = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling recommendService');
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling prcRecommendService');
         }
   
         // parse inputs

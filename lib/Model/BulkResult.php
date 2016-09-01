@@ -40,7 +40,7 @@ use \ArrayAccess;
  * BulkResult Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description \&quot;Result of a bulk save element.\r\n            If the save was successful then the StatusCode is 2XX. \r\n            If there was a problem, the StatusCode is not 2XX, and the error message is in the Error field.
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -112,19 +112,19 @@ class BulkResult implements ArrayAccess
 
     
     /**
-      * $status_code 
+      * $status_code HTTP status code
       * @var int
       */
     protected $status_code;
     
     /**
-      * $id 
+      * $id Document id
       * @var string
       */
     protected $id;
     
     /**
-      * $error 
+      * $error Error message
       * @var string
       */
     protected $error;
@@ -157,7 +157,7 @@ class BulkResult implements ArrayAccess
   
     /**
      * Sets status_code
-     * @param int $status_code 
+     * @param int $status_code HTTP status code
      * @return $this
      */
     public function setStatusCode($status_code)
@@ -178,7 +178,7 @@ class BulkResult implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id Document id
      * @return $this
      */
     public function setId($id)
@@ -199,7 +199,7 @@ class BulkResult implements ArrayAccess
   
     /**
      * Sets error
-     * @param string $error 
+     * @param string $error Error message
      * @return $this
      */
     public function setError($error)

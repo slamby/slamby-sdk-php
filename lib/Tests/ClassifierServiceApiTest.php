@@ -66,62 +66,62 @@ class ClassifierServiceApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for activateService
+     * Test case for classifierActivateService
      *
      * 
      *
      */
-    public function test_activateService() {
+    public function test_classifierActivateService() {
 
     }
     
     /**
-     * Test case for deactivateService
+     * Test case for classifierDeactivateService
      *
      * 
      *
      */
-    public function test_deactivateService() {
+    public function test_classifierDeactivateService() {
 
     }
     
     /**
-     * Test case for exportDictionaries
+     * Test case for classifierExportDictionaries
      *
      * 
      *
      */
-    public function test_exportDictionaries() {
+    public function test_classifierExportDictionaries() {
 
     }
     
     /**
-     * Test case for getService
+     * Test case for classifierGetService
      *
      * 
      *
      */
-    public function test_getService() {
+    public function test_classifierGetService() {
 
     }
     
     /**
-     * Test case for prepareService
+     * Test case for classifierPrepareService
      *
      * 
      *
      */
-    public function test_prepareService() {
+    public function test_classifierPrepareService() {
 
     }
     
     /**
-     * Test case for recommendService
+     * Test case for classifierRecommendService
      *
      * 
      *
      */
-    public function test_recommendService() {
+    public function test_classifierRecommendService() {
 
     }
     

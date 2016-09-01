@@ -40,7 +40,7 @@ use \ArrayAccess;
  * Status Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Status object
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -124,37 +124,37 @@ class Status implements ArrayAccess
 
     
     /**
-      * $api_version 
+      * $api_version API version string
       * @var string
       */
     protected $api_version;
     
     /**
-      * $processor_count 
+      * $processor_count Number of processors on the API machine
       * @var int
       */
     protected $processor_count;
     
     /**
-      * $cpu_usage 
+      * $cpu_usage CPU usage %
       * @var double
       */
     protected $cpu_usage;
     
     /**
-      * $available_free_space 
+      * $available_free_space Available free disk space in MB
       * @var double
       */
     protected $available_free_space;
     
     /**
-      * $total_memory 
+      * $total_memory Total physical memory in MB
       * @var double
       */
     protected $total_memory;
     
     /**
-      * $free_memory 
+      * $free_memory Free physical memory in MB
       * @var double
       */
     protected $free_memory;
@@ -190,7 +190,7 @@ class Status implements ArrayAccess
   
     /**
      * Sets api_version
-     * @param string $api_version 
+     * @param string $api_version API version string
      * @return $this
      */
     public function setApiVersion($api_version)
@@ -211,7 +211,7 @@ class Status implements ArrayAccess
   
     /**
      * Sets processor_count
-     * @param int $processor_count 
+     * @param int $processor_count Number of processors on the API machine
      * @return $this
      */
     public function setProcessorCount($processor_count)
@@ -232,7 +232,7 @@ class Status implements ArrayAccess
   
     /**
      * Sets cpu_usage
-     * @param double $cpu_usage 
+     * @param double $cpu_usage CPU usage %
      * @return $this
      */
     public function setCpuUsage($cpu_usage)
@@ -253,7 +253,7 @@ class Status implements ArrayAccess
   
     /**
      * Sets available_free_space
-     * @param double $available_free_space 
+     * @param double $available_free_space Available free disk space in MB
      * @return $this
      */
     public function setAvailableFreeSpace($available_free_space)
@@ -274,7 +274,7 @@ class Status implements ArrayAccess
   
     /**
      * Sets total_memory
-     * @param double $total_memory 
+     * @param double $total_memory Total physical memory in MB
      * @return $this
      */
     public function setTotalMemory($total_memory)
@@ -295,7 +295,7 @@ class Status implements ArrayAccess
   
     /**
      * Sets free_memory
-     * @param double $free_memory 
+     * @param double $free_memory Free physical memory in MB
      * @return $this
      */
     public function setFreeMemory($free_memory)

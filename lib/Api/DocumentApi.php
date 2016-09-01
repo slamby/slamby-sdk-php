@@ -97,12 +97,13 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentBulkSettings $settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return \Swagger\Client\Model\BulkResults
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkDocuments($settings = null)
+    public function bulkDocuments($settings = null, $x_data_set = null)
     {
-        list($response) = $this->bulkDocumentsWithHttpInfo ($settings);
+        list($response) = $this->bulkDocumentsWithHttpInfo ($settings, $x_data_set);
         return $response; 
     }
 
@@ -113,10 +114,11 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentBulkSettings $settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return Array of \Swagger\Client\Model\BulkResults, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkDocumentsWithHttpInfo($settings = null)
+    public function bulkDocumentsWithHttpInfo($settings = null, $x_data_set = null)
     {
         
   
@@ -133,7 +135,11 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
+        // header params
         
+        if ($x_data_set !== null) {
+            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
+        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -172,7 +178,7 @@ class DocumentApi
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BulkResults', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
-            case 400:
+            case 411:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
@@ -188,12 +194,13 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentCopySettings $copy_settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function copyDocuments($copy_settings = null)
+    public function copyDocuments($copy_settings = null, $x_data_set = null)
     {
-        list($response) = $this->copyDocumentsWithHttpInfo ($copy_settings);
+        list($response) = $this->copyDocumentsWithHttpInfo ($copy_settings, $x_data_set);
         return $response; 
     }
 
@@ -204,10 +211,11 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentCopySettings $copy_settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function copyDocumentsWithHttpInfo($copy_settings = null)
+    public function copyDocumentsWithHttpInfo($copy_settings = null, $x_data_set = null)
     {
         
   
@@ -224,7 +232,11 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
+        // header params
         
+        if ($x_data_set !== null) {
+            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
+        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -255,6 +267,14 @@ class DocumentApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 409:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -266,7 +286,7 @@ class DocumentApi
      *
      * 
      *
-     * @param \Swagger\Client\Model\Object $document  (optional)
+     * @param object $document  (optional)
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -282,7 +302,7 @@ class DocumentApi
      *
      * 
      *
-     * @param \Swagger\Client\Model\Object $document  (optional)
+     * @param object $document  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -334,6 +354,14 @@ class DocumentApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 409:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -421,6 +449,10 @@ class DocumentApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 404:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -433,7 +465,7 @@ class DocumentApi
      * 
      *
      * @param string $id  (required)
-     * @return \Swagger\Client\Model\Object
+     * @return object
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function getDocument($id)
@@ -449,7 +481,7 @@ class DocumentApi
      * 
      *
      * @param string $id  (required)
-     * @return Array of \Swagger\Client\Model\Object, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of object, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function getDocumentWithHttpInfo($id)
@@ -501,19 +533,23 @@ class DocumentApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'GET',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\Object'
+                $headerParams, 'object'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Object', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Object', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 404:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -527,13 +563,15 @@ class DocumentApi
      *
      * 
      *
+     * @param string $scroll_id  (required)
+     * @param string $x_data_set  (optional)
      * @param \Swagger\Client\Model\DocumentFilterSettings $filter_settings  (optional)
      * @return \Swagger\Client\Model\PaginatedListObject
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getFilteredDocuments($filter_settings = null)
+    public function getFilteredDocuments($scroll_id, $x_data_set = null, $filter_settings = null)
     {
-        list($response) = $this->getFilteredDocumentsWithHttpInfo ($filter_settings);
+        list($response) = $this->getFilteredDocumentsWithHttpInfo ($scroll_id, $x_data_set, $filter_settings);
         return $response; 
     }
 
@@ -543,16 +581,22 @@ class DocumentApi
      *
      * 
      *
+     * @param string $scroll_id  (required)
+     * @param string $x_data_set  (optional)
      * @param \Swagger\Client\Model\DocumentFilterSettings $filter_settings  (optional)
      * @return Array of \Swagger\Client\Model\PaginatedListObject, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getFilteredDocumentsWithHttpInfo($filter_settings = null)
+    public function getFilteredDocumentsWithHttpInfo($scroll_id, $x_data_set = null, $filter_settings = null)
     {
         
+        // verify the required parameter 'scroll_id' is set
+        if ($scroll_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scroll_id when calling getFilteredDocuments');
+        }
   
         // parse inputs
-        $resourcePath = "/api/Documents/Filter";
+        $resourcePath = "/api/Documents/Filter/{scrollId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -564,8 +608,20 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
+        // header params
         
+        if ($x_data_set !== null) {
+            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
+        }
+        // path params
         
+        if ($scroll_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "scrollId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scroll_id),
+                $resourcePath
+            );
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
@@ -619,12 +675,13 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentSampleSettings $sample_settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return \Swagger\Client\Model\PaginatedListObject
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getSampleDocuments($sample_settings = null)
+    public function getSampleDocuments($sample_settings = null, $x_data_set = null)
     {
-        list($response) = $this->getSampleDocumentsWithHttpInfo ($sample_settings);
+        list($response) = $this->getSampleDocumentsWithHttpInfo ($sample_settings, $x_data_set);
         return $response; 
     }
 
@@ -635,10 +692,11 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentSampleSettings $sample_settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return Array of \Swagger\Client\Model\PaginatedListObject, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getSampleDocumentsWithHttpInfo($sample_settings = null)
+    public function getSampleDocumentsWithHttpInfo($sample_settings = null, $x_data_set = null)
     {
         
   
@@ -655,7 +713,11 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
+        // header params
         
+        if ($x_data_set !== null) {
+            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
+        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -710,12 +772,13 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentMoveSettings $move_settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function moveDocuments($move_settings = null)
+    public function moveDocuments($move_settings = null, $x_data_set = null)
     {
-        list($response) = $this->moveDocumentsWithHttpInfo ($move_settings);
+        list($response) = $this->moveDocumentsWithHttpInfo ($move_settings, $x_data_set);
         return $response; 
     }
 
@@ -726,10 +789,11 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentMoveSettings $move_settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function moveDocumentsWithHttpInfo($move_settings = null)
+    public function moveDocumentsWithHttpInfo($move_settings = null, $x_data_set = null)
     {
         
   
@@ -746,7 +810,11 @@ class DocumentApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
+        // header params
         
+        if ($x_data_set !== null) {
+            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
+        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -777,6 +845,14 @@ class DocumentApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 409:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -789,8 +865,8 @@ class DocumentApi
      * 
      *
      * @param string $id  (required)
-     * @param \Swagger\Client\Model\Object $document  (optional)
-     * @return \Swagger\Client\Model\Object
+     * @param object $document  (optional)
+     * @return object
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function updateDocument($id, $document = null)
@@ -806,8 +882,8 @@ class DocumentApi
      * 
      *
      * @param string $id  (required)
-     * @param \Swagger\Client\Model\Object $document  (optional)
-     * @return Array of \Swagger\Client\Model\Object, HTTP status code, HTTP response headers (array of strings)
+     * @param object $document  (optional)
+     * @return Array of object, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function updateDocumentWithHttpInfo($id, $document = null)
@@ -863,19 +939,27 @@ class DocumentApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'PUT',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\Object'
+                $headerParams, 'object'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Object', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Object', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 404:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }

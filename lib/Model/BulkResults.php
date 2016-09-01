@@ -104,7 +104,7 @@ class BulkResults implements ArrayAccess
 
     
     /**
-      * $results 
+      * $results Array of the documents to be saved
       * @var \Swagger\Client\Model\BulkResult[]
       */
     protected $results;
@@ -135,7 +135,7 @@ class BulkResults implements ArrayAccess
   
     /**
      * Sets results
-     * @param \Swagger\Client\Model\BulkResult[] $results 
+     * @param \Swagger\Client\Model\BulkResult[] $results Array of the documents to be saved
      * @return $this
      */
     public function setResults($results)

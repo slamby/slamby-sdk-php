@@ -4,18 +4,18 @@ All URIs are relative to *https://localhost/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**activateService**](ClassifierServiceApi.md#activateService) | **POST** /api/Services/Classifier/{id}/Activate | 
-[**deactivateService**](ClassifierServiceApi.md#deactivateService) | **POST** /api/Services/Classifier/{id}/Deactivate | 
-[**exportDictionaries**](ClassifierServiceApi.md#exportDictionaries) | **POST** /api/Services/Classifier/{id}/ExportDictionaries | 
-[**getService**](ClassifierServiceApi.md#getService) | **GET** /api/Services/Classifier/{id} | 
-[**prepareService**](ClassifierServiceApi.md#prepareService) | **POST** /api/Services/Classifier/{id}/Prepare | 
-[**recommendService**](ClassifierServiceApi.md#recommendService) | **POST** /api/Services/Classifier/{id}/Recommend | 
+[**classifierActivateService**](ClassifierServiceApi.md#classifierActivateService) | **POST** /api/Services/Classifier/{id}/Activate | 
+[**classifierDeactivateService**](ClassifierServiceApi.md#classifierDeactivateService) | **POST** /api/Services/Classifier/{id}/Deactivate | 
+[**classifierExportDictionaries**](ClassifierServiceApi.md#classifierExportDictionaries) | **POST** /api/Services/Classifier/{id}/ExportDictionaries | 
+[**classifierGetService**](ClassifierServiceApi.md#classifierGetService) | **GET** /api/Services/Classifier/{id} | 
+[**classifierPrepareService**](ClassifierServiceApi.md#classifierPrepareService) | **POST** /api/Services/Classifier/{id}/Prepare | 
+[**classifierRecommendService**](ClassifierServiceApi.md#classifierRecommendService) | **POST** /api/Services/Classifier/{id}/Recommend | 
 
 
 
 
-# **activateService**
-> activateService($id, $classifier_activate_settings)
+# **classifierActivateService**
+> \Swagger\Client\Model\Process classifierActivateService($id, $classifier_activate_settings)
 
 
 
@@ -31,9 +31,10 @@ $classifier_activate_settings = new \Swagger\Client\Model\ClassifierActivateSett
 
 
 try { 
-    $api_instance->activateService($id, $classifier_activate_settings);
+    $result = $api_instance->classifierActivateService($id, $classifier_activate_settings);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassifierServiceApi->activateService: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ClassifierServiceApi->classifierActivateService: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -48,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Process**](Process.md)
 
 ### Authorization
 
@@ -62,8 +63,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-# **deactivateService**
-> deactivateService($id)
+# **classifierDeactivateService**
+> classifierDeactivateService($id)
 
 
 
@@ -78,9 +79,9 @@ $id = "id_example"; // string |
 
 
 try { 
-    $api_instance->deactivateService($id);
+    $api_instance->classifierDeactivateService($id);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassifierServiceApi->deactivateService: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ClassifierServiceApi->classifierDeactivateService: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -108,8 +109,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-# **exportDictionaries**
-> \Swagger\Client\Model\Process exportDictionaries($id, $settings)
+# **classifierExportDictionaries**
+> \Swagger\Client\Model\Process classifierExportDictionaries($id, $settings)
 
 
 
@@ -125,10 +126,10 @@ $settings = new \Swagger\Client\Model\ExportDictionariesSettings(); // \Swagger\
 
 
 try { 
-    $result = $api_instance->exportDictionaries($id, $settings);
+    $result = $api_instance->classifierExportDictionaries($id, $settings);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassifierServiceApi->exportDictionaries: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ClassifierServiceApi->classifierExportDictionaries: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -157,8 +158,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-# **getService**
-> \Swagger\Client\Model\ClassifierService getService($id)
+# **classifierGetService**
+> \Swagger\Client\Model\ClassifierService classifierGetService($id)
 
 
 
@@ -173,10 +174,10 @@ $id = "id_example"; // string |
 
 
 try { 
-    $result = $api_instance->getService($id);
+    $result = $api_instance->classifierGetService($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassifierServiceApi->getService: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ClassifierServiceApi->classifierGetService: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -204,8 +205,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-# **prepareService**
-> \Swagger\Client\Model\Process prepareService($id, $classifier_prepare_settings)
+# **classifierPrepareService**
+> \Swagger\Client\Model\Process classifierPrepareService($id, $classifier_prepare_settings)
 
 
 
@@ -221,10 +222,10 @@ $classifier_prepare_settings = new \Swagger\Client\Model\ClassifierPrepareSettin
 
 
 try { 
-    $result = $api_instance->prepareService($id, $classifier_prepare_settings);
+    $result = $api_instance->classifierPrepareService($id, $classifier_prepare_settings);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassifierServiceApi->prepareService: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ClassifierServiceApi->classifierPrepareService: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -253,8 +254,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-# **recommendService**
-> \Swagger\Client\Model\ClassifierRecommendationResult[] recommendService($id, $request)
+# **classifierRecommendService**
+> \Swagger\Client\Model\ClassifierRecommendationResult[] classifierRecommendService($id, $request)
 
 
 
@@ -270,10 +271,10 @@ $request = new \Swagger\Client\Model\ClassifierRecommendationRequest(); // \Swag
 
 
 try { 
-    $result = $api_instance->recommendService($id, $request);
+    $result = $api_instance->classifierRecommendService($id, $request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassifierServiceApi->recommendService: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ClassifierServiceApi->classifierRecommendService: ', $e->getMessage(), "\n";
 }
 ?>
 ```

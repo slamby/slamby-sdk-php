@@ -59,7 +59,7 @@ class Filter implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'tag_ids' => 'string[]',
+        'tag_id_list' => 'string[]',
         'query' => 'string'
     );
   
@@ -72,7 +72,7 @@ class Filter implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'tag_ids' => 'TagIds',
+        'tag_id_list' => 'TagIdList',
         'query' => 'Query'
     );
   
@@ -85,7 +85,7 @@ class Filter implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'tag_ids' => 'setTagIds',
+        'tag_id_list' => 'setTagIdList',
         'query' => 'setQuery'
     );
   
@@ -98,7 +98,7 @@ class Filter implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'tag_ids' => 'getTagIds',
+        'tag_id_list' => 'getTagIdList',
         'query' => 'getQuery'
     );
   
@@ -108,13 +108,13 @@ class Filter implements ArrayAccess
 
     
     /**
-      * $tag_ids 
+      * $tag_id_list You can direct your search queries into specific tags. \r\n            By giving the required tag id list, the filter will affect just the provided tags. \r\n            It's useful to create powerful search queries inside given tags. \r\n            To filter inside a whole dataset, you can set this field to empty
       * @var string[]
       */
-    protected $tag_ids;
+    protected $tag_id_list;
     
     /**
-      * $query 
+      * $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do thie: 'title:searchthisinthetitle'
       * @var string
       */
     protected $query;
@@ -130,29 +130,29 @@ class Filter implements ArrayAccess
         
 
         if ($data != null) {
-            $this->tag_ids = $data["tag_ids"];
+            $this->tag_id_list = $data["tag_id_list"];
             $this->query = $data["query"];
         }
     }
     
     /**
-     * Gets tag_ids
+     * Gets tag_id_list
      * @return string[]
      */
-    public function getTagIds()
+    public function getTagIdList()
     {
-        return $this->tag_ids;
+        return $this->tag_id_list;
     }
   
     /**
-     * Sets tag_ids
-     * @param string[] $tag_ids 
+     * Sets tag_id_list
+     * @param string[] $tag_id_list You can direct your search queries into specific tags. \r\n            By giving the required tag id list, the filter will affect just the provided tags. \r\n            It's useful to create powerful search queries inside given tags. \r\n            To filter inside a whole dataset, you can set this field to empty
      * @return $this
      */
-    public function setTagIds($tag_ids)
+    public function setTagIdList($tag_id_list)
     {
         
-        $this->tag_ids = $tag_ids;
+        $this->tag_id_list = $tag_id_list;
         return $this;
     }
     
@@ -167,7 +167,7 @@ class Filter implements ArrayAccess
   
     /**
      * Sets query
-     * @param string $query 
+     * @param string $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do thie: 'title:searchthisinthetitle'
      * @return $this
      */
     public function setQuery($query)

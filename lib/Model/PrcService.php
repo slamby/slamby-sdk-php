@@ -61,8 +61,10 @@ class PrcService implements ArrayAccess
     static $swaggerTypes = array(
         'prepare_settings' => '\Swagger\Client\Model\PrcPrepareSettings',
         'activate_settings' => '\Swagger\Client\Model\PrcActivateSettings',
+        'index_settings' => '\Swagger\Client\Model\PrcIndexSettings',
         'id' => 'string',
         'name' => 'string',
+        'alias' => 'string',
         'description' => 'string',
         'status' => 'string',
         'type' => 'string',
@@ -81,8 +83,10 @@ class PrcService implements ArrayAccess
     static $attributeMap = array(
         'prepare_settings' => 'PrepareSettings',
         'activate_settings' => 'ActivateSettings',
+        'index_settings' => 'IndexSettings',
         'id' => 'Id',
         'name' => 'Name',
+        'alias' => 'Alias',
         'description' => 'Description',
         'status' => 'Status',
         'type' => 'Type',
@@ -101,8 +105,10 @@ class PrcService implements ArrayAccess
     static $setters = array(
         'prepare_settings' => 'setPrepareSettings',
         'activate_settings' => 'setActivateSettings',
+        'index_settings' => 'setIndexSettings',
         'id' => 'setId',
         'name' => 'setName',
+        'alias' => 'setAlias',
         'description' => 'setDescription',
         'status' => 'setStatus',
         'type' => 'setType',
@@ -121,8 +127,10 @@ class PrcService implements ArrayAccess
     static $getters = array(
         'prepare_settings' => 'getPrepareSettings',
         'activate_settings' => 'getActivateSettings',
+        'index_settings' => 'getIndexSettings',
         'id' => 'getId',
         'name' => 'getName',
+        'alias' => 'getAlias',
         'description' => 'getDescription',
         'status' => 'getStatus',
         'type' => 'getType',
@@ -148,37 +156,49 @@ class PrcService implements ArrayAccess
     protected $activate_settings;
     
     /**
-      * $id 
+      * $index_settings 
+      * @var \Swagger\Client\Model\PrcIndexSettings
+      */
+    protected $index_settings;
+    
+    /**
+      * $id Service unique identifier. It cannot be modified.
       * @var string
       */
     protected $id;
     
     /**
-      * $name 
+      * $name User-defined name for the service
       * @var string
       */
     protected $name;
     
     /**
-      * $description 
+      * $alias Alias name of the service. Services can be accessed via this name.\r\n            Alias can be modified. It is unique amongst the services.
+      * @var string
+      */
+    protected $alias;
+    
+    /**
+      * $description Service description
       * @var string
       */
     protected $description;
     
     /**
-      * $status 
+      * $status New - the service was created | \r\n            Busy - the service is working on something (e.g.: during the Prepare) | \r\n            Prepared - the service was prepared so you can activate it to use | \r\n            Active - the service so you can use it
       * @var string
       */
     protected $status;
     
     /**
-      * $type 
+      * $type Type of the service.\r\n            Currently supported types:\r\n            - Classifier\r\n            - Prc
       * @var string
       */
     protected $type;
     
     /**
-      * $process_id_list 
+      * $process_id_list Contains all the process ids which belong to this service
       * @var string[]
       */
     protected $process_id_list;
@@ -202,8 +222,10 @@ class PrcService implements ArrayAccess
         if ($data != null) {
             $this->prepare_settings = $data["prepare_settings"];
             $this->activate_settings = $data["activate_settings"];
+            $this->index_settings = $data["index_settings"];
             $this->id = $data["id"];
             $this->name = $data["name"];
+            $this->alias = $data["alias"];
             $this->description = $data["description"];
             $this->status = $data["status"];
             $this->type = $data["type"];
@@ -255,6 +277,27 @@ class PrcService implements ArrayAccess
     }
     
     /**
+     * Gets index_settings
+     * @return \Swagger\Client\Model\PrcIndexSettings
+     */
+    public function getIndexSettings()
+    {
+        return $this->index_settings;
+    }
+  
+    /**
+     * Sets index_settings
+     * @param \Swagger\Client\Model\PrcIndexSettings $index_settings 
+     * @return $this
+     */
+    public function setIndexSettings($index_settings)
+    {
+        
+        $this->index_settings = $index_settings;
+        return $this;
+    }
+    
+    /**
      * Gets id
      * @return string
      */
@@ -265,7 +308,7 @@ class PrcService implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id Service unique identifier. It cannot be modified.
      * @return $this
      */
     public function setId($id)
@@ -286,13 +329,34 @@ class PrcService implements ArrayAccess
   
     /**
      * Sets name
-     * @param string $name 
+     * @param string $name User-defined name for the service
      * @return $this
      */
     public function setName($name)
     {
         
         $this->name = $name;
+        return $this;
+    }
+    
+    /**
+     * Gets alias
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+  
+    /**
+     * Sets alias
+     * @param string $alias Alias name of the service. Services can be accessed via this name.\r\n            Alias can be modified. It is unique amongst the services.
+     * @return $this
+     */
+    public function setAlias($alias)
+    {
+        
+        $this->alias = $alias;
         return $this;
     }
     
@@ -307,7 +371,7 @@ class PrcService implements ArrayAccess
   
     /**
      * Sets description
-     * @param string $description 
+     * @param string $description Service description
      * @return $this
      */
     public function setDescription($description)
@@ -328,7 +392,7 @@ class PrcService implements ArrayAccess
   
     /**
      * Sets status
-     * @param string $status 
+     * @param string $status New - the service was created | \r\n            Busy - the service is working on something (e.g.: during the Prepare) | \r\n            Prepared - the service was prepared so you can activate it to use | \r\n            Active - the service so you can use it
      * @return $this
      */
     public function setStatus($status)
@@ -352,7 +416,7 @@ class PrcService implements ArrayAccess
   
     /**
      * Sets type
-     * @param string $type 
+     * @param string $type Type of the service.\r\n            Currently supported types:\r\n            - Classifier\r\n            - Prc
      * @return $this
      */
     public function setType($type)
@@ -376,7 +440,7 @@ class PrcService implements ArrayAccess
   
     /**
      * Sets process_id_list
-     * @param string[] $process_id_list 
+     * @param string[] $process_id_list Contains all the process ids which belong to this service
      * @return $this
      */
     public function setProcessIdList($process_id_list)

@@ -40,7 +40,7 @@ use \ArrayAccess;
  * PathItem Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Tag path item object
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -112,19 +112,19 @@ class PathItem implements ArrayAccess
 
     
     /**
-      * $id 
+      * $id Id of the Tag
       * @var string
       */
     protected $id;
     
     /**
-      * $name 
+      * $name Name of the Tag
       * @var string
       */
     protected $name;
     
     /**
-      * $level 
+      * $level Level of the Tag
       * @var int
       */
     protected $level;
@@ -157,7 +157,7 @@ class PathItem implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id Id of the Tag
      * @return $this
      */
     public function setId($id)
@@ -178,7 +178,7 @@ class PathItem implements ArrayAccess
   
     /**
      * Sets name
-     * @param string $name 
+     * @param string $name Name of the Tag
      * @return $this
      */
     public function setName($name)
@@ -199,7 +199,7 @@ class PathItem implements ArrayAccess
   
     /**
      * Sets level
-     * @param int $level 
+     * @param int $level Level of the Tag
      * @return $this
      */
     public function setLevel($level)

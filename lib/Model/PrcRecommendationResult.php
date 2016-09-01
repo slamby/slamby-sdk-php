@@ -61,7 +61,7 @@ class PrcRecommendationResult implements ArrayAccess
     static $swaggerTypes = array(
         'document_id' => 'string',
         'score' => 'double',
-        'document' => '\Swagger\Client\Model\Object'
+        'document' => 'object'
     );
   
     static function swaggerTypes() {
@@ -125,7 +125,7 @@ class PrcRecommendationResult implements ArrayAccess
     
     /**
       * $document 
-      * @var \Swagger\Client\Model\Object
+      * @var object
       */
     protected $document;
     
@@ -190,7 +190,7 @@ class PrcRecommendationResult implements ArrayAccess
     
     /**
      * Gets document
-     * @return \Swagger\Client\Model\Object
+     * @return object
      */
     public function getDocument()
     {
@@ -199,7 +199,7 @@ class PrcRecommendationResult implements ArrayAccess
   
     /**
      * Sets document
-     * @param \Swagger\Client\Model\Object $document 
+     * @param object $document 
      * @return $this
      */
     public function setDocument($document)

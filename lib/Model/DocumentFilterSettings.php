@@ -60,8 +60,9 @@ class DocumentFilterSettings implements ArrayAccess
       */
     static $swaggerTypes = array(
         'pagination' => '\Swagger\Client\Model\Pagination',
-        'ids_only' => 'bool',
-        'filter' => '\Swagger\Client\Model\Filter'
+        'order' => '\Swagger\Client\Model\Order',
+        'filter' => '\Swagger\Client\Model\Filter',
+        'field_list' => 'string[]'
     );
   
     static function swaggerTypes() {
@@ -74,8 +75,9 @@ class DocumentFilterSettings implements ArrayAccess
       */
     static $attributeMap = array(
         'pagination' => 'Pagination',
-        'ids_only' => 'IdsOnly',
-        'filter' => 'Filter'
+        'order' => 'Order',
+        'filter' => 'Filter',
+        'field_list' => 'FieldList'
     );
   
     static function attributeMap() {
@@ -88,8 +90,9 @@ class DocumentFilterSettings implements ArrayAccess
       */
     static $setters = array(
         'pagination' => 'setPagination',
-        'ids_only' => 'setIdsOnly',
-        'filter' => 'setFilter'
+        'order' => 'setOrder',
+        'filter' => 'setFilter',
+        'field_list' => 'setFieldList'
     );
   
     static function setters() {
@@ -102,8 +105,9 @@ class DocumentFilterSettings implements ArrayAccess
       */
     static $getters = array(
         'pagination' => 'getPagination',
-        'ids_only' => 'getIdsOnly',
-        'filter' => 'getFilter'
+        'order' => 'getOrder',
+        'filter' => 'getFilter',
+        'field_list' => 'getFieldList'
     );
   
     static function getters() {
@@ -118,16 +122,22 @@ class DocumentFilterSettings implements ArrayAccess
     protected $pagination;
     
     /**
-      * $ids_only 
-      * @var bool
+      * $order 
+      * @var \Swagger\Client\Model\Order
       */
-    protected $ids_only;
+    protected $order;
     
     /**
       * $filter 
       * @var \Swagger\Client\Model\Filter
       */
     protected $filter;
+    
+    /**
+      * $field_list Query returns only with the specified field(s)
+      * @var string[]
+      */
+    protected $field_list;
     
 
     /**
@@ -141,8 +151,9 @@ class DocumentFilterSettings implements ArrayAccess
 
         if ($data != null) {
             $this->pagination = $data["pagination"];
-            $this->ids_only = $data["ids_only"];
+            $this->order = $data["order"];
             $this->filter = $data["filter"];
+            $this->field_list = $data["field_list"];
         }
     }
     
@@ -168,23 +179,23 @@ class DocumentFilterSettings implements ArrayAccess
     }
     
     /**
-     * Gets ids_only
-     * @return bool
+     * Gets order
+     * @return \Swagger\Client\Model\Order
      */
-    public function getIdsOnly()
+    public function getOrder()
     {
-        return $this->ids_only;
+        return $this->order;
     }
   
     /**
-     * Sets ids_only
-     * @param bool $ids_only 
+     * Sets order
+     * @param \Swagger\Client\Model\Order $order 
      * @return $this
      */
-    public function setIdsOnly($ids_only)
+    public function setOrder($order)
     {
         
-        $this->ids_only = $ids_only;
+        $this->order = $order;
         return $this;
     }
     
@@ -206,6 +217,27 @@ class DocumentFilterSettings implements ArrayAccess
     {
         
         $this->filter = $filter;
+        return $this;
+    }
+    
+    /**
+     * Gets field_list
+     * @return string[]
+     */
+    public function getFieldList()
+    {
+        return $this->field_list;
+    }
+  
+    /**
+     * Sets field_list
+     * @param string[] $field_list Query returns only with the specified field(s)
+     * @return $this
+     */
+    public function setFieldList($field_list)
+    {
+        
+        $this->field_list = $field_list;
         return $this;
     }
     

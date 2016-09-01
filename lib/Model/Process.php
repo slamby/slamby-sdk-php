@@ -136,43 +136,43 @@ class Process implements ArrayAccess
 
     
     /**
-      * $id 
+      * $id The process GUID identifier
       * @var string
       */
     protected $id;
     
     /**
-      * $start 
+      * $start The UTC time of the process start
       * @var \DateTime
       */
     protected $start;
     
     /**
-      * $end 
+      * $end The UTC time of the process end
       * @var \DateTime
       */
     protected $end;
     
     /**
-      * $percent 
+      * $percent The percent of the whole process. (e.g.: 12.23 means 12.23%)
       * @var double
       */
     protected $percent;
     
     /**
-      * $description 
+      * $description Process description
       * @var string
       */
     protected $description;
     
     /**
-      * $status 
+      * $status InProgress - the process is in progress, it's working |\r\n            Cancelled - the process was cancelled by the user |\r\n            Finished - the process was finished successfully |\r\n            Error - the process stopped by an error, see the ErrorMessages for detailed information |\r\n            Interrupted - the process was interrupted by an unknown event (e.g.: server restart) - under development |\r\n            Paused - the process was paused  - under development
       * @var string
       */
     protected $status;
     
     /**
-      * $type 
+      * $type Type of the process
       * @var string
       */
     protected $type;
@@ -223,7 +223,7 @@ class Process implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id 
+     * @param string $id The process GUID identifier
      * @return $this
      */
     public function setId($id)
@@ -244,7 +244,7 @@ class Process implements ArrayAccess
   
     /**
      * Sets start
-     * @param \DateTime $start 
+     * @param \DateTime $start The UTC time of the process start
      * @return $this
      */
     public function setStart($start)
@@ -265,7 +265,7 @@ class Process implements ArrayAccess
   
     /**
      * Sets end
-     * @param \DateTime $end 
+     * @param \DateTime $end The UTC time of the process end
      * @return $this
      */
     public function setEnd($end)
@@ -286,7 +286,7 @@ class Process implements ArrayAccess
   
     /**
      * Sets percent
-     * @param double $percent 
+     * @param double $percent The percent of the whole process. (e.g.: 12.23 means 12.23%)
      * @return $this
      */
     public function setPercent($percent)
@@ -307,7 +307,7 @@ class Process implements ArrayAccess
   
     /**
      * Sets description
-     * @param string $description 
+     * @param string $description Process description
      * @return $this
      */
     public function setDescription($description)
@@ -328,14 +328,14 @@ class Process implements ArrayAccess
   
     /**
      * Sets status
-     * @param string $status 
+     * @param string $status InProgress - the process is in progress, it's working |\r\n            Cancelled - the process was cancelled by the user |\r\n            Finished - the process was finished successfully |\r\n            Error - the process stopped by an error, see the ErrorMessages for detailed information |\r\n            Interrupted - the process was interrupted by an unknown event (e.g.: server restart) - under development |\r\n            Paused - the process was paused  - under development
      * @return $this
      */
     public function setStatus($status)
     {
-        $allowed_values = array("InProgress", "Cancelled", "Finished", "Error", "Interrupted", "Paused");
+        $allowed_values = array("InProgress", "Cancelled", "Finished", "Error", "Interrupted", "Paused", "Cancelling");
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'InProgress', 'Cancelled', 'Finished', 'Error', 'Interrupted', 'Paused'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'InProgress', 'Cancelled', 'Finished', 'Error', 'Interrupted', 'Paused', 'Cancelling'");
         }
         $this->status = $status;
         return $this;
@@ -352,14 +352,14 @@ class Process implements ArrayAccess
   
     /**
      * Sets type
-     * @param string $type 
+     * @param string $type Type of the process
      * @return $this
      */
     public function setType($type)
     {
-        $allowed_values = array("ClassifierPrepare", "PrcPrepare", "ClassifierExportDictionaries", "PrcExportDictionaries", "TagsExportWords");
+        $allowed_values = array("ClassifierPrepare", "PrcPrepare", "ClassifierExportDictionaries", "PrcExportDictionaries", "TagsExportWords", "ClassifierActivate", "PrcActivate", "PrcIndex", "PrcIndexPartial");
         if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'ClassifierPrepare', 'PrcPrepare', 'ClassifierExportDictionaries', 'PrcExportDictionaries', 'TagsExportWords'");
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'ClassifierPrepare', 'PrcPrepare', 'ClassifierExportDictionaries', 'PrcExportDictionaries', 'TagsExportWords', 'ClassifierActivate', 'PrcActivate', 'PrcIndex', 'PrcIndexPartial'");
         }
         $this->type = $type;
         return $this;

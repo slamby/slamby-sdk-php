@@ -40,7 +40,7 @@ use \ArrayAccess;
  * DataSet Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description DataSet object
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -65,7 +65,8 @@ class DataSet implements ArrayAccess
         'tag_field' => 'string',
         'interpreted_fields' => 'string[]',
         'statistics' => '\Swagger\Client\Model\DataSetStats',
-        'sample_document' => '\Swagger\Client\Model\Object'
+        'sample_document' => 'object',
+        'schema' => 'object'
     );
   
     static function swaggerTypes() {
@@ -83,7 +84,8 @@ class DataSet implements ArrayAccess
         'tag_field' => 'TagField',
         'interpreted_fields' => 'InterpretedFields',
         'statistics' => 'Statistics',
-        'sample_document' => 'SampleDocument'
+        'sample_document' => 'SampleDocument',
+        'schema' => 'Schema'
     );
   
     static function attributeMap() {
@@ -101,7 +103,8 @@ class DataSet implements ArrayAccess
         'tag_field' => 'setTagField',
         'interpreted_fields' => 'setInterpretedFields',
         'statistics' => 'setStatistics',
-        'sample_document' => 'setSampleDocument'
+        'sample_document' => 'setSampleDocument',
+        'schema' => 'setSchema'
     );
   
     static function setters() {
@@ -119,7 +122,8 @@ class DataSet implements ArrayAccess
         'tag_field' => 'getTagField',
         'interpreted_fields' => 'getInterpretedFields',
         'statistics' => 'getStatistics',
-        'sample_document' => 'getSampleDocument'
+        'sample_document' => 'getSampleDocument',
+        'schema' => 'getSchema'
     );
   
     static function getters() {
@@ -128,46 +132,52 @@ class DataSet implements ArrayAccess
 
     
     /**
-      * $name 
+      * $name Name of your dataset. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space. This field is unique
       * @var string
       */
     protected $name;
     
     /**
-      * $n_gram_count 
+      * $n_gram_count To deeper analyze your text, a dataset uses ngram to index your document. You can set the ngramcount from 1 to 6
       * @var int
       */
     protected $n_gram_count;
     
     /**
-      * $id_field 
+      * $id_field To identify a document you need to use IDs. You can use your own conventions to name your ID field, but in the settings you need to provide the field name of the id field from your sample document. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
       * @var string
       */
     protected $id_field;
     
     /**
-      * $tag_field 
+      * $tag_field For text categorization, we provide a predefined document field to store your tags (or categories). If your documents are related to tags or categories, please insert here the tags field name from your sample JSON. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
       * @var string
       */
     protected $tag_field;
     
     /**
-      * $interpreted_fields 
+      * $interpreted_fields For text analysis, you can set those document fields that contains useful text content. Slamby is doing ngram analysis and text process related works on these fields. How to decide which field you need to set here? Only the interpreted field can be a part of text analyzes. To provide these fields just simply insert the needed text fields from your JSON document. Field names can contain just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
       * @var string[]
       */
     protected $interpreted_fields;
     
     /**
-      * $statistics 
+      * $statistics These are read-only calculated values
       * @var \Swagger\Client\Model\DataSetStats
       */
     protected $statistics;
     
     /**
-      * $sample_document 
-      * @var \Swagger\Client\Model\Object
+      * $sample_document Using flexible document schema, you can store all of your required data inside one simple dataset. To create a dataset with your required schema you can provide a sample document. The schema is flexible; the only requirement is using standard JSON format. Field names can contain just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
+      * @var object
       */
     protected $sample_document;
+    
+    /**
+      * $schema Using flexible document schema, you can store all of your required data inside one simple dataset. To create a dataset with your required schema you can provide a schema. The schema is flexible. Field names can contain just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
+      * @var object
+      */
+    protected $schema;
     
 
     /**
@@ -187,6 +197,7 @@ class DataSet implements ArrayAccess
             $this->interpreted_fields = $data["interpreted_fields"];
             $this->statistics = $data["statistics"];
             $this->sample_document = $data["sample_document"];
+            $this->schema = $data["schema"];
         }
     }
     
@@ -201,7 +212,7 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets name
-     * @param string $name 
+     * @param string $name Name of your dataset. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space. This field is unique
      * @return $this
      */
     public function setName($name)
@@ -222,7 +233,7 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets n_gram_count
-     * @param int $n_gram_count 
+     * @param int $n_gram_count To deeper analyze your text, a dataset uses ngram to index your document. You can set the ngramcount from 1 to 6
      * @return $this
      */
     public function setNGramCount($n_gram_count)
@@ -243,7 +254,7 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets id_field
-     * @param string $id_field 
+     * @param string $id_field To identify a document you need to use IDs. You can use your own conventions to name your ID field, but in the settings you need to provide the field name of the id field from your sample document. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
      * @return $this
      */
     public function setIdField($id_field)
@@ -264,7 +275,7 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets tag_field
-     * @param string $tag_field 
+     * @param string $tag_field For text categorization, we provide a predefined document field to store your tags (or categories). If your documents are related to tags or categories, please insert here the tags field name from your sample JSON. Can contains just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
      * @return $this
      */
     public function setTagField($tag_field)
@@ -285,7 +296,7 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets interpreted_fields
-     * @param string[] $interpreted_fields 
+     * @param string[] $interpreted_fields For text analysis, you can set those document fields that contains useful text content. Slamby is doing ngram analysis and text process related works on these fields. How to decide which field you need to set here? Only the interpreted field can be a part of text analyzes. To provide these fields just simply insert the needed text fields from your JSON document. Field names can contain just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
      * @return $this
      */
     public function setInterpretedFields($interpreted_fields)
@@ -306,7 +317,7 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets statistics
-     * @param \Swagger\Client\Model\DataSetStats $statistics 
+     * @param \Swagger\Client\Model\DataSetStats $statistics These are read-only calculated values
      * @return $this
      */
     public function setStatistics($statistics)
@@ -318,7 +329,7 @@ class DataSet implements ArrayAccess
     
     /**
      * Gets sample_document
-     * @return \Swagger\Client\Model\Object
+     * @return object
      */
     public function getSampleDocument()
     {
@@ -327,13 +338,34 @@ class DataSet implements ArrayAccess
   
     /**
      * Sets sample_document
-     * @param \Swagger\Client\Model\Object $sample_document 
+     * @param object $sample_document Using flexible document schema, you can store all of your required data inside one simple dataset. To create a dataset with your required schema you can provide a sample document. The schema is flexible; the only requirement is using standard JSON format. Field names can contain just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
      * @return $this
      */
     public function setSampleDocument($sample_document)
     {
         
         $this->sample_document = $sample_document;
+        return $this;
+    }
+    
+    /**
+     * Gets schema
+     * @return object
+     */
+    public function getSchema()
+    {
+        return $this->schema;
+    }
+  
+    /**
+     * Sets schema
+     * @param object $schema Using flexible document schema, you can store all of your required data inside one simple dataset. To create a dataset with your required schema you can provide a schema. The schema is flexible. Field names can contain just A-Z letters, numbers, _ (underscore) and - (hyphen) without any space
+     * @return $this
+     */
+    public function setSchema($schema)
+    {
+        
+        $this->schema = $schema;
         return $this;
     }
     

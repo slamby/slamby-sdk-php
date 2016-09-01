@@ -59,10 +59,7 @@ class Pagination implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'offset' => 'int',
-        'limit' => 'int',
-        'order_direction' => 'string',
-        'order_by_field' => 'string'
+        'limit' => 'int'
     );
   
     static function swaggerTypes() {
@@ -74,10 +71,7 @@ class Pagination implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'offset' => 'Offset',
-        'limit' => 'Limit',
-        'order_direction' => 'OrderDirection',
-        'order_by_field' => 'OrderByField'
+        'limit' => 'Limit'
     );
   
     static function attributeMap() {
@@ -89,10 +83,7 @@ class Pagination implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'offset' => 'setOffset',
-        'limit' => 'setLimit',
-        'order_direction' => 'setOrderDirection',
-        'order_by_field' => 'setOrderByField'
+        'limit' => 'setLimit'
     );
   
     static function setters() {
@@ -104,10 +95,7 @@ class Pagination implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'offset' => 'getOffset',
-        'limit' => 'getLimit',
-        'order_direction' => 'getOrderDirection',
-        'order_by_field' => 'getOrderByField'
+        'limit' => 'getLimit'
     );
   
     static function getters() {
@@ -116,28 +104,10 @@ class Pagination implements ArrayAccess
 
     
     /**
-      * $offset 
-      * @var int
-      */
-    protected $offset;
-    
-    /**
-      * $limit 
+      * $limit How many element you want to get back in this request
       * @var int
       */
     protected $limit;
-    
-    /**
-      * $order_direction 
-      * @var string
-      */
-    protected $order_direction;
-    
-    /**
-      * $order_by_field 
-      * @var string
-      */
-    protected $order_by_field;
     
 
     /**
@@ -150,32 +120,8 @@ class Pagination implements ArrayAccess
         
 
         if ($data != null) {
-            $this->offset = $data["offset"];
             $this->limit = $data["limit"];
-            $this->order_direction = $data["order_direction"];
-            $this->order_by_field = $data["order_by_field"];
         }
-    }
-    
-    /**
-     * Gets offset
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->offset;
-    }
-  
-    /**
-     * Sets offset
-     * @param int $offset 
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        
-        $this->offset = $offset;
-        return $this;
     }
     
     /**
@@ -189,58 +135,13 @@ class Pagination implements ArrayAccess
   
     /**
      * Sets limit
-     * @param int $limit 
+     * @param int $limit How many element you want to get back in this request
      * @return $this
      */
     public function setLimit($limit)
     {
         
         $this->limit = $limit;
-        return $this;
-    }
-    
-    /**
-     * Gets order_direction
-     * @return string
-     */
-    public function getOrderDirection()
-    {
-        return $this->order_direction;
-    }
-  
-    /**
-     * Sets order_direction
-     * @param string $order_direction 
-     * @return $this
-     */
-    public function setOrderDirection($order_direction)
-    {
-        $allowed_values = array("Asc", "Desc");
-        if (!in_array($order_direction, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'order_direction', must be one of 'Asc', 'Desc'");
-        }
-        $this->order_direction = $order_direction;
-        return $this;
-    }
-    
-    /**
-     * Gets order_by_field
-     * @return string
-     */
-    public function getOrderByField()
-    {
-        return $this->order_by_field;
-    }
-  
-    /**
-     * Sets order_by_field
-     * @param string $order_by_field 
-     * @return $this
-     */
-    public function setOrderByField($order_by_field)
-    {
-        
-        $this->order_by_field = $order_by_field;
         return $this;
     }
     

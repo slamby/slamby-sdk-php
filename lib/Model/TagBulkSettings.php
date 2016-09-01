@@ -40,7 +40,7 @@ use \ArrayAccess;
  * TagBulkSettings Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Stores complete tag hierarchy for bulk insert
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -104,7 +104,7 @@ class TagBulkSettings implements ArrayAccess
 
     
     /**
-      * $tags 
+      * $tags The complete tag hierarchy array
       * @var \Swagger\Client\Model\Tag[]
       */
     protected $tags;
@@ -135,7 +135,7 @@ class TagBulkSettings implements ArrayAccess
   
     /**
      * Sets tags
-     * @param \Swagger\Client\Model\Tag[] $tags 
+     * @param \Swagger\Client\Model\Tag[] $tags The complete tag hierarchy array
      * @return $this
      */
     public function setTags($tags)

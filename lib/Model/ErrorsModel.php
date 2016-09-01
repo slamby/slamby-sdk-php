@@ -40,7 +40,7 @@ use \ArrayAccess;
  * ErrorsModel Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description Stores error messages
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2

@@ -61,7 +61,8 @@ class ClassifierRecommendationResult implements ArrayAccess
     static $swaggerTypes = array(
         'tag_id' => 'string',
         'score' => 'double',
-        'tag' => '\Swagger\Client\Model\Tag'
+        'tag' => '\Swagger\Client\Model\Tag',
+        'is_emphasized' => 'bool'
     );
   
     static function swaggerTypes() {
@@ -75,7 +76,8 @@ class ClassifierRecommendationResult implements ArrayAccess
     static $attributeMap = array(
         'tag_id' => 'TagId',
         'score' => 'Score',
-        'tag' => 'Tag'
+        'tag' => 'Tag',
+        'is_emphasized' => 'IsEmphasized'
     );
   
     static function attributeMap() {
@@ -89,7 +91,8 @@ class ClassifierRecommendationResult implements ArrayAccess
     static $setters = array(
         'tag_id' => 'setTagId',
         'score' => 'setScore',
-        'tag' => 'setTag'
+        'tag' => 'setTag',
+        'is_emphasized' => 'setIsEmphasized'
     );
   
     static function setters() {
@@ -103,7 +106,8 @@ class ClassifierRecommendationResult implements ArrayAccess
     static $getters = array(
         'tag_id' => 'getTagId',
         'score' => 'getScore',
-        'tag' => 'getTag'
+        'tag' => 'getTag',
+        'is_emphasized' => 'getIsEmphasized'
     );
   
     static function getters() {
@@ -112,13 +116,13 @@ class ClassifierRecommendationResult implements ArrayAccess
 
     
     /**
-      * $tag_id 
+      * $tag_id The recommended tag id
       * @var string
       */
     protected $tag_id;
     
     /**
-      * $score 
+      * $score The score that belongs to the tag id
       * @var double
       */
     protected $score;
@@ -128,6 +132,12 @@ class ClassifierRecommendationResult implements ArrayAccess
       * @var \Swagger\Client\Model\Tag
       */
     protected $tag;
+    
+    /**
+      * $is_emphasized If there was applied emphasizing by this tag
+      * @var bool
+      */
+    protected $is_emphasized;
     
 
     /**
@@ -143,6 +153,7 @@ class ClassifierRecommendationResult implements ArrayAccess
             $this->tag_id = $data["tag_id"];
             $this->score = $data["score"];
             $this->tag = $data["tag"];
+            $this->is_emphasized = $data["is_emphasized"];
         }
     }
     
@@ -157,7 +168,7 @@ class ClassifierRecommendationResult implements ArrayAccess
   
     /**
      * Sets tag_id
-     * @param string $tag_id 
+     * @param string $tag_id The recommended tag id
      * @return $this
      */
     public function setTagId($tag_id)
@@ -178,7 +189,7 @@ class ClassifierRecommendationResult implements ArrayAccess
   
     /**
      * Sets score
-     * @param double $score 
+     * @param double $score The score that belongs to the tag id
      * @return $this
      */
     public function setScore($score)
@@ -206,6 +217,27 @@ class ClassifierRecommendationResult implements ArrayAccess
     {
         
         $this->tag = $tag;
+        return $this;
+    }
+    
+    /**
+     * Gets is_emphasized
+     * @return bool
+     */
+    public function getIsEmphasized()
+    {
+        return $this->is_emphasized;
+    }
+  
+    /**
+     * Sets is_emphasized
+     * @param bool $is_emphasized If there was applied emphasizing by this tag
+     * @return $this
+     */
+    public function setIsEmphasized($is_emphasized)
+    {
+        
+        $this->is_emphasized = $is_emphasized;
         return $this;
     }
     

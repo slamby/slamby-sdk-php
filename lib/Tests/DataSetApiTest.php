@@ -76,6 +76,16 @@ class DataSetApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for createDataSetSchema
+     *
+     * 
+     *
+     */
+    public function test_createDataSetSchema() {
+
+    }
+    
+    /**
      * Test case for deleteDataSet
      *
      * 
@@ -102,6 +112,16 @@ class DataSetApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getDataSets() {
+
+    }
+    
+    /**
+     * Test case for updateDataSet
+     *
+     * 
+     *
+     */
+    public function test_updateDataSet() {
 
     }
     

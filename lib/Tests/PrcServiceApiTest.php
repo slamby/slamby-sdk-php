@@ -66,62 +66,102 @@ class PrcServiceApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for activateService
+     * Test case for prcActivateService
      *
      * 
      *
      */
-    public function test_activateService() {
+    public function test_prcActivateService() {
 
     }
     
     /**
-     * Test case for deactivateService
+     * Test case for prcDeactivateService
      *
      * 
      *
      */
-    public function test_deactivateService() {
+    public function test_prcDeactivateService() {
 
     }
     
     /**
-     * Test case for exportDictionaries
+     * Test case for prcExportDictionaries
      *
      * 
      *
      */
-    public function test_exportDictionaries() {
+    public function test_prcExportDictionaries() {
 
     }
     
     /**
-     * Test case for getService
+     * Test case for prcGetService
      *
      * 
      *
      */
-    public function test_getService() {
+    public function test_prcGetService() {
 
     }
     
     /**
-     * Test case for prepareService
+     * Test case for prcIndexPartialService
      *
      * 
      *
      */
-    public function test_prepareService() {
+    public function test_prcIndexPartialService() {
 
     }
     
     /**
-     * Test case for recommendService
+     * Test case for prcIndexService
      *
      * 
      *
      */
-    public function test_recommendService() {
+    public function test_prcIndexService() {
+
+    }
+    
+    /**
+     * Test case for prcKeywordsService
+     *
+     * 
+     *
+     */
+    public function test_prcKeywordsService() {
+
+    }
+    
+    /**
+     * Test case for prcPrepareService
+     *
+     * 
+     *
+     */
+    public function test_prcPrepareService() {
+
+    }
+    
+    /**
+     * Test case for prcRecommendByIdService
+     *
+     * 
+     *
+     */
+    public function test_prcRecommendByIdService() {
+
+    }
+    
+    /**
+     * Test case for prcRecommendService
+     *
+     * 
+     *
+     */
+    public function test_prcRecommendService() {
 
     }
     

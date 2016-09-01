@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**createDocument**](DocumentApi.md#createDocument) | **POST** /api/Documents | 
 [**deleteDocument**](DocumentApi.md#deleteDocument) | **DELETE** /api/Documents/{id} | 
 [**getDocument**](DocumentApi.md#getDocument) | **GET** /api/Documents/{id} | 
-[**getFilteredDocuments**](DocumentApi.md#getFilteredDocuments) | **POST** /api/Documents/Filter | 
+[**getFilteredDocuments**](DocumentApi.md#getFilteredDocuments) | **POST** /api/Documents/Filter/{scrollId} | 
 [**getSampleDocuments**](DocumentApi.md#getSampleDocuments) | **POST** /api/Documents/Sample | 
 [**moveDocuments**](DocumentApi.md#moveDocuments) | **POST** /api/Documents/Move | 
 [**updateDocument**](DocumentApi.md#updateDocument) | **PUT** /api/Documents/{id} | 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **bulkDocuments**
-> \Swagger\Client\Model\BulkResults bulkDocuments($settings)
+> \Swagger\Client\Model\BulkResults bulkDocuments($settings, $x_data_set)
 
 
 
@@ -30,10 +30,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
 $settings = new \Swagger\Client\Model\DocumentBulkSettings(); // \Swagger\Client\Model\DocumentBulkSettings | 
+$x_data_set = "x_data_set_example"; // string | 
 
 
 try { 
-    $result = $api_instance->bulkDocuments($settings);
+    $result = $api_instance->bulkDocuments($settings, $x_data_set);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->bulkDocuments: ', $e->getMessage(), "\n";
@@ -46,6 +47,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settings** | [**\Swagger\Client\Model\DocumentBulkSettings**](\Swagger\Client\Model\DocumentBulkSettings.md)|  | [optional] 
+ **x_data_set** | **string**|  | [optional] 
 
 
 ### Return type
@@ -65,7 +67,7 @@ No authorization required
 
 
 # **copyDocuments**
-> copyDocuments($copy_settings)
+> copyDocuments($copy_settings, $x_data_set)
 
 
 
@@ -77,10 +79,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
 $copy_settings = new \Swagger\Client\Model\DocumentCopySettings(); // \Swagger\Client\Model\DocumentCopySettings | 
+$x_data_set = "x_data_set_example"; // string | 
 
 
 try { 
-    $api_instance->copyDocuments($copy_settings);
+    $api_instance->copyDocuments($copy_settings, $x_data_set);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->copyDocuments: ', $e->getMessage(), "\n";
 }
@@ -92,6 +95,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **copy_settings** | [**\Swagger\Client\Model\DocumentCopySettings**](\Swagger\Client\Model\DocumentCopySettings.md)|  | [optional] 
+ **x_data_set** | **string**|  | [optional] 
 
 
 ### Return type
@@ -122,7 +126,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
-$document = new \Swagger\Client\Model\Object(); // \Swagger\Client\Model\Object | 
+$document = NULL; // object | 
 
 
 try { 
@@ -137,7 +141,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | [**\Swagger\Client\Model\Object**](\Swagger\Client\Model\Object.md)|  | [optional] 
+ **document** | **object**|  | [optional] 
 
 
 ### Return type
@@ -203,7 +207,7 @@ No authorization required
 
 
 # **getDocument**
-> \Swagger\Client\Model\Object getDocument($id)
+> object getDocument($id)
 
 
 
@@ -235,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Object**](Object.md)
+**object**
 
 ### Authorization
 
@@ -250,7 +254,7 @@ No authorization required
 
 
 # **getFilteredDocuments**
-> \Swagger\Client\Model\PaginatedListObject getFilteredDocuments($filter_settings)
+> \Swagger\Client\Model\PaginatedListObject getFilteredDocuments($scroll_id, $x_data_set, $filter_settings)
 
 
 
@@ -261,11 +265,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
+$scroll_id = "scroll_id_example"; // string | 
+$x_data_set = "x_data_set_example"; // string | 
 $filter_settings = new \Swagger\Client\Model\DocumentFilterSettings(); // \Swagger\Client\Model\DocumentFilterSettings | 
 
 
 try { 
-    $result = $api_instance->getFilteredDocuments($filter_settings);
+    $result = $api_instance->getFilteredDocuments($scroll_id, $x_data_set, $filter_settings);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->getFilteredDocuments: ', $e->getMessage(), "\n";
@@ -277,6 +283,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **scroll_id** | **string**|  | 
+ **x_data_set** | **string**|  | [optional] 
  **filter_settings** | [**\Swagger\Client\Model\DocumentFilterSettings**](\Swagger\Client\Model\DocumentFilterSettings.md)|  | [optional] 
 
 
@@ -297,7 +305,7 @@ No authorization required
 
 
 # **getSampleDocuments**
-> \Swagger\Client\Model\PaginatedListObject getSampleDocuments($sample_settings)
+> \Swagger\Client\Model\PaginatedListObject getSampleDocuments($sample_settings, $x_data_set)
 
 
 
@@ -309,10 +317,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
 $sample_settings = new \Swagger\Client\Model\DocumentSampleSettings(); // \Swagger\Client\Model\DocumentSampleSettings | 
+$x_data_set = "x_data_set_example"; // string | 
 
 
 try { 
-    $result = $api_instance->getSampleDocuments($sample_settings);
+    $result = $api_instance->getSampleDocuments($sample_settings, $x_data_set);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->getSampleDocuments: ', $e->getMessage(), "\n";
@@ -325,6 +334,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sample_settings** | [**\Swagger\Client\Model\DocumentSampleSettings**](\Swagger\Client\Model\DocumentSampleSettings.md)|  | [optional] 
+ **x_data_set** | **string**|  | [optional] 
 
 
 ### Return type
@@ -344,7 +354,7 @@ No authorization required
 
 
 # **moveDocuments**
-> moveDocuments($move_settings)
+> moveDocuments($move_settings, $x_data_set)
 
 
 
@@ -356,10 +366,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
 $move_settings = new \Swagger\Client\Model\DocumentMoveSettings(); // \Swagger\Client\Model\DocumentMoveSettings | 
+$x_data_set = "x_data_set_example"; // string | 
 
 
 try { 
-    $api_instance->moveDocuments($move_settings);
+    $api_instance->moveDocuments($move_settings, $x_data_set);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->moveDocuments: ', $e->getMessage(), "\n";
 }
@@ -371,6 +382,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **move_settings** | [**\Swagger\Client\Model\DocumentMoveSettings**](\Swagger\Client\Model\DocumentMoveSettings.md)|  | [optional] 
+ **x_data_set** | **string**|  | [optional] 
 
 
 ### Return type
@@ -390,7 +402,7 @@ No authorization required
 
 
 # **updateDocument**
-> \Swagger\Client\Model\Object updateDocument($id, $document)
+> object updateDocument($id, $document)
 
 
 
@@ -402,7 +414,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\DocumentApi();
 $id = "id_example"; // string | 
-$document = new \Swagger\Client\Model\Object(); // \Swagger\Client\Model\Object | 
+$document = NULL; // object | 
 
 
 try { 
@@ -419,12 +431,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  | 
- **document** | [**\Swagger\Client\Model\Object**](\Swagger\Client\Model\Object.md)|  | [optional] 
+ **document** | **object**|  | [optional] 
 
 
 ### Return type
 
-[**\Swagger\Client\Model\Object**](Object.md)
+**object**
 
 ### Authorization
 

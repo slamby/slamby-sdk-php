@@ -40,7 +40,7 @@ use \ArrayAccess;
  * ClassifierActivateSettings Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description These settings are required for the recommendation (Recommend method)
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
@@ -112,19 +112,19 @@ class ClassifierActivateSettings implements ArrayAccess
 
     
     /**
-      * $emphasized_tag_id_list 
+      * $emphasized_tag_id_list The list of the tag Ids which will emphasized during the recommendation
       * @var string[]
       */
     protected $emphasized_tag_id_list;
     
     /**
-      * $tag_id_list 
+      * $tag_id_list \"The list of the tag Ids which will be activated (the recommendation will be contains these only)
       * @var string[]
       */
     protected $tag_id_list;
     
     /**
-      * $n_gram_list 
+      * $n_gram_list The list of the NGrams will be activated (the recommendation algorithm will be use these only)
       * @var int[]
       */
     protected $n_gram_list;
@@ -157,7 +157,7 @@ class ClassifierActivateSettings implements ArrayAccess
   
     /**
      * Sets emphasized_tag_id_list
-     * @param string[] $emphasized_tag_id_list 
+     * @param string[] $emphasized_tag_id_list The list of the tag Ids which will emphasized during the recommendation
      * @return $this
      */
     public function setEmphasizedTagIdList($emphasized_tag_id_list)
@@ -178,7 +178,7 @@ class ClassifierActivateSettings implements ArrayAccess
   
     /**
      * Sets tag_id_list
-     * @param string[] $tag_id_list 
+     * @param string[] $tag_id_list \"The list of the tag Ids which will be activated (the recommendation will be contains these only)
      * @return $this
      */
     public function setTagIdList($tag_id_list)
@@ -199,7 +199,7 @@ class ClassifierActivateSettings implements ArrayAccess
   
     /**
      * Sets n_gram_list
-     * @param int[] $n_gram_list 
+     * @param int[] $n_gram_list The list of the NGrams will be activated (the recommendation algorithm will be use these only)
      * @return $this
      */
     public function setNGramList($n_gram_list)

@@ -59,10 +59,10 @@ class PaginatedListObject implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'items' => '\Swagger\Client\Model\Object[]',
-        'pagination' => '\Swagger\Client\Model\Pagination',
+        'items' => 'object[]',
         'count' => 'int',
-        'total' => 'int'
+        'total' => 'int',
+        'scroll_id' => 'string'
     );
   
     static function swaggerTypes() {
@@ -75,9 +75,9 @@ class PaginatedListObject implements ArrayAccess
       */
     static $attributeMap = array(
         'items' => 'Items',
-        'pagination' => 'Pagination',
         'count' => 'Count',
-        'total' => 'Total'
+        'total' => 'Total',
+        'scroll_id' => 'ScrollId'
     );
   
     static function attributeMap() {
@@ -90,9 +90,9 @@ class PaginatedListObject implements ArrayAccess
       */
     static $setters = array(
         'items' => 'setItems',
-        'pagination' => 'setPagination',
         'count' => 'setCount',
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'scroll_id' => 'setScrollId'
     );
   
     static function setters() {
@@ -105,9 +105,9 @@ class PaginatedListObject implements ArrayAccess
       */
     static $getters = array(
         'items' => 'getItems',
-        'pagination' => 'getPagination',
         'count' => 'getCount',
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'scroll_id' => 'getScrollId'
     );
   
     static function getters() {
@@ -116,28 +116,28 @@ class PaginatedListObject implements ArrayAccess
 
     
     /**
-      * $items 
-      * @var \Swagger\Client\Model\Object[]
+      * $items Containing the actual displayed items. The type of the elements depend on the method
+      * @var object[]
       */
     protected $items;
     
     /**
-      * $pagination 
-      * @var \Swagger\Client\Model\Pagination
-      */
-    protected $pagination;
-    
-    /**
-      * $count 
+      * $count The count of the actual returned items
       * @var int
       */
     protected $count;
     
     /**
-      * $total 
+      * $total The count of all items which are the pagination applied
       * @var int
       */
     protected $total;
+    
+    /**
+      * $scroll_id Identifier for the next series of items where it is applicable
+      * @var string
+      */
+    protected $scroll_id;
     
 
     /**
@@ -151,15 +151,15 @@ class PaginatedListObject implements ArrayAccess
 
         if ($data != null) {
             $this->items = $data["items"];
-            $this->pagination = $data["pagination"];
             $this->count = $data["count"];
             $this->total = $data["total"];
+            $this->scroll_id = $data["scroll_id"];
         }
     }
     
     /**
      * Gets items
-     * @return \Swagger\Client\Model\Object[]
+     * @return object[]
      */
     public function getItems()
     {
@@ -168,34 +168,13 @@ class PaginatedListObject implements ArrayAccess
   
     /**
      * Sets items
-     * @param \Swagger\Client\Model\Object[] $items 
+     * @param object[] $items Containing the actual displayed items. The type of the elements depend on the method
      * @return $this
      */
     public function setItems($items)
     {
         
         $this->items = $items;
-        return $this;
-    }
-    
-    /**
-     * Gets pagination
-     * @return \Swagger\Client\Model\Pagination
-     */
-    public function getPagination()
-    {
-        return $this->pagination;
-    }
-  
-    /**
-     * Sets pagination
-     * @param \Swagger\Client\Model\Pagination $pagination 
-     * @return $this
-     */
-    public function setPagination($pagination)
-    {
-        
-        $this->pagination = $pagination;
         return $this;
     }
     
@@ -210,7 +189,7 @@ class PaginatedListObject implements ArrayAccess
   
     /**
      * Sets count
-     * @param int $count 
+     * @param int $count The count of the actual returned items
      * @return $this
      */
     public function setCount($count)
@@ -231,13 +210,34 @@ class PaginatedListObject implements ArrayAccess
   
     /**
      * Sets total
-     * @param int $total 
+     * @param int $total The count of all items which are the pagination applied
      * @return $this
      */
     public function setTotal($total)
     {
         
         $this->total = $total;
+        return $this;
+    }
+    
+    /**
+     * Gets scroll_id
+     * @return string
+     */
+    public function getScrollId()
+    {
+        return $this->scroll_id;
+    }
+  
+    /**
+     * Sets scroll_id
+     * @param string $scroll_id Identifier for the next series of items where it is applicable
+     * @return $this
+     */
+    public function setScrollId($scroll_id)
+    {
+        
+        $this->scroll_id = $scroll_id;
         return $this;
     }
     

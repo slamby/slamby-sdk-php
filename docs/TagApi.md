@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **bulkTags**
-> \Swagger\Client\Model\BulkResults bulkTags($settings)
+> \Swagger\Client\Model\BulkResults bulkTags($settings, $x_data_set)
 
 
 
@@ -29,10 +29,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\TagApi();
 $settings = new \Swagger\Client\Model\TagBulkSettings(); // \Swagger\Client\Model\TagBulkSettings | 
+$x_data_set = "x_data_set_example"; // string | 
 
 
 try { 
-    $result = $api_instance->bulkTags($settings);
+    $result = $api_instance->bulkTags($settings, $x_data_set);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagApi->bulkTags: ', $e->getMessage(), "\n";
@@ -45,6 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settings** | [**\Swagger\Client\Model\TagBulkSettings**](\Swagger\Client\Model\TagBulkSettings.md)|  | [optional] 
+ **x_data_set** | **string**|  | [optional] 
 
 
 ### Return type
@@ -106,7 +108,7 @@ No authorization required
 
 
 # **createTag**
-> createTag($tag)
+> \Swagger\Client\Model\Tag createTag($tag)
 
 
 
@@ -121,7 +123,8 @@ $tag = new \Swagger\Client\Model\Tag(); // \Swagger\Client\Model\Tag |
 
 
 try { 
-    $api_instance->createTag($tag);
+    $result = $api_instance->createTag($tag);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagApi->createTag: ', $e->getMessage(), "\n";
 }
@@ -137,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Tag**](Tag.md)
 
 ### Authorization
 
@@ -298,7 +301,7 @@ No authorization required
 
 
 # **updateTag**
-> \Swagger\Client\Model\Tag updateTag($id, $tag)
+> updateTag($id, $tag)
 
 
 
@@ -314,8 +317,7 @@ $tag = new \Swagger\Client\Model\Tag(); // \Swagger\Client\Model\Tag |
 
 
 try { 
-    $result = $api_instance->updateTag($id, $tag);
-    print_r($result);
+    $api_instance->updateTag($id, $tag);
 } catch (Exception $e) {
     echo 'Exception when calling TagApi->updateTag: ', $e->getMessage(), "\n";
 }
@@ -332,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Tag**](Tag.md)
+void (empty response body)
 
 ### Authorization
 

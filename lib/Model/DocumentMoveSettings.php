@@ -59,7 +59,7 @@ class DocumentMoveSettings implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'ids' => 'string[]',
+        'document_id_list' => 'string[]',
         'target_data_set_name' => 'string'
     );
   
@@ -72,7 +72,7 @@ class DocumentMoveSettings implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'ids' => 'Ids',
+        'document_id_list' => 'DocumentIdList',
         'target_data_set_name' => 'TargetDataSetName'
     );
   
@@ -85,7 +85,7 @@ class DocumentMoveSettings implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'ids' => 'setIds',
+        'document_id_list' => 'setDocumentIdList',
         'target_data_set_name' => 'setTargetDataSetName'
     );
   
@@ -98,7 +98,7 @@ class DocumentMoveSettings implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'ids' => 'getIds',
+        'document_id_list' => 'getDocumentIdList',
         'target_data_set_name' => 'getTargetDataSetName'
     );
   
@@ -108,13 +108,13 @@ class DocumentMoveSettings implements ArrayAccess
 
     
     /**
-      * $ids 
+      * $document_id_list The Id list of the documents you want to move
       * @var string[]
       */
-    protected $ids;
+    protected $document_id_list;
     
     /**
-      * $target_data_set_name 
+      * $target_data_set_name The DataSet name where you want to move the selected documents
       * @var string
       */
     protected $target_data_set_name;
@@ -130,29 +130,29 @@ class DocumentMoveSettings implements ArrayAccess
         
 
         if ($data != null) {
-            $this->ids = $data["ids"];
+            $this->document_id_list = $data["document_id_list"];
             $this->target_data_set_name = $data["target_data_set_name"];
         }
     }
     
     /**
-     * Gets ids
+     * Gets document_id_list
      * @return string[]
      */
-    public function getIds()
+    public function getDocumentIdList()
     {
-        return $this->ids;
+        return $this->document_id_list;
     }
   
     /**
-     * Sets ids
-     * @param string[] $ids 
+     * Sets document_id_list
+     * @param string[] $document_id_list The Id list of the documents you want to move
      * @return $this
      */
-    public function setIds($ids)
+    public function setDocumentIdList($document_id_list)
     {
         
-        $this->ids = $ids;
+        $this->document_id_list = $document_id_list;
         return $this;
     }
     
@@ -167,7 +167,7 @@ class DocumentMoveSettings implements ArrayAccess
   
     /**
      * Sets target_data_set_name
-     * @param string $target_data_set_name 
+     * @param string $target_data_set_name The DataSet name where you want to move the selected documents
      * @return $this
      */
     public function setTargetDataSetName($target_data_set_name)

@@ -97,12 +97,13 @@ class TagApi
      * 
      *
      * @param \Swagger\Client\Model\TagBulkSettings $settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return \Swagger\Client\Model\BulkResults
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkTags($settings = null)
+    public function bulkTags($settings = null, $x_data_set = null)
     {
-        list($response) = $this->bulkTagsWithHttpInfo ($settings);
+        list($response) = $this->bulkTagsWithHttpInfo ($settings, $x_data_set);
         return $response; 
     }
 
@@ -113,10 +114,11 @@ class TagApi
      * 
      *
      * @param \Swagger\Client\Model\TagBulkSettings $settings  (optional)
+     * @param string $x_data_set  (optional)
      * @return Array of \Swagger\Client\Model\BulkResults, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function bulkTagsWithHttpInfo($settings = null)
+    public function bulkTagsWithHttpInfo($settings = null, $x_data_set = null)
     {
         
   
@@ -133,7 +135,11 @@ class TagApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
+        // header params
         
+        if ($x_data_set !== null) {
+            $headerParams['X-DataSet'] = $this->apiClient->getSerializer()->toHeaderValue($x_data_set);
+        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -170,6 +176,14 @@ class TagApi
             switch ($e->getCode()) { 
             case 200:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BulkResults', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 411:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -257,7 +271,7 @@ class TagApi
      * 
      *
      * @param \Swagger\Client\Model\Tag $tag  (optional)
-     * @return void
+     * @return \Swagger\Client\Model\Tag
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function createTag($tag = null)
@@ -273,7 +287,7 @@ class TagApi
      * 
      *
      * @param \Swagger\Client\Model\Tag $tag  (optional)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Tag, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function createTagWithHttpInfo($tag = null)
@@ -317,13 +331,21 @@ class TagApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams
+                $headerParams, '\Swagger\Client\Model\Tag'
             );
             
-            return array(null, $statusCode, $httpHeader);
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Tag', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            case 201:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Tag', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             case 406:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
@@ -540,6 +562,10 @@ class TagApi
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Tag', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            case 404:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -640,7 +666,7 @@ class TagApi
      *
      * @param string $id  (required)
      * @param \Swagger\Client\Model\Tag $tag  (optional)
-     * @return \Swagger\Client\Model\Tag
+     * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function updateTag($id, $tag = null)
@@ -657,7 +683,7 @@ class TagApi
      *
      * @param string $id  (required)
      * @param \Swagger\Client\Model\Tag $tag  (optional)
-     * @return Array of \Swagger\Client\Model\Tag, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function updateTagWithHttpInfo($id, $tag = null)
@@ -713,21 +739,13 @@ class TagApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'PUT',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\Tag'
+                $headerParams
             );
             
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Tag', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
-            case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Tag', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
             case 404:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
