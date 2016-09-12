@@ -114,7 +114,7 @@ class Filter implements ArrayAccess
     protected $tag_id_list;
     
     /**
-      * $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do thie: 'title:searchthisinthetitle'
+      * $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do this: 'title:searchthisinthetitle'
       * @var string
       */
     protected $query;
@@ -167,7 +167,7 @@ class Filter implements ArrayAccess
   
     /**
      * Sets query
-     * @param string $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do thie: 'title:searchthisinthetitle'
+     * @param string $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do this: 'title:searchthisinthetitle'
      * @return $this
      */
     public function setQuery($query)

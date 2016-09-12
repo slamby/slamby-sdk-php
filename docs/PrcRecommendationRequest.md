@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **text** | **string** |  | 
+**filter** | [**\Swagger\Client\Model\Filter**](Filter.md) |  | [optional] 
 **count** | **int** |  | [optional] 
 **need_document_in_result** | **bool** |  | [optional] 
-**tag_id** | **string** |  | 
-**filter** | [**\Swagger\Client\Model\Filter**](Filter.md) |  | [optional] 
+**tag_id** | **string** |  | [optional] 
 **weights** | [**\Swagger\Client\Model\Weight[]**](Weight.md) |  | [optional] 
 
 

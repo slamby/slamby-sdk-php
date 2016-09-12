@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **document_id** | **string** |  | 
+**query** | **string** | Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: &#39;searchforthis AND NOT butnotthis&#39;. \r\n            Also you can use wildcards. For example: &#39;exampl*&#39;. \r\n            If you want to search in a specified field, than do this: &#39;title:searchthisinthetitle&#39; | [optional] 
 **count** | **int** |  | [optional] 
 **need_document_in_result** | **bool** |  | [optional] 
-**tag_id** | **string** |  | 
-**filter** | [**\Swagger\Client\Model\Filter**](Filter.md) |  | [optional] 
+**tag_id** | **string** |  | [optional] 
 **weights** | [**\Swagger\Client\Model\Weight[]**](Weight.md) |  | [optional] 
 
 

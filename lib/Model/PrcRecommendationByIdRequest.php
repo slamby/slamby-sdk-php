@@ -60,10 +60,10 @@ class PrcRecommendationByIdRequest implements ArrayAccess
       */
     static $swaggerTypes = array(
         'document_id' => 'string',
+        'query' => 'string',
         'count' => 'int',
         'need_document_in_result' => 'bool',
         'tag_id' => 'string',
-        'filter' => '\Swagger\Client\Model\Filter',
         'weights' => '\Swagger\Client\Model\Weight[]'
     );
   
@@ -77,10 +77,10 @@ class PrcRecommendationByIdRequest implements ArrayAccess
       */
     static $attributeMap = array(
         'document_id' => 'DocumentId',
+        'query' => 'Query',
         'count' => 'Count',
         'need_document_in_result' => 'NeedDocumentInResult',
         'tag_id' => 'TagId',
-        'filter' => 'Filter',
         'weights' => 'Weights'
     );
   
@@ -94,10 +94,10 @@ class PrcRecommendationByIdRequest implements ArrayAccess
       */
     static $setters = array(
         'document_id' => 'setDocumentId',
+        'query' => 'setQuery',
         'count' => 'setCount',
         'need_document_in_result' => 'setNeedDocumentInResult',
         'tag_id' => 'setTagId',
-        'filter' => 'setFilter',
         'weights' => 'setWeights'
     );
   
@@ -111,10 +111,10 @@ class PrcRecommendationByIdRequest implements ArrayAccess
       */
     static $getters = array(
         'document_id' => 'getDocumentId',
+        'query' => 'getQuery',
         'count' => 'getCount',
         'need_document_in_result' => 'getNeedDocumentInResult',
         'tag_id' => 'getTagId',
-        'filter' => 'getFilter',
         'weights' => 'getWeights'
     );
   
@@ -128,6 +128,12 @@ class PrcRecommendationByIdRequest implements ArrayAccess
       * @var string
       */
     protected $document_id;
+    
+    /**
+      * $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do this: 'title:searchthisinthetitle'
+      * @var string
+      */
+    protected $query;
     
     /**
       * $count 
@@ -148,12 +154,6 @@ class PrcRecommendationByIdRequest implements ArrayAccess
     protected $tag_id;
     
     /**
-      * $filter 
-      * @var \Swagger\Client\Model\Filter
-      */
-    protected $filter;
-    
-    /**
       * $weights 
       * @var \Swagger\Client\Model\Weight[]
       */
@@ -171,10 +171,10 @@ class PrcRecommendationByIdRequest implements ArrayAccess
 
         if ($data != null) {
             $this->document_id = $data["document_id"];
+            $this->query = $data["query"];
             $this->count = $data["count"];
             $this->need_document_in_result = $data["need_document_in_result"];
             $this->tag_id = $data["tag_id"];
-            $this->filter = $data["filter"];
             $this->weights = $data["weights"];
         }
     }
@@ -197,6 +197,27 @@ class PrcRecommendationByIdRequest implements ArrayAccess
     {
         
         $this->document_id = $document_id;
+        return $this;
+    }
+    
+    /**
+     * Gets query
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->query;
+    }
+  
+    /**
+     * Sets query
+     * @param string $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do this: 'title:searchthisinthetitle'
+     * @return $this
+     */
+    public function setQuery($query)
+    {
+        
+        $this->query = $query;
         return $this;
     }
     
@@ -260,27 +281,6 @@ class PrcRecommendationByIdRequest implements ArrayAccess
     {
         
         $this->tag_id = $tag_id;
-        return $this;
-    }
-    
-    /**
-     * Gets filter
-     * @return \Swagger\Client\Model\Filter
-     */
-    public function getFilter()
-    {
-        return $this->filter;
-    }
-  
-    /**
-     * Sets filter
-     * @param \Swagger\Client\Model\Filter $filter 
-     * @return $this
-     */
-    public function setFilter($filter)
-    {
-        
-        $this->filter = $filter;
         return $this;
     }
     

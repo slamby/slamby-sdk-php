@@ -60,10 +60,10 @@ class PrcRecommendationRequest implements ArrayAccess
       */
     static $swaggerTypes = array(
         'text' => 'string',
+        'filter' => '\Swagger\Client\Model\Filter',
         'count' => 'int',
         'need_document_in_result' => 'bool',
         'tag_id' => 'string',
-        'filter' => '\Swagger\Client\Model\Filter',
         'weights' => '\Swagger\Client\Model\Weight[]'
     );
   
@@ -77,10 +77,10 @@ class PrcRecommendationRequest implements ArrayAccess
       */
     static $attributeMap = array(
         'text' => 'Text',
+        'filter' => 'Filter',
         'count' => 'Count',
         'need_document_in_result' => 'NeedDocumentInResult',
         'tag_id' => 'TagId',
-        'filter' => 'Filter',
         'weights' => 'Weights'
     );
   
@@ -94,10 +94,10 @@ class PrcRecommendationRequest implements ArrayAccess
       */
     static $setters = array(
         'text' => 'setText',
+        'filter' => 'setFilter',
         'count' => 'setCount',
         'need_document_in_result' => 'setNeedDocumentInResult',
         'tag_id' => 'setTagId',
-        'filter' => 'setFilter',
         'weights' => 'setWeights'
     );
   
@@ -111,10 +111,10 @@ class PrcRecommendationRequest implements ArrayAccess
       */
     static $getters = array(
         'text' => 'getText',
+        'filter' => 'getFilter',
         'count' => 'getCount',
         'need_document_in_result' => 'getNeedDocumentInResult',
         'tag_id' => 'getTagId',
-        'filter' => 'getFilter',
         'weights' => 'getWeights'
     );
   
@@ -128,6 +128,12 @@ class PrcRecommendationRequest implements ArrayAccess
       * @var string
       */
     protected $text;
+    
+    /**
+      * $filter 
+      * @var \Swagger\Client\Model\Filter
+      */
+    protected $filter;
     
     /**
       * $count 
@@ -148,12 +154,6 @@ class PrcRecommendationRequest implements ArrayAccess
     protected $tag_id;
     
     /**
-      * $filter 
-      * @var \Swagger\Client\Model\Filter
-      */
-    protected $filter;
-    
-    /**
       * $weights 
       * @var \Swagger\Client\Model\Weight[]
       */
@@ -171,10 +171,10 @@ class PrcRecommendationRequest implements ArrayAccess
 
         if ($data != null) {
             $this->text = $data["text"];
+            $this->filter = $data["filter"];
             $this->count = $data["count"];
             $this->need_document_in_result = $data["need_document_in_result"];
             $this->tag_id = $data["tag_id"];
-            $this->filter = $data["filter"];
             $this->weights = $data["weights"];
         }
     }
@@ -197,6 +197,27 @@ class PrcRecommendationRequest implements ArrayAccess
     {
         
         $this->text = $text;
+        return $this;
+    }
+    
+    /**
+     * Gets filter
+     * @return \Swagger\Client\Model\Filter
+     */
+    public function getFilter()
+    {
+        return $this->filter;
+    }
+  
+    /**
+     * Sets filter
+     * @param \Swagger\Client\Model\Filter $filter 
+     * @return $this
+     */
+    public function setFilter($filter)
+    {
+        
+        $this->filter = $filter;
         return $this;
     }
     
@@ -260,27 +281,6 @@ class PrcRecommendationRequest implements ArrayAccess
     {
         
         $this->tag_id = $tag_id;
-        return $this;
-    }
-    
-    /**
-     * Gets filter
-     * @return \Swagger\Client\Model\Filter
-     */
-    public function getFilter()
-    {
-        return $this->filter;
-    }
-  
-    /**
-     * Sets filter
-     * @param \Swagger\Client\Model\Filter $filter 
-     * @return $this
-     */
-    public function setFilter($filter)
-    {
-        
-        $this->filter = $filter;
         return $this;
     }
     
