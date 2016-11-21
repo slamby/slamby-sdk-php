@@ -108,7 +108,7 @@ class Weight implements ArrayAccess
 
     
     /**
-      * $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do this: 'title:searchthisinthetitle'
+      * $query Set here the filters. The value is the query string you want to apply. \r\nCan be BOOL expressions. You can use these: AND, OR, NOT. \r\nFor example: 'searchforthis AND NOT butnotthis'. \r\nAlso you can use wildcards. For example: 'exampl*'. \r\nIf you want to search in a specified field, than do this: 'title:searchthisinthetitle'
       * @var string
       */
     protected $query;
@@ -146,7 +146,7 @@ class Weight implements ArrayAccess
   
     /**
      * Sets query
-     * @param string $query Set here the filters. The value is the query string you want to apply. \r\n            Can be BOOL expressions. You can use these: AND, OR, NOT. \r\n            For example: 'searchforthis AND NOT butnotthis'. \r\n            Also you can use wildcards. For example: 'exampl*'. \r\n            If you want to search in a specified field, than do this: 'title:searchthisinthetitle'
+     * @param string $query Set here the filters. The value is the query string you want to apply. \r\nCan be BOOL expressions. You can use these: AND, OR, NOT. \r\nFor example: 'searchforthis AND NOT butnotthis'. \r\nAlso you can use wildcards. For example: 'exampl*'. \r\nIf you want to search in a specified field, than do this: 'title:searchthisinthetitle'
      * @return $this
      */
     public function setQuery($query)

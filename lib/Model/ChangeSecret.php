@@ -2,7 +2,7 @@
 
 
 /**
- * BulkResult
+ * ChangeSecret
  *
  * PHP version 5
  *
@@ -37,31 +37,29 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * BulkResult Class Doc Comment
+ * ChangeSecret Class Doc Comment
  *
  * @category    Class
- * @description \&quot;Result of a bulk save element.\r\nIf the save was successful then the StatusCode is 2XX. \r\nIf there was a problem, the StatusCode is not 2XX, and the error message is in the Error field.
+ * @description Change Secret model
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BulkResult implements ArrayAccess
+class ChangeSecret implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'BulkResult';
+    static $swaggerModelName = 'ChangeSecret';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'status_code' => 'int',
-        'id' => 'string',
-        'error' => 'string'
+        'secret' => 'string'
     );
   
     static function swaggerTypes() {
@@ -73,9 +71,7 @@ class BulkResult implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'status_code' => 'StatusCode',
-        'id' => 'Id',
-        'error' => 'Error'
+        'secret' => 'Secret'
     );
   
     static function attributeMap() {
@@ -87,9 +83,7 @@ class BulkResult implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'status_code' => 'setStatusCode',
-        'id' => 'setId',
-        'error' => 'setError'
+        'secret' => 'setSecret'
     );
   
     static function setters() {
@@ -101,9 +95,7 @@ class BulkResult implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'status_code' => 'getStatusCode',
-        'id' => 'getId',
-        'error' => 'getError'
+        'secret' => 'getSecret'
     );
   
     static function getters() {
@@ -112,22 +104,10 @@ class BulkResult implements ArrayAccess
 
     
     /**
-      * $status_code HTTP status code
-      * @var int
-      */
-    protected $status_code;
-    
-    /**
-      * $id Document id
+      * $secret New secret to be set
       * @var string
       */
-    protected $id;
-    
-    /**
-      * $error Error message
-      * @var string
-      */
-    protected $error;
+    protected $secret;
     
 
     /**
@@ -140,72 +120,28 @@ class BulkResult implements ArrayAccess
         
 
         if ($data != null) {
-            $this->status_code = $data["status_code"];
-            $this->id = $data["id"];
-            $this->error = $data["error"];
+            $this->secret = $data["secret"];
         }
     }
     
     /**
-     * Gets status_code
-     * @return int
-     */
-    public function getStatusCode()
-    {
-        return $this->status_code;
-    }
-  
-    /**
-     * Sets status_code
-     * @param int $status_code HTTP status code
-     * @return $this
-     */
-    public function setStatusCode($status_code)
-    {
-        
-        $this->status_code = $status_code;
-        return $this;
-    }
-    
-    /**
-     * Gets id
+     * Gets secret
      * @return string
      */
-    public function getId()
+    public function getSecret()
     {
-        return $this->id;
+        return $this->secret;
     }
   
     /**
-     * Sets id
-     * @param string $id Document id
+     * Sets secret
+     * @param string $secret New secret to be set
      * @return $this
      */
-    public function setId($id)
+    public function setSecret($secret)
     {
         
-        $this->id = $id;
-        return $this;
-    }
-    
-    /**
-     * Gets error
-     * @return string
-     */
-    public function getError()
-    {
-        return $this->error;
-    }
-  
-    /**
-     * Sets error
-     * @param string $error Error message
-     * @return $this
-     */
-    public function setError($error)
-    {
-        
-        $this->error = $error;
+        $this->secret = $secret;
         return $this;
     }
     

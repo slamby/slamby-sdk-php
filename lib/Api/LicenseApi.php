@@ -1,6 +1,6 @@
 <?php
 /**
- * HelperApi
+ * LicenseApi
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * HelperApi Class Doc Comment
+ * LicenseApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
@@ -47,7 +47,7 @@ use \Swagger\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class HelperApi
+class LicenseApi
 {
 
     /**
@@ -82,7 +82,7 @@ class HelperApi
     /**
      * Set the API client
      * @param \Swagger\Client\ApiClient $apiClient set the API client
-     * @return HelperApi
+     * @return LicenseApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -92,36 +92,36 @@ class HelperApi
   
     
     /**
-     * fileParser
+     * changeLicense
      *
      * 
      *
-     * @param \Swagger\Client\Model\FileParser $file_parser  (optional)
-     * @return \Swagger\Client\Model\FileParserResult
+     * @param \Swagger\Client\Model\ChangeLicense $model  (optional)
+     * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function fileParser($file_parser = null)
+    public function changeLicense($model = null)
     {
-        list($response) = $this->fileParserWithHttpInfo ($file_parser);
+        list($response) = $this->changeLicenseWithHttpInfo ($model);
         return $response; 
     }
 
 
     /**
-     * fileParserWithHttpInfo
+     * changeLicenseWithHttpInfo
      *
      * 
      *
-     * @param \Swagger\Client\Model\FileParser $file_parser  (optional)
-     * @return Array of \Swagger\Client\Model\FileParserResult, HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\ChangeLicense $model  (optional)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function fileParserWithHttpInfo($file_parser = null)
+    public function changeLicenseWithHttpInfo($model = null)
     {
         
   
         // parse inputs
-        $resourcePath = "/api/Helper/FileParser";
+        $resourcePath = "/api/License";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -141,8 +141,8 @@ class HelperApi
         
         // body params
         $_tempBody = null;
-        if (isset($file_parser)) {
-            $_tempBody = $file_parser;
+        if (isset($model)) {
+            $_tempBody = $model;
         }
   
         // for model (json/xml)
@@ -157,23 +157,96 @@ class HelperApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\FileParserResult'
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 400:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getLicense
+     *
+     * 
+     *
+     * @return \Swagger\Client\Model\License
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getLicense()
+    {
+        list($response) = $this->getLicenseWithHttpInfo ();
+        return $response; 
+    }
+
+
+    /**
+     * getLicenseWithHttpInfo
+     *
+     * 
+     *
+     * @return Array of \Swagger\Client\Model\License, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getLicenseWithHttpInfo()
+    {
+        
+  
+        // parse inputs
+        $resourcePath = "/api/License";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\License'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\FileParserResult', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\License', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\FileParserResult', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            case 400:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\License', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }

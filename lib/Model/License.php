@@ -2,7 +2,7 @@
 
 
 /**
- * BulkResult
+ * License
  *
  * PHP version 5
  *
@@ -37,31 +37,32 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * BulkResult Class Doc Comment
+ * License Class Doc Comment
  *
  * @category    Class
- * @description \&quot;Result of a bulk save element.\r\nIf the save was successful then the StatusCode is 2XX. \r\nIf there was a problem, the StatusCode is not 2XX, and the error message is in the Error field.
+ * @description 
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BulkResult implements ArrayAccess
+class License implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'BulkResult';
+    static $swaggerModelName = 'License';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'status_code' => 'int',
-        'id' => 'string',
-        'error' => 'string'
+        'is_valid' => 'bool',
+        'message' => 'string',
+        'type' => 'string',
+        'base64' => 'string'
     );
   
     static function swaggerTypes() {
@@ -73,9 +74,10 @@ class BulkResult implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'status_code' => 'StatusCode',
-        'id' => 'Id',
-        'error' => 'Error'
+        'is_valid' => 'IsValid',
+        'message' => 'Message',
+        'type' => 'Type',
+        'base64' => 'Base64'
     );
   
     static function attributeMap() {
@@ -87,9 +89,10 @@ class BulkResult implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'status_code' => 'setStatusCode',
-        'id' => 'setId',
-        'error' => 'setError'
+        'is_valid' => 'setIsValid',
+        'message' => 'setMessage',
+        'type' => 'setType',
+        'base64' => 'setBase64'
     );
   
     static function setters() {
@@ -101,9 +104,10 @@ class BulkResult implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'status_code' => 'getStatusCode',
-        'id' => 'getId',
-        'error' => 'getError'
+        'is_valid' => 'getIsValid',
+        'message' => 'getMessage',
+        'type' => 'getType',
+        'base64' => 'getBase64'
     );
   
     static function getters() {
@@ -112,22 +116,28 @@ class BulkResult implements ArrayAccess
 
     
     /**
-      * $status_code HTTP status code
-      * @var int
+      * $is_valid 
+      * @var bool
       */
-    protected $status_code;
+    protected $is_valid;
     
     /**
-      * $id Document id
+      * $message 
       * @var string
       */
-    protected $id;
+    protected $message;
     
     /**
-      * $error Error message
+      * $type 
       * @var string
       */
-    protected $error;
+    protected $type;
+    
+    /**
+      * $base64 
+      * @var string
+      */
+    protected $base64;
     
 
     /**
@@ -140,72 +150,94 @@ class BulkResult implements ArrayAccess
         
 
         if ($data != null) {
-            $this->status_code = $data["status_code"];
-            $this->id = $data["id"];
-            $this->error = $data["error"];
+            $this->is_valid = $data["is_valid"];
+            $this->message = $data["message"];
+            $this->type = $data["type"];
+            $this->base64 = $data["base64"];
         }
     }
     
     /**
-     * Gets status_code
-     * @return int
+     * Gets is_valid
+     * @return bool
      */
-    public function getStatusCode()
+    public function getIsValid()
     {
-        return $this->status_code;
+        return $this->is_valid;
     }
   
     /**
-     * Sets status_code
-     * @param int $status_code HTTP status code
+     * Sets is_valid
+     * @param bool $is_valid 
      * @return $this
      */
-    public function setStatusCode($status_code)
+    public function setIsValid($is_valid)
     {
         
-        $this->status_code = $status_code;
+        $this->is_valid = $is_valid;
         return $this;
     }
     
     /**
-     * Gets id
+     * Gets message
      * @return string
      */
-    public function getId()
+    public function getMessage()
     {
-        return $this->id;
+        return $this->message;
     }
   
     /**
-     * Sets id
-     * @param string $id Document id
+     * Sets message
+     * @param string $message 
      * @return $this
      */
-    public function setId($id)
+    public function setMessage($message)
     {
         
-        $this->id = $id;
+        $this->message = $message;
         return $this;
     }
     
     /**
-     * Gets error
+     * Gets type
      * @return string
      */
-    public function getError()
+    public function getType()
     {
-        return $this->error;
+        return $this->type;
     }
   
     /**
-     * Sets error
-     * @param string $error Error message
+     * Sets type
+     * @param string $type 
      * @return $this
      */
-    public function setError($error)
+    public function setType($type)
     {
         
-        $this->error = $error;
+        $this->type = $type;
+        return $this;
+    }
+    
+    /**
+     * Gets base64
+     * @return string
+     */
+    public function getBase64()
+    {
+        return $this->base64;
+    }
+  
+    /**
+     * Sets base64
+     * @param string $base64 
+     * @return $this
+     */
+    public function setBase64($base64)
+    {
+        
+        $this->base64 = $base64;
         return $this;
     }
     

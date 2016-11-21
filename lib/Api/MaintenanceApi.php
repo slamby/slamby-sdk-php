@@ -1,6 +1,6 @@
 <?php
 /**
- * HelperApi
+ * MaintenanceApi
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * HelperApi Class Doc Comment
+ * MaintenanceApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
@@ -47,7 +47,7 @@ use \Swagger\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class HelperApi
+class MaintenanceApi
 {
 
     /**
@@ -82,7 +82,7 @@ class HelperApi
     /**
      * Set the API client
      * @param \Swagger\Client\ApiClient $apiClient set the API client
-     * @return HelperApi
+     * @return MaintenanceApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -92,36 +92,36 @@ class HelperApi
   
     
     /**
-     * fileParser
+     * changeSecret
      *
      * 
      *
-     * @param \Swagger\Client\Model\FileParser $file_parser  (optional)
-     * @return \Swagger\Client\Model\FileParserResult
+     * @param \Swagger\Client\Model\ChangeSecret $secret  (optional)
+     * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function fileParser($file_parser = null)
+    public function changeSecret($secret = null)
     {
-        list($response) = $this->fileParserWithHttpInfo ($file_parser);
+        list($response) = $this->changeSecretWithHttpInfo ($secret);
         return $response; 
     }
 
 
     /**
-     * fileParserWithHttpInfo
+     * changeSecretWithHttpInfo
      *
      * 
      *
-     * @param \Swagger\Client\Model\FileParser $file_parser  (optional)
-     * @return Array of \Swagger\Client\Model\FileParserResult, HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\ChangeSecret $secret  (optional)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function fileParserWithHttpInfo($file_parser = null)
+    public function changeSecretWithHttpInfo($secret = null)
     {
         
   
         // parse inputs
-        $resourcePath = "/api/Helper/FileParser";
+        $resourcePath = "/api/Maintenance/ChangeSecret";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -141,8 +141,8 @@ class HelperApi
         
         // body params
         $_tempBody = null;
-        if (isset($file_parser)) {
-            $_tempBody = $file_parser;
+        if (isset($secret)) {
+            $_tempBody = $secret;
         }
   
         // for model (json/xml)
@@ -157,22 +157,14 @@ class HelperApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\FileParserResult'
+                $headerParams
             );
             
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\FileParserResult', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
-            case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\FileParserResult', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            case 400:
+            case 406:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;

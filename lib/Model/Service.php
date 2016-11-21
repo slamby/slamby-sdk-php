@@ -144,7 +144,7 @@ class Service implements ArrayAccess
     protected $name;
     
     /**
-      * $alias Alias name of the service. Services can be accessed via this name.\r\n            Alias can be modified. It is unique amongst the services.
+      * $alias Alias name of the service. Services can be accessed via this name.\r\nAlias can be modified. It is unique amongst the services.
       * @var string
       */
     protected $alias;
@@ -156,13 +156,13 @@ class Service implements ArrayAccess
     protected $description;
     
     /**
-      * $status New - the service was created | \r\n            Busy - the service is working on something (e.g.: during the Prepare) | \r\n            Prepared - the service was prepared so you can activate it to use | \r\n            Active - the service so you can use it
+      * $status New - the service was created | \r\nBusy - the service is working on something (e.g.: during the Prepare) | \r\nPrepared - the service was prepared so you can activate it to use | \r\nActive - the service so you can use it
       * @var string
       */
     protected $status;
     
     /**
-      * $type Type of the service.\r\n            Currently supported types:\r\n            - Classifier\r\n            - Prc
+      * $type Type of the service.\r\nCurrently supported types:\r\n- Classifier\r\n- Prc
       * @var string
       */
     protected $type;
@@ -254,7 +254,7 @@ class Service implements ArrayAccess
   
     /**
      * Sets alias
-     * @param string $alias Alias name of the service. Services can be accessed via this name.\r\n            Alias can be modified. It is unique amongst the services.
+     * @param string $alias Alias name of the service. Services can be accessed via this name.\r\nAlias can be modified. It is unique amongst the services.
      * @return $this
      */
     public function setAlias($alias)
@@ -296,7 +296,7 @@ class Service implements ArrayAccess
   
     /**
      * Sets status
-     * @param string $status New - the service was created | \r\n            Busy - the service is working on something (e.g.: during the Prepare) | \r\n            Prepared - the service was prepared so you can activate it to use | \r\n            Active - the service so you can use it
+     * @param string $status New - the service was created | \r\nBusy - the service is working on something (e.g.: during the Prepare) | \r\nPrepared - the service was prepared so you can activate it to use | \r\nActive - the service so you can use it
      * @return $this
      */
     public function setStatus($status)
@@ -320,7 +320,7 @@ class Service implements ArrayAccess
   
     /**
      * Sets type
-     * @param string $type Type of the service.\r\n            Currently supported types:\r\n            - Classifier\r\n            - Prc
+     * @param string $type Type of the service.\r\nCurrently supported types:\r\n- Classifier\r\n- Prc
      * @return $this
      */
     public function setType($type)

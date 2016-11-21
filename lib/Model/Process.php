@@ -166,7 +166,7 @@ class Process implements ArrayAccess
     protected $description;
     
     /**
-      * $status InProgress - the process is in progress, it's working |\r\n            Cancelled - the process was cancelled by the user |\r\n            Finished - the process was finished successfully |\r\n            Error - the process stopped by an error, see the ErrorMessages for detailed information |\r\n            Interrupted - the process was interrupted by an unknown event (e.g.: server restart) - under development |\r\n            Paused - the process was paused  - under development
+      * $status InProgress - the process is in progress, it's working |\r\nCancelled - the process was cancelled by the user |\r\nFinished - the process was finished successfully |\r\nError - the process stopped by an error, see the ErrorMessages for detailed information |\r\nInterrupted - the process was interrupted by an unknown event (e.g.: server restart) - under development |\r\nPaused - the process was paused  - under development
       * @var string
       */
     protected $status;
@@ -328,7 +328,7 @@ class Process implements ArrayAccess
   
     /**
      * Sets status
-     * @param string $status InProgress - the process is in progress, it's working |\r\n            Cancelled - the process was cancelled by the user |\r\n            Finished - the process was finished successfully |\r\n            Error - the process stopped by an error, see the ErrorMessages for detailed information |\r\n            Interrupted - the process was interrupted by an unknown event (e.g.: server restart) - under development |\r\n            Paused - the process was paused  - under development
+     * @param string $status InProgress - the process is in progress, it's working |\r\nCancelled - the process was cancelled by the user |\r\nFinished - the process was finished successfully |\r\nError - the process stopped by an error, see the ErrorMessages for detailed information |\r\nInterrupted - the process was interrupted by an unknown event (e.g.: server restart) - under development |\r\nPaused - the process was paused  - under development
      * @return $this
      */
     public function setStatus($status)

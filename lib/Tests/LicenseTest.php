@@ -2,7 +2,7 @@
 
 
 /**
- * BulkResultTest
+ * LicenseTest
  *
  * PHP version 5
  *
@@ -36,16 +36,16 @@
 namespace Swagger\Client\Model;
 
 /**
- * BulkResultTest Class Doc Comment
+ * LicenseTest Class Doc Comment
  *
  * @category    Class
- * @description \&quot;Result of a bulk save element.\r\nIf the save was successful then the StatusCode is 2XX. \r\nIf there was a problem, the StatusCode is not 2XX, and the error message is in the Error field.
+ * @description 
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BulkResultTest extends \PHPUnit_Framework_TestCase
+class LicenseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -63,9 +63,9 @@ class BulkResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test BulkResult
+     * Test License
      */
-    public function testBulkResult() {
+    public function testLicense() {
 
     }
 

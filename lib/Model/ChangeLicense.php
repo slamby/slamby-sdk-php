@@ -2,7 +2,7 @@
 
 
 /**
- * BulkResult
+ * ChangeLicense
  *
  * PHP version 5
  *
@@ -37,31 +37,29 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * BulkResult Class Doc Comment
+ * ChangeLicense Class Doc Comment
  *
  * @category    Class
- * @description \&quot;Result of a bulk save element.\r\nIf the save was successful then the StatusCode is 2XX. \r\nIf there was a problem, the StatusCode is not 2XX, and the error message is in the Error field.
+ * @description 
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BulkResult implements ArrayAccess
+class ChangeLicense implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'BulkResult';
+    static $swaggerModelName = 'ChangeLicense';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'status_code' => 'int',
-        'id' => 'string',
-        'error' => 'string'
+        'license' => 'string'
     );
   
     static function swaggerTypes() {
@@ -73,9 +71,7 @@ class BulkResult implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'status_code' => 'StatusCode',
-        'id' => 'Id',
-        'error' => 'Error'
+        'license' => 'License'
     );
   
     static function attributeMap() {
@@ -87,9 +83,7 @@ class BulkResult implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'status_code' => 'setStatusCode',
-        'id' => 'setId',
-        'error' => 'setError'
+        'license' => 'setLicense'
     );
   
     static function setters() {
@@ -101,9 +95,7 @@ class BulkResult implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'status_code' => 'getStatusCode',
-        'id' => 'getId',
-        'error' => 'getError'
+        'license' => 'getLicense'
     );
   
     static function getters() {
@@ -112,22 +104,10 @@ class BulkResult implements ArrayAccess
 
     
     /**
-      * $status_code HTTP status code
-      * @var int
-      */
-    protected $status_code;
-    
-    /**
-      * $id Document id
+      * $license 
       * @var string
       */
-    protected $id;
-    
-    /**
-      * $error Error message
-      * @var string
-      */
-    protected $error;
+    protected $license;
     
 
     /**
@@ -140,72 +120,28 @@ class BulkResult implements ArrayAccess
         
 
         if ($data != null) {
-            $this->status_code = $data["status_code"];
-            $this->id = $data["id"];
-            $this->error = $data["error"];
+            $this->license = $data["license"];
         }
     }
     
     /**
-     * Gets status_code
-     * @return int
-     */
-    public function getStatusCode()
-    {
-        return $this->status_code;
-    }
-  
-    /**
-     * Sets status_code
-     * @param int $status_code HTTP status code
-     * @return $this
-     */
-    public function setStatusCode($status_code)
-    {
-        
-        $this->status_code = $status_code;
-        return $this;
-    }
-    
-    /**
-     * Gets id
+     * Gets license
      * @return string
      */
-    public function getId()
+    public function getLicense()
     {
-        return $this->id;
+        return $this->license;
     }
   
     /**
-     * Sets id
-     * @param string $id Document id
+     * Sets license
+     * @param string $license 
      * @return $this
      */
-    public function setId($id)
+    public function setLicense($license)
     {
         
-        $this->id = $id;
-        return $this;
-    }
-    
-    /**
-     * Gets error
-     * @return string
-     */
-    public function getError()
-    {
-        return $this->error;
-    }
-  
-    /**
-     * Sets error
-     * @param string $error Error message
-     * @return $this
-     */
-    public function setError($error)
-    {
-        
-        $this->error = $error;
+        $this->license = $license;
         return $this;
     }
     

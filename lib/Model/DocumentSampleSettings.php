@@ -120,25 +120,25 @@ class DocumentSampleSettings implements ArrayAccess
 
     
     /**
-      * $id It must be a random string for every new sampling, but must be the same for the same sampling during pagination. \r\n            If you leave it empty then it'll be generated automatically, but then you can not use pagination
+      * $id It must be a random string for every new sampling, but must be the same for the same sampling during pagination. \r\nIf you leave it empty then it'll be generated automatically, but then you can not use pagination
       * @var string
       */
     protected $id;
     
     /**
-      * $tag_id_list You can create a sample from a whole dataset, or just from a given tag section. \r\n            To create a sample from the whole dataset please keep it empty. \r\n            To create a sample from a given number of tags please provide the tag ids
+      * $tag_id_list You can create a sample from a whole dataset, or just from a given tag section. \r\nTo create a sample from the whole dataset please keep it empty. \r\nTo create a sample from a given number of tags please provide the tag ids
       * @var string[]
       */
     protected $tag_id_list;
     
     /**
-      * $percent Defining the sample size, you can use percentage or a given number. \r\n            Using a percentage you can define the document number by a percentage. \r\n            This percentage will calculate the document number by using the available dataset document number. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 10% as a sampling size without stratified method, your sample size is 100.000 x 10% = 10.000
+      * $percent Defining the sample size, you can use percentage or a given number. \r\nUsing a percentage you can define the document number by a percentage. \r\nThis percentage will calculate the document number by using the available dataset document number. \r\nE.g.: if your dataset contains 100.000 documents and you are using 10% as a sampling size without stratified method, your sample size is 100.000 x 10% = 10.000
       * @var double
       */
     protected $percent;
     
     /**
-      * $size Define your sample size by providing a simple integer. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 3.000 as a sampling size without stratified method, your sample size is 3.000
+      * $size Define your sample size by providing a simple integer. \r\nE.g.: if your dataset contains 100.000 documents and you are using 3.000 as a sampling size without stratified method, your sample size is 3.000
       * @var int
       */
     protected $size;
@@ -179,7 +179,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets id
-     * @param string $id It must be a random string for every new sampling, but must be the same for the same sampling during pagination. \r\n            If you leave it empty then it'll be generated automatically, but then you can not use pagination
+     * @param string $id It must be a random string for every new sampling, but must be the same for the same sampling during pagination. \r\nIf you leave it empty then it'll be generated automatically, but then you can not use pagination
      * @return $this
      */
     public function setId($id)
@@ -200,7 +200,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets tag_id_list
-     * @param string[] $tag_id_list You can create a sample from a whole dataset, or just from a given tag section. \r\n            To create a sample from the whole dataset please keep it empty. \r\n            To create a sample from a given number of tags please provide the tag ids
+     * @param string[] $tag_id_list You can create a sample from a whole dataset, or just from a given tag section. \r\nTo create a sample from the whole dataset please keep it empty. \r\nTo create a sample from a given number of tags please provide the tag ids
      * @return $this
      */
     public function setTagIdList($tag_id_list)
@@ -221,7 +221,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets percent
-     * @param double $percent Defining the sample size, you can use percentage or a given number. \r\n            Using a percentage you can define the document number by a percentage. \r\n            This percentage will calculate the document number by using the available dataset document number. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 10% as a sampling size without stratified method, your sample size is 100.000 x 10% = 10.000
+     * @param double $percent Defining the sample size, you can use percentage or a given number. \r\nUsing a percentage you can define the document number by a percentage. \r\nThis percentage will calculate the document number by using the available dataset document number. \r\nE.g.: if your dataset contains 100.000 documents and you are using 10% as a sampling size without stratified method, your sample size is 100.000 x 10% = 10.000
      * @return $this
      */
     public function setPercent($percent)
@@ -242,7 +242,7 @@ class DocumentSampleSettings implements ArrayAccess
   
     /**
      * Sets size
-     * @param int $size Define your sample size by providing a simple integer. \r\n            E.g.: if your dataset contains 100.000 documents and you are using 3.000 as a sampling size without stratified method, your sample size is 3.000
+     * @param int $size Define your sample size by providing a simple integer. \r\nE.g.: if your dataset contains 100.000 documents and you are using 3.000 as a sampling size without stratified method, your sample size is 3.000
      * @return $this
      */
     public function setSize($size)

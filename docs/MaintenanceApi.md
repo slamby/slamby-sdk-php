@@ -1,16 +1,16 @@
-# Swagger\Client\HelperApi
+# Swagger\Client\MaintenanceApi
 
 All URIs are relative to *https://localhost/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fileParser**](HelperApi.md#fileParser) | **POST** /api/Helper/FileParser | 
+[**changeSecret**](MaintenanceApi.md#changeSecret) | **POST** /api/Maintenance/ChangeSecret | 
 
 
 
 
-# **fileParser**
-> \Swagger\Client\Model\FileParserResult fileParser($file_parser)
+# **changeSecret**
+> changeSecret($secret)
 
 
 
@@ -20,15 +20,14 @@ Method | HTTP request | Description
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$api_instance = new Swagger\Client\Api\HelperApi();
-$file_parser = new \Swagger\Client\Model\FileParser(); // \Swagger\Client\Model\FileParser | 
+$api_instance = new Swagger\Client\Api\MaintenanceApi();
+$secret = new \Swagger\Client\Model\ChangeSecret(); // \Swagger\Client\Model\ChangeSecret | 
 
 
 try { 
-    $result = $api_instance->fileParser($file_parser);
-    print_r($result);
+    $api_instance->changeSecret($secret);
 } catch (Exception $e) {
-    echo 'Exception when calling HelperApi->fileParser: ', $e->getMessage(), "\n";
+    echo 'Exception when calling MaintenanceApi->changeSecret: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -37,12 +36,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_parser** | [**\Swagger\Client\Model\FileParser**](\Swagger\Client\Model\FileParser.md)|  | [optional] 
+ **secret** | [**\Swagger\Client\Model\ChangeSecret**](\Swagger\Client\Model\ChangeSecret.md)|  | [optional] 
 
 
 ### Return type
 
-[**\Swagger\Client\Model\FileParserResult**](FileParserResult.md)
+void (empty response body)
 
 ### Authorization
 
