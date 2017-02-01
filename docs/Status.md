@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **processor_count** | **int** | Number of processors on the API machine | [optional] 
 **cpu_usage** | **double** | CPU usage % | [optional] 
 **available_free_space** | **double** | Available free disk space in MB | [optional] 
+**total_space** | **double** | Total disk space in MB | [optional] 
 **total_memory** | **double** | Total physical memory in MB | [optional] 
 **free_memory** | **double** | Free physical memory in MB | [optional] 
 

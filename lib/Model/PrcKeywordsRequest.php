@@ -114,7 +114,7 @@ class PrcKeywordsRequest implements ArrayAccess
     protected $text;
     
     /**
-      * $tag_id The extracting keywords calculation depends on this Tag
+      * $tag_id The extracting keywords calculation depends on this Tag. Prc Service try to detect it automatically if it's not provided
       * @var string
       */
     protected $tag_id;
@@ -167,7 +167,7 @@ class PrcKeywordsRequest implements ArrayAccess
   
     /**
      * Sets tag_id
-     * @param string $tag_id The extracting keywords calculation depends on this Tag
+     * @param string $tag_id The extracting keywords calculation depends on this Tag. Prc Service try to detect it automatically if it's not provided
      * @return $this
      */
     public function setTagId($tag_id)

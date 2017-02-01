@@ -357,9 +357,9 @@ class Process implements ArrayAccess
      */
     public function setType($type)
     {
-        $allowed_values = array("ClassifierPrepare", "PrcPrepare", "ClassifierExportDictionaries", "PrcExportDictionaries", "TagsExportWords", "ClassifierActivate", "PrcActivate", "PrcIndex", "PrcIndexPartial");
+        $allowed_values = array("ClassifierPrepare", "PrcPrepare", "ClassifierExportDictionaries", "PrcExportDictionaries", "TagsExportWords", "ClassifierActivate", "PrcActivate", "PrcIndex", "PrcIndexPartial", "DocumentsCopy", "DocumentsMove", "SearchPrepare", "SearchActivate");
         if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'ClassifierPrepare', 'PrcPrepare', 'ClassifierExportDictionaries', 'PrcExportDictionaries', 'TagsExportWords', 'ClassifierActivate', 'PrcActivate', 'PrcIndex', 'PrcIndexPartial'");
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'ClassifierPrepare', 'PrcPrepare', 'ClassifierExportDictionaries', 'PrcExportDictionaries', 'TagsExportWords', 'ClassifierActivate', 'PrcActivate', 'PrcIndex', 'PrcIndexPartial', 'DocumentsCopy', 'DocumentsMove', 'SearchPrepare', 'SearchActivate'");
         }
         $this->type = $type;
         return $this;

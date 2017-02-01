@@ -188,7 +188,7 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentCopySettings $copy_settings  (optional)
-     * @return void
+     * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function copyDocuments($copy_settings = null)
@@ -204,7 +204,7 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentCopySettings $copy_settings  (optional)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function copyDocumentsWithHttpInfo($copy_settings = null)
@@ -248,18 +248,22 @@ class DocumentApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams
+                $headerParams, '\Swagger\Client\Model\Process'
             );
             
-            return array(null, $statusCode, $httpHeader);
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Process', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
-            case 400:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Process', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
-            case 409:
+            case 400:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
@@ -748,7 +752,7 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentMoveSettings $move_settings  (optional)
-     * @return void
+     * @return \Swagger\Client\Model\Process
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function moveDocuments($move_settings = null)
@@ -764,7 +768,7 @@ class DocumentApi
      * 
      *
      * @param \Swagger\Client\Model\DocumentMoveSettings $move_settings  (optional)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Process, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function moveDocumentsWithHttpInfo($move_settings = null)
@@ -808,18 +812,22 @@ class DocumentApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams
+                $headerParams, '\Swagger\Client\Model\Process'
             );
             
-            return array(null, $statusCode, $httpHeader);
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Process', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
-            case 400:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Process', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
-            case 409:
+            case 400:
                 $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorsModel', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;

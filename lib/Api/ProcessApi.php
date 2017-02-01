@@ -291,12 +291,13 @@ class ProcessApi
      * 
      *
      * @param bool $all_status  (optional)
+     * @param bool $all_time  (optional)
      * @return \Swagger\Client\Model\Process[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getProcesses($all_status = null)
+    public function getProcesses($all_status = null, $all_time = null)
     {
-        list($response) = $this->getProcessesWithHttpInfo ($all_status);
+        list($response) = $this->getProcessesWithHttpInfo ($all_status, $all_time);
         return $response; 
     }
 
@@ -307,10 +308,11 @@ class ProcessApi
      * 
      *
      * @param bool $all_status  (optional)
+     * @param bool $all_time  (optional)
      * @return Array of \Swagger\Client\Model\Process[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getProcessesWithHttpInfo($all_status = null)
+    public function getProcessesWithHttpInfo($all_status = null, $all_time = null)
     {
         
   
@@ -330,6 +332,10 @@ class ProcessApi
         
         if ($all_status !== null) {
             $queryParams['allStatus'] = $this->apiClient->getSerializer()->toQueryValue($all_status);
+        }// query params
+        
+        if ($all_time !== null) {
+            $queryParams['allTime'] = $this->apiClient->getSerializer()->toQueryValue($all_time);
         }
         
         

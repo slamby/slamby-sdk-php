@@ -2,7 +2,7 @@
 
 
 /**
- * ClassifierRecommendationRequest
+ * SearchResultWrapper
  *
  * PHP version 5
  *
@@ -37,7 +37,7 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * ClassifierRecommendationRequest Class Doc Comment
+ * SearchResultWrapper Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -46,24 +46,23 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassifierRecommendationRequest implements ArrayAccess
+class SearchResultWrapper implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'ClassifierRecommendationRequest';
+    static $swaggerModelName = 'SearchResultWrapper';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'text' => 'string',
-        'count' => 'int',
-        'use_emphasizing' => 'bool',
-        'need_tag_in_result' => 'bool',
-        'parent_tag_id_list' => 'string[]'
+        'auto_complete_result_list' => '\Swagger\Client\Model\AutoCompleteResult[]',
+        'classifier_result_list' => '\Swagger\Client\Model\SearchClassifierRecommendationResult[]',
+        'search_result_list' => '\Swagger\Client\Model\SearchResult[]',
+        'total' => 'int'
     );
   
     static function swaggerTypes() {
@@ -75,11 +74,10 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'text' => 'Text',
-        'count' => 'Count',
-        'use_emphasizing' => 'UseEmphasizing',
-        'need_tag_in_result' => 'NeedTagInResult',
-        'parent_tag_id_list' => 'ParentTagIdList'
+        'auto_complete_result_list' => 'AutoCompleteResultList',
+        'classifier_result_list' => 'ClassifierResultList',
+        'search_result_list' => 'SearchResultList',
+        'total' => 'Total'
     );
   
     static function attributeMap() {
@@ -91,11 +89,10 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'text' => 'setText',
-        'count' => 'setCount',
-        'use_emphasizing' => 'setUseEmphasizing',
-        'need_tag_in_result' => 'setNeedTagInResult',
-        'parent_tag_id_list' => 'setParentTagIdList'
+        'auto_complete_result_list' => 'setAutoCompleteResultList',
+        'classifier_result_list' => 'setClassifierResultList',
+        'search_result_list' => 'setSearchResultList',
+        'total' => 'setTotal'
     );
   
     static function setters() {
@@ -107,11 +104,10 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'text' => 'getText',
-        'count' => 'getCount',
-        'use_emphasizing' => 'getUseEmphasizing',
-        'need_tag_in_result' => 'getNeedTagInResult',
-        'parent_tag_id_list' => 'getParentTagIdList'
+        'auto_complete_result_list' => 'getAutoCompleteResultList',
+        'classifier_result_list' => 'getClassifierResultList',
+        'search_result_list' => 'getSearchResultList',
+        'total' => 'getTotal'
     );
   
     static function getters() {
@@ -120,34 +116,28 @@ class ClassifierRecommendationRequest implements ArrayAccess
 
     
     /**
-      * $text The text the you want to classify
-      * @var string
+      * $auto_complete_result_list List of the AutoComplete suggestions
+      * @var \Swagger\Client\Model\AutoCompleteResult[]
       */
-    protected $text;
+    protected $auto_complete_result_list;
     
     /**
-      * $count How many results you want to see in the response (default value is 3)
+      * $classifier_result_list List of the Classifier results of the input text
+      * @var \Swagger\Client\Model\SearchClassifierRecommendationResult[]
+      */
+    protected $classifier_result_list;
+    
+    /**
+      * $search_result_list The matched documents with relevance scores
+      * @var \Swagger\Client\Model\SearchResult[]
+      */
+    protected $search_result_list;
+    
+    /**
+      * $total The total matched document count
       * @var int
       */
-    protected $count;
-    
-    /**
-      * $use_emphasizing Use emphasizing algorithm during this recommendation
-      * @var bool
-      */
-    protected $use_emphasizing;
-    
-    /**
-      * $need_tag_in_result If you want to see all the tag object in the response
-      * @var bool
-      */
-    protected $need_tag_in_result;
-    
-    /**
-      * $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-      * @var string[]
-      */
-    protected $parent_tag_id_list;
+    protected $total;
     
 
     /**
@@ -160,116 +150,94 @@ class ClassifierRecommendationRequest implements ArrayAccess
         
 
         if ($data != null) {
-            $this->text = $data["text"];
-            $this->count = $data["count"];
-            $this->use_emphasizing = $data["use_emphasizing"];
-            $this->need_tag_in_result = $data["need_tag_in_result"];
-            $this->parent_tag_id_list = $data["parent_tag_id_list"];
+            $this->auto_complete_result_list = $data["auto_complete_result_list"];
+            $this->classifier_result_list = $data["classifier_result_list"];
+            $this->search_result_list = $data["search_result_list"];
+            $this->total = $data["total"];
         }
     }
     
     /**
-     * Gets text
-     * @return string
+     * Gets auto_complete_result_list
+     * @return \Swagger\Client\Model\AutoCompleteResult[]
      */
-    public function getText()
+    public function getAutoCompleteResultList()
     {
-        return $this->text;
+        return $this->auto_complete_result_list;
     }
   
     /**
-     * Sets text
-     * @param string $text The text the you want to classify
+     * Sets auto_complete_result_list
+     * @param \Swagger\Client\Model\AutoCompleteResult[] $auto_complete_result_list List of the AutoComplete suggestions
      * @return $this
      */
-    public function setText($text)
+    public function setAutoCompleteResultList($auto_complete_result_list)
     {
         
-        $this->text = $text;
+        $this->auto_complete_result_list = $auto_complete_result_list;
         return $this;
     }
     
     /**
-     * Gets count
+     * Gets classifier_result_list
+     * @return \Swagger\Client\Model\SearchClassifierRecommendationResult[]
+     */
+    public function getClassifierResultList()
+    {
+        return $this->classifier_result_list;
+    }
+  
+    /**
+     * Sets classifier_result_list
+     * @param \Swagger\Client\Model\SearchClassifierRecommendationResult[] $classifier_result_list List of the Classifier results of the input text
+     * @return $this
+     */
+    public function setClassifierResultList($classifier_result_list)
+    {
+        
+        $this->classifier_result_list = $classifier_result_list;
+        return $this;
+    }
+    
+    /**
+     * Gets search_result_list
+     * @return \Swagger\Client\Model\SearchResult[]
+     */
+    public function getSearchResultList()
+    {
+        return $this->search_result_list;
+    }
+  
+    /**
+     * Sets search_result_list
+     * @param \Swagger\Client\Model\SearchResult[] $search_result_list The matched documents with relevance scores
+     * @return $this
+     */
+    public function setSearchResultList($search_result_list)
+    {
+        
+        $this->search_result_list = $search_result_list;
+        return $this;
+    }
+    
+    /**
+     * Gets total
      * @return int
      */
-    public function getCount()
+    public function getTotal()
     {
-        return $this->count;
+        return $this->total;
     }
   
     /**
-     * Sets count
-     * @param int $count How many results you want to see in the response (default value is 3)
+     * Sets total
+     * @param int $total The total matched document count
      * @return $this
      */
-    public function setCount($count)
+    public function setTotal($total)
     {
         
-        $this->count = $count;
-        return $this;
-    }
-    
-    /**
-     * Gets use_emphasizing
-     * @return bool
-     */
-    public function getUseEmphasizing()
-    {
-        return $this->use_emphasizing;
-    }
-  
-    /**
-     * Sets use_emphasizing
-     * @param bool $use_emphasizing Use emphasizing algorithm during this recommendation
-     * @return $this
-     */
-    public function setUseEmphasizing($use_emphasizing)
-    {
-        
-        $this->use_emphasizing = $use_emphasizing;
-        return $this;
-    }
-    
-    /**
-     * Gets need_tag_in_result
-     * @return bool
-     */
-    public function getNeedTagInResult()
-    {
-        return $this->need_tag_in_result;
-    }
-  
-    /**
-     * Sets need_tag_in_result
-     * @param bool $need_tag_in_result If you want to see all the tag object in the response
-     * @return $this
-     */
-    public function setNeedTagInResult($need_tag_in_result)
-    {
-        
-        $this->need_tag_in_result = $need_tag_in_result;
-        return $this;
-    }
-    
-    /**
-     * Gets parent_tag_id_list
-     * @return string[]
-     */
-    public function getParentTagIdList()
-    {
-        return $this->parent_tag_id_list;
-    }
-  
-    /**
-     * Sets parent_tag_id_list
-     * @param string[] $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-     * @return $this
-     */
-    public function setParentTagIdList($parent_tag_id_list)
-    {
-        
-        $this->parent_tag_id_list = $parent_tag_id_list;
+        $this->total = $total;
         return $this;
     }
     

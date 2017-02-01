@@ -389,9 +389,9 @@ class ClassifierService implements ArrayAccess
      */
     public function setType($type)
     {
-        $allowed_values = array("Classifier", "Prc");
+        $allowed_values = array("Classifier", "Prc", "Search");
         if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'Classifier', 'Prc'");
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'Classifier', 'Prc', 'Search'");
         }
         $this->type = $type;
         return $this;

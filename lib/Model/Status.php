@@ -63,6 +63,7 @@ class Status implements ArrayAccess
         'processor_count' => 'int',
         'cpu_usage' => 'double',
         'available_free_space' => 'double',
+        'total_space' => 'double',
         'total_memory' => 'double',
         'free_memory' => 'double'
     );
@@ -80,6 +81,7 @@ class Status implements ArrayAccess
         'processor_count' => 'ProcessorCount',
         'cpu_usage' => 'CpuUsage',
         'available_free_space' => 'AvailableFreeSpace',
+        'total_space' => 'TotalSpace',
         'total_memory' => 'TotalMemory',
         'free_memory' => 'FreeMemory'
     );
@@ -97,6 +99,7 @@ class Status implements ArrayAccess
         'processor_count' => 'setProcessorCount',
         'cpu_usage' => 'setCpuUsage',
         'available_free_space' => 'setAvailableFreeSpace',
+        'total_space' => 'setTotalSpace',
         'total_memory' => 'setTotalMemory',
         'free_memory' => 'setFreeMemory'
     );
@@ -114,6 +117,7 @@ class Status implements ArrayAccess
         'processor_count' => 'getProcessorCount',
         'cpu_usage' => 'getCpuUsage',
         'available_free_space' => 'getAvailableFreeSpace',
+        'total_space' => 'getTotalSpace',
         'total_memory' => 'getTotalMemory',
         'free_memory' => 'getFreeMemory'
     );
@@ -148,6 +152,12 @@ class Status implements ArrayAccess
     protected $available_free_space;
     
     /**
+      * $total_space Total disk space in MB
+      * @var double
+      */
+    protected $total_space;
+    
+    /**
       * $total_memory Total physical memory in MB
       * @var double
       */
@@ -174,6 +184,7 @@ class Status implements ArrayAccess
             $this->processor_count = $data["processor_count"];
             $this->cpu_usage = $data["cpu_usage"];
             $this->available_free_space = $data["available_free_space"];
+            $this->total_space = $data["total_space"];
             $this->total_memory = $data["total_memory"];
             $this->free_memory = $data["free_memory"];
         }
@@ -260,6 +271,27 @@ class Status implements ArrayAccess
     {
         
         $this->available_free_space = $available_free_space;
+        return $this;
+    }
+    
+    /**
+     * Gets total_space
+     * @return double
+     */
+    public function getTotalSpace()
+    {
+        return $this->total_space;
+    }
+  
+    /**
+     * Sets total_space
+     * @param double $total_space Total disk space in MB
+     * @return $this
+     */
+    public function setTotalSpace($total_space)
+    {
+        
+        $this->total_space = $total_space;
         return $this;
     }
     

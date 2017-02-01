@@ -2,7 +2,7 @@
 
 
 /**
- * ClassifierRecommendationRequest
+ * SearchClassifierRecommendationResult
  *
  * PHP version 5
  *
@@ -37,7 +37,7 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * ClassifierRecommendationRequest Class Doc Comment
+ * SearchClassifierRecommendationResult Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -46,24 +46,24 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassifierRecommendationRequest implements ArrayAccess
+class SearchClassifierRecommendationResult implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'ClassifierRecommendationRequest';
+    static $swaggerModelName = 'SearchClassifierRecommendationResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'text' => 'string',
-        'count' => 'int',
-        'use_emphasizing' => 'bool',
-        'need_tag_in_result' => 'bool',
-        'parent_tag_id_list' => 'string[]'
+        'search_result_match' => 'bool',
+        'tag_id' => 'string',
+        'score' => 'double',
+        'tag' => '\Swagger\Client\Model\Tag',
+        'is_emphasized' => 'bool'
     );
   
     static function swaggerTypes() {
@@ -75,11 +75,11 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'text' => 'Text',
-        'count' => 'Count',
-        'use_emphasizing' => 'UseEmphasizing',
-        'need_tag_in_result' => 'NeedTagInResult',
-        'parent_tag_id_list' => 'ParentTagIdList'
+        'search_result_match' => 'SearchResultMatch',
+        'tag_id' => 'TagId',
+        'score' => 'Score',
+        'tag' => 'Tag',
+        'is_emphasized' => 'IsEmphasized'
     );
   
     static function attributeMap() {
@@ -91,11 +91,11 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'text' => 'setText',
-        'count' => 'setCount',
-        'use_emphasizing' => 'setUseEmphasizing',
-        'need_tag_in_result' => 'setNeedTagInResult',
-        'parent_tag_id_list' => 'setParentTagIdList'
+        'search_result_match' => 'setSearchResultMatch',
+        'tag_id' => 'setTagId',
+        'score' => 'setScore',
+        'tag' => 'setTag',
+        'is_emphasized' => 'setIsEmphasized'
     );
   
     static function setters() {
@@ -107,11 +107,11 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'text' => 'getText',
-        'count' => 'getCount',
-        'use_emphasizing' => 'getUseEmphasizing',
-        'need_tag_in_result' => 'getNeedTagInResult',
-        'parent_tag_id_list' => 'getParentTagIdList'
+        'search_result_match' => 'getSearchResultMatch',
+        'tag_id' => 'getTagId',
+        'score' => 'getScore',
+        'tag' => 'getTag',
+        'is_emphasized' => 'getIsEmphasized'
     );
   
     static function getters() {
@@ -120,34 +120,34 @@ class ClassifierRecommendationRequest implements ArrayAccess
 
     
     /**
-      * $text The text the you want to classify
+      * $search_result_match If the recommended category is matched any of the search-matched documents categories
+      * @var bool
+      */
+    protected $search_result_match;
+    
+    /**
+      * $tag_id The recommended tag id
       * @var string
       */
-    protected $text;
+    protected $tag_id;
     
     /**
-      * $count How many results you want to see in the response (default value is 3)
-      * @var int
+      * $score The score that belongs to the tag id
+      * @var double
       */
-    protected $count;
+    protected $score;
     
     /**
-      * $use_emphasizing Use emphasizing algorithm during this recommendation
+      * $tag 
+      * @var \Swagger\Client\Model\Tag
+      */
+    protected $tag;
+    
+    /**
+      * $is_emphasized If there was applied emphasizing by this tag
       * @var bool
       */
-    protected $use_emphasizing;
-    
-    /**
-      * $need_tag_in_result If you want to see all the tag object in the response
-      * @var bool
-      */
-    protected $need_tag_in_result;
-    
-    /**
-      * $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-      * @var string[]
-      */
-    protected $parent_tag_id_list;
+    protected $is_emphasized;
     
 
     /**
@@ -160,116 +160,116 @@ class ClassifierRecommendationRequest implements ArrayAccess
         
 
         if ($data != null) {
-            $this->text = $data["text"];
-            $this->count = $data["count"];
-            $this->use_emphasizing = $data["use_emphasizing"];
-            $this->need_tag_in_result = $data["need_tag_in_result"];
-            $this->parent_tag_id_list = $data["parent_tag_id_list"];
+            $this->search_result_match = $data["search_result_match"];
+            $this->tag_id = $data["tag_id"];
+            $this->score = $data["score"];
+            $this->tag = $data["tag"];
+            $this->is_emphasized = $data["is_emphasized"];
         }
     }
     
     /**
-     * Gets text
+     * Gets search_result_match
+     * @return bool
+     */
+    public function getSearchResultMatch()
+    {
+        return $this->search_result_match;
+    }
+  
+    /**
+     * Sets search_result_match
+     * @param bool $search_result_match If the recommended category is matched any of the search-matched documents categories
+     * @return $this
+     */
+    public function setSearchResultMatch($search_result_match)
+    {
+        
+        $this->search_result_match = $search_result_match;
+        return $this;
+    }
+    
+    /**
+     * Gets tag_id
      * @return string
      */
-    public function getText()
+    public function getTagId()
     {
-        return $this->text;
+        return $this->tag_id;
     }
   
     /**
-     * Sets text
-     * @param string $text The text the you want to classify
+     * Sets tag_id
+     * @param string $tag_id The recommended tag id
      * @return $this
      */
-    public function setText($text)
+    public function setTagId($tag_id)
     {
         
-        $this->text = $text;
+        $this->tag_id = $tag_id;
         return $this;
     }
     
     /**
-     * Gets count
-     * @return int
+     * Gets score
+     * @return double
      */
-    public function getCount()
+    public function getScore()
     {
-        return $this->count;
+        return $this->score;
     }
   
     /**
-     * Sets count
-     * @param int $count How many results you want to see in the response (default value is 3)
+     * Sets score
+     * @param double $score The score that belongs to the tag id
      * @return $this
      */
-    public function setCount($count)
+    public function setScore($score)
     {
         
-        $this->count = $count;
+        $this->score = $score;
         return $this;
     }
     
     /**
-     * Gets use_emphasizing
+     * Gets tag
+     * @return \Swagger\Client\Model\Tag
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+  
+    /**
+     * Sets tag
+     * @param \Swagger\Client\Model\Tag $tag 
+     * @return $this
+     */
+    public function setTag($tag)
+    {
+        
+        $this->tag = $tag;
+        return $this;
+    }
+    
+    /**
+     * Gets is_emphasized
      * @return bool
      */
-    public function getUseEmphasizing()
+    public function getIsEmphasized()
     {
-        return $this->use_emphasizing;
+        return $this->is_emphasized;
     }
   
     /**
-     * Sets use_emphasizing
-     * @param bool $use_emphasizing Use emphasizing algorithm during this recommendation
+     * Sets is_emphasized
+     * @param bool $is_emphasized If there was applied emphasizing by this tag
      * @return $this
      */
-    public function setUseEmphasizing($use_emphasizing)
+    public function setIsEmphasized($is_emphasized)
     {
         
-        $this->use_emphasizing = $use_emphasizing;
-        return $this;
-    }
-    
-    /**
-     * Gets need_tag_in_result
-     * @return bool
-     */
-    public function getNeedTagInResult()
-    {
-        return $this->need_tag_in_result;
-    }
-  
-    /**
-     * Sets need_tag_in_result
-     * @param bool $need_tag_in_result If you want to see all the tag object in the response
-     * @return $this
-     */
-    public function setNeedTagInResult($need_tag_in_result)
-    {
-        
-        $this->need_tag_in_result = $need_tag_in_result;
-        return $this;
-    }
-    
-    /**
-     * Gets parent_tag_id_list
-     * @return string[]
-     */
-    public function getParentTagIdList()
-    {
-        return $this->parent_tag_id_list;
-    }
-  
-    /**
-     * Sets parent_tag_id_list
-     * @param string[] $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-     * @return $this
-     */
-    public function setParentTagIdList($parent_tag_id_list)
-    {
-        
-        $this->parent_tag_id_list = $parent_tag_id_list;
+        $this->is_emphasized = $is_emphasized;
         return $this;
     }
     

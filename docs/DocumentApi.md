@@ -65,7 +65,7 @@ No authorization required
 
 
 # **copyDocuments**
-> copyDocuments($copy_settings)
+> \Swagger\Client\Model\Process copyDocuments($copy_settings)
 
 
 
@@ -80,7 +80,8 @@ $copy_settings = new \Swagger\Client\Model\DocumentCopySettings(); // \Swagger\C
 
 
 try { 
-    $api_instance->copyDocuments($copy_settings);
+    $result = $api_instance->copyDocuments($copy_settings);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->copyDocuments: ', $e->getMessage(), "\n";
 }
@@ -96,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Process**](Process.md)
 
 ### Authorization
 
@@ -346,7 +347,7 @@ No authorization required
 
 
 # **moveDocuments**
-> moveDocuments($move_settings)
+> \Swagger\Client\Model\Process moveDocuments($move_settings)
 
 
 
@@ -361,7 +362,8 @@ $move_settings = new \Swagger\Client\Model\DocumentMoveSettings(); // \Swagger\C
 
 
 try { 
-    $api_instance->moveDocuments($move_settings);
+    $result = $api_instance->moveDocuments($move_settings);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->moveDocuments: ', $e->getMessage(), "\n";
 }
@@ -377,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Process**](Process.md)
 
 ### Authorization
 

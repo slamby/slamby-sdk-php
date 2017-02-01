@@ -2,7 +2,7 @@
 
 
 /**
- * ClassifierRecommendationRequest
+ * SearchRequest
  *
  * PHP version 5
  *
@@ -37,7 +37,7 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * ClassifierRecommendationRequest Class Doc Comment
+ * SearchRequest Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -46,13 +46,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassifierRecommendationRequest implements ArrayAccess
+class SearchRequest implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'ClassifierRecommendationRequest';
+    static $swaggerModelName = 'SearchRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
@@ -60,10 +60,9 @@ class ClassifierRecommendationRequest implements ArrayAccess
       */
     static $swaggerTypes = array(
         'text' => 'string',
-        'count' => 'int',
-        'use_emphasizing' => 'bool',
-        'need_tag_in_result' => 'bool',
-        'parent_tag_id_list' => 'string[]'
+        'auto_complete_settings' => '\Swagger\Client\Model\AutoCompleteSettings',
+        'search_settings' => '\Swagger\Client\Model\SearchSettings',
+        'classifier_settings' => '\Swagger\Client\Model\ClassifierSettings'
     );
   
     static function swaggerTypes() {
@@ -76,10 +75,9 @@ class ClassifierRecommendationRequest implements ArrayAccess
       */
     static $attributeMap = array(
         'text' => 'Text',
-        'count' => 'Count',
-        'use_emphasizing' => 'UseEmphasizing',
-        'need_tag_in_result' => 'NeedTagInResult',
-        'parent_tag_id_list' => 'ParentTagIdList'
+        'auto_complete_settings' => 'AutoCompleteSettings',
+        'search_settings' => 'SearchSettings',
+        'classifier_settings' => 'ClassifierSettings'
     );
   
     static function attributeMap() {
@@ -92,10 +90,9 @@ class ClassifierRecommendationRequest implements ArrayAccess
       */
     static $setters = array(
         'text' => 'setText',
-        'count' => 'setCount',
-        'use_emphasizing' => 'setUseEmphasizing',
-        'need_tag_in_result' => 'setNeedTagInResult',
-        'parent_tag_id_list' => 'setParentTagIdList'
+        'auto_complete_settings' => 'setAutoCompleteSettings',
+        'search_settings' => 'setSearchSettings',
+        'classifier_settings' => 'setClassifierSettings'
     );
   
     static function setters() {
@@ -108,10 +105,9 @@ class ClassifierRecommendationRequest implements ArrayAccess
       */
     static $getters = array(
         'text' => 'getText',
-        'count' => 'getCount',
-        'use_emphasizing' => 'getUseEmphasizing',
-        'need_tag_in_result' => 'getNeedTagInResult',
-        'parent_tag_id_list' => 'getParentTagIdList'
+        'auto_complete_settings' => 'getAutoCompleteSettings',
+        'search_settings' => 'getSearchSettings',
+        'classifier_settings' => 'getClassifierSettings'
     );
   
     static function getters() {
@@ -120,34 +116,28 @@ class ClassifierRecommendationRequest implements ArrayAccess
 
     
     /**
-      * $text The text the you want to classify
+      * $text A simple text or a Query String query, depends on the Type of the search
       * @var string
       */
     protected $text;
     
     /**
-      * $count How many results you want to see in the response (default value is 3)
-      * @var int
+      * $auto_complete_settings You can override the activated AutoCompleteSettings during each search. Null means the activated settings will be used
+      * @var \Swagger\Client\Model\AutoCompleteSettings
       */
-    protected $count;
+    protected $auto_complete_settings;
     
     /**
-      * $use_emphasizing Use emphasizing algorithm during this recommendation
-      * @var bool
+      * $search_settings You can override the activated SearchSettings during each search. Null means the activated settings will be used
+      * @var \Swagger\Client\Model\SearchSettings
       */
-    protected $use_emphasizing;
+    protected $search_settings;
     
     /**
-      * $need_tag_in_result If you want to see all the tag object in the response
-      * @var bool
+      * $classifier_settings You can override the activated ClassifierSettings during each search. Null means the activated settings will be used
+      * @var \Swagger\Client\Model\ClassifierSettings
       */
-    protected $need_tag_in_result;
-    
-    /**
-      * $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-      * @var string[]
-      */
-    protected $parent_tag_id_list;
+    protected $classifier_settings;
     
 
     /**
@@ -161,10 +151,9 @@ class ClassifierRecommendationRequest implements ArrayAccess
 
         if ($data != null) {
             $this->text = $data["text"];
-            $this->count = $data["count"];
-            $this->use_emphasizing = $data["use_emphasizing"];
-            $this->need_tag_in_result = $data["need_tag_in_result"];
-            $this->parent_tag_id_list = $data["parent_tag_id_list"];
+            $this->auto_complete_settings = $data["auto_complete_settings"];
+            $this->search_settings = $data["search_settings"];
+            $this->classifier_settings = $data["classifier_settings"];
         }
     }
     
@@ -179,7 +168,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
   
     /**
      * Sets text
-     * @param string $text The text the you want to classify
+     * @param string $text A simple text or a Query String query, depends on the Type of the search
      * @return $this
      */
     public function setText($text)
@@ -190,86 +179,65 @@ class ClassifierRecommendationRequest implements ArrayAccess
     }
     
     /**
-     * Gets count
-     * @return int
+     * Gets auto_complete_settings
+     * @return \Swagger\Client\Model\AutoCompleteSettings
      */
-    public function getCount()
+    public function getAutoCompleteSettings()
     {
-        return $this->count;
+        return $this->auto_complete_settings;
     }
   
     /**
-     * Sets count
-     * @param int $count How many results you want to see in the response (default value is 3)
+     * Sets auto_complete_settings
+     * @param \Swagger\Client\Model\AutoCompleteSettings $auto_complete_settings You can override the activated AutoCompleteSettings during each search. Null means the activated settings will be used
      * @return $this
      */
-    public function setCount($count)
+    public function setAutoCompleteSettings($auto_complete_settings)
     {
         
-        $this->count = $count;
+        $this->auto_complete_settings = $auto_complete_settings;
         return $this;
     }
     
     /**
-     * Gets use_emphasizing
-     * @return bool
+     * Gets search_settings
+     * @return \Swagger\Client\Model\SearchSettings
      */
-    public function getUseEmphasizing()
+    public function getSearchSettings()
     {
-        return $this->use_emphasizing;
+        return $this->search_settings;
     }
   
     /**
-     * Sets use_emphasizing
-     * @param bool $use_emphasizing Use emphasizing algorithm during this recommendation
+     * Sets search_settings
+     * @param \Swagger\Client\Model\SearchSettings $search_settings You can override the activated SearchSettings during each search. Null means the activated settings will be used
      * @return $this
      */
-    public function setUseEmphasizing($use_emphasizing)
+    public function setSearchSettings($search_settings)
     {
         
-        $this->use_emphasizing = $use_emphasizing;
+        $this->search_settings = $search_settings;
         return $this;
     }
     
     /**
-     * Gets need_tag_in_result
-     * @return bool
+     * Gets classifier_settings
+     * @return \Swagger\Client\Model\ClassifierSettings
      */
-    public function getNeedTagInResult()
+    public function getClassifierSettings()
     {
-        return $this->need_tag_in_result;
+        return $this->classifier_settings;
     }
   
     /**
-     * Sets need_tag_in_result
-     * @param bool $need_tag_in_result If you want to see all the tag object in the response
+     * Sets classifier_settings
+     * @param \Swagger\Client\Model\ClassifierSettings $classifier_settings You can override the activated ClassifierSettings during each search. Null means the activated settings will be used
      * @return $this
      */
-    public function setNeedTagInResult($need_tag_in_result)
+    public function setClassifierSettings($classifier_settings)
     {
         
-        $this->need_tag_in_result = $need_tag_in_result;
-        return $this;
-    }
-    
-    /**
-     * Gets parent_tag_id_list
-     * @return string[]
-     */
-    public function getParentTagIdList()
-    {
-        return $this->parent_tag_id_list;
-    }
-  
-    /**
-     * Sets parent_tag_id_list
-     * @param string[] $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-     * @return $this
-     */
-    public function setParentTagIdList($parent_tag_id_list)
-    {
-        
-        $this->parent_tag_id_list = $parent_tag_id_list;
+        $this->classifier_settings = $classifier_settings;
         return $this;
     }
     

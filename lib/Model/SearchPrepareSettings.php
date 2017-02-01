@@ -2,7 +2,7 @@
 
 
 /**
- * ClassifierRecommendationRequest
+ * SearchPrepareSettings
  *
  * PHP version 5
  *
@@ -37,7 +37,7 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * ClassifierRecommendationRequest Class Doc Comment
+ * SearchPrepareSettings Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -46,24 +46,20 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ClassifierRecommendationRequest implements ArrayAccess
+class SearchPrepareSettings implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'ClassifierRecommendationRequest';
+    static $swaggerModelName = 'SearchPrepareSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'text' => 'string',
-        'count' => 'int',
-        'use_emphasizing' => 'bool',
-        'need_tag_in_result' => 'bool',
-        'parent_tag_id_list' => 'string[]'
+        'data_set_name' => 'string'
     );
   
     static function swaggerTypes() {
@@ -75,11 +71,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'text' => 'Text',
-        'count' => 'Count',
-        'use_emphasizing' => 'UseEmphasizing',
-        'need_tag_in_result' => 'NeedTagInResult',
-        'parent_tag_id_list' => 'ParentTagIdList'
+        'data_set_name' => 'DataSetName'
     );
   
     static function attributeMap() {
@@ -91,11 +83,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'text' => 'setText',
-        'count' => 'setCount',
-        'use_emphasizing' => 'setUseEmphasizing',
-        'need_tag_in_result' => 'setNeedTagInResult',
-        'parent_tag_id_list' => 'setParentTagIdList'
+        'data_set_name' => 'setDataSetName'
     );
   
     static function setters() {
@@ -107,11 +95,7 @@ class ClassifierRecommendationRequest implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'text' => 'getText',
-        'count' => 'getCount',
-        'use_emphasizing' => 'getUseEmphasizing',
-        'need_tag_in_result' => 'getNeedTagInResult',
-        'parent_tag_id_list' => 'getParentTagIdList'
+        'data_set_name' => 'getDataSetName'
     );
   
     static function getters() {
@@ -120,34 +104,10 @@ class ClassifierRecommendationRequest implements ArrayAccess
 
     
     /**
-      * $text The text the you want to classify
+      * $data_set_name The name of the DataSet in which this service will search
       * @var string
       */
-    protected $text;
-    
-    /**
-      * $count How many results you want to see in the response (default value is 3)
-      * @var int
-      */
-    protected $count;
-    
-    /**
-      * $use_emphasizing Use emphasizing algorithm during this recommendation
-      * @var bool
-      */
-    protected $use_emphasizing;
-    
-    /**
-      * $need_tag_in_result If you want to see all the tag object in the response
-      * @var bool
-      */
-    protected $need_tag_in_result;
-    
-    /**
-      * $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-      * @var string[]
-      */
-    protected $parent_tag_id_list;
+    protected $data_set_name;
     
 
     /**
@@ -160,116 +120,28 @@ class ClassifierRecommendationRequest implements ArrayAccess
         
 
         if ($data != null) {
-            $this->text = $data["text"];
-            $this->count = $data["count"];
-            $this->use_emphasizing = $data["use_emphasizing"];
-            $this->need_tag_in_result = $data["need_tag_in_result"];
-            $this->parent_tag_id_list = $data["parent_tag_id_list"];
+            $this->data_set_name = $data["data_set_name"];
         }
     }
     
     /**
-     * Gets text
+     * Gets data_set_name
      * @return string
      */
-    public function getText()
+    public function getDataSetName()
     {
-        return $this->text;
+        return $this->data_set_name;
     }
   
     /**
-     * Sets text
-     * @param string $text The text the you want to classify
+     * Sets data_set_name
+     * @param string $data_set_name The name of the DataSet in which this service will search
      * @return $this
      */
-    public function setText($text)
+    public function setDataSetName($data_set_name)
     {
         
-        $this->text = $text;
-        return $this;
-    }
-    
-    /**
-     * Gets count
-     * @return int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-  
-    /**
-     * Sets count
-     * @param int $count How many results you want to see in the response (default value is 3)
-     * @return $this
-     */
-    public function setCount($count)
-    {
-        
-        $this->count = $count;
-        return $this;
-    }
-    
-    /**
-     * Gets use_emphasizing
-     * @return bool
-     */
-    public function getUseEmphasizing()
-    {
-        return $this->use_emphasizing;
-    }
-  
-    /**
-     * Sets use_emphasizing
-     * @param bool $use_emphasizing Use emphasizing algorithm during this recommendation
-     * @return $this
-     */
-    public function setUseEmphasizing($use_emphasizing)
-    {
-        
-        $this->use_emphasizing = $use_emphasizing;
-        return $this;
-    }
-    
-    /**
-     * Gets need_tag_in_result
-     * @return bool
-     */
-    public function getNeedTagInResult()
-    {
-        return $this->need_tag_in_result;
-    }
-  
-    /**
-     * Sets need_tag_in_result
-     * @param bool $need_tag_in_result If you want to see all the tag object in the response
-     * @return $this
-     */
-    public function setNeedTagInResult($need_tag_in_result)
-    {
-        
-        $this->need_tag_in_result = $need_tag_in_result;
-        return $this;
-    }
-    
-    /**
-     * Gets parent_tag_id_list
-     * @return string[]
-     */
-    public function getParentTagIdList()
-    {
-        return $this->parent_tag_id_list;
-    }
-  
-    /**
-     * Sets parent_tag_id_list
-     * @param string[] $parent_tag_id_list The recommendation process will be used only tags by these parent(s)
-     * @return $this
-     */
-    public function setParentTagIdList($parent_tag_id_list)
-    {
-        
-        $this->parent_tag_id_list = $parent_tag_id_list;
+        $this->data_set_name = $data_set_name;
         return $this;
     }
     

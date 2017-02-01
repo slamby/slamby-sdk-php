@@ -2,7 +2,7 @@
 
 
 /**
- * Service
+ * SearchService
  *
  * PHP version 5
  *
@@ -37,28 +37,30 @@ namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 /**
- * Service Class Doc Comment
+ * SearchService Class Doc Comment
  *
  * @category    Class
- * @description 
+ * @description For the common properties detail check the [Service](#/definitions/Service)
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Service implements ArrayAccess
+class SearchService implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    static $swaggerModelName = 'Service';
+    static $swaggerModelName = 'SearchService';
 
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
+        'prepare_settings' => '\Swagger\Client\Model\SearchPrepareSettings',
+        'activate_settings' => '\Swagger\Client\Model\SearchActivateSettings',
         'id' => 'string',
         'name' => 'string',
         'alias' => 'string',
@@ -78,6 +80,8 @@ class Service implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
+        'prepare_settings' => 'PrepareSettings',
+        'activate_settings' => 'ActivateSettings',
         'id' => 'Id',
         'name' => 'Name',
         'alias' => 'Alias',
@@ -97,6 +101,8 @@ class Service implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
+        'prepare_settings' => 'setPrepareSettings',
+        'activate_settings' => 'setActivateSettings',
         'id' => 'setId',
         'name' => 'setName',
         'alias' => 'setAlias',
@@ -116,6 +122,8 @@ class Service implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
+        'prepare_settings' => 'getPrepareSettings',
+        'activate_settings' => 'getActivateSettings',
         'id' => 'getId',
         'name' => 'getName',
         'alias' => 'getAlias',
@@ -130,6 +138,18 @@ class Service implements ArrayAccess
         return self::$getters;
     }
 
+    
+    /**
+      * $prepare_settings 
+      * @var \Swagger\Client\Model\SearchPrepareSettings
+      */
+    protected $prepare_settings;
+    
+    /**
+      * $activate_settings 
+      * @var \Swagger\Client\Model\SearchActivateSettings
+      */
+    protected $activate_settings;
     
     /**
       * $id Service unique identifier. It cannot be modified.
@@ -190,6 +210,8 @@ class Service implements ArrayAccess
         
 
         if ($data != null) {
+            $this->prepare_settings = $data["prepare_settings"];
+            $this->activate_settings = $data["activate_settings"];
             $this->id = $data["id"];
             $this->name = $data["name"];
             $this->alias = $data["alias"];
@@ -199,6 +221,48 @@ class Service implements ArrayAccess
             $this->process_id_list = $data["process_id_list"];
             $this->actual_process_id = $data["actual_process_id"];
         }
+    }
+    
+    /**
+     * Gets prepare_settings
+     * @return \Swagger\Client\Model\SearchPrepareSettings
+     */
+    public function getPrepareSettings()
+    {
+        return $this->prepare_settings;
+    }
+  
+    /**
+     * Sets prepare_settings
+     * @param \Swagger\Client\Model\SearchPrepareSettings $prepare_settings 
+     * @return $this
+     */
+    public function setPrepareSettings($prepare_settings)
+    {
+        
+        $this->prepare_settings = $prepare_settings;
+        return $this;
+    }
+    
+    /**
+     * Gets activate_settings
+     * @return \Swagger\Client\Model\SearchActivateSettings
+     */
+    public function getActivateSettings()
+    {
+        return $this->activate_settings;
+    }
+  
+    /**
+     * Sets activate_settings
+     * @param \Swagger\Client\Model\SearchActivateSettings $activate_settings 
+     * @return $this
+     */
+    public function setActivateSettings($activate_settings)
+    {
+        
+        $this->activate_settings = $activate_settings;
+        return $this;
     }
     
     /**

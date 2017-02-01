@@ -105,7 +105,7 @@ No authorization required
 
 
 # **getProcesses**
-> \Swagger\Client\Model\Process[] getProcesses($all_status)
+> \Swagger\Client\Model\Process[] getProcesses($all_status, $all_time)
 
 
 
@@ -117,10 +117,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\ProcessApi();
 $all_status = true; // bool | 
+$all_time = true; // bool | 
 
 
 try { 
-    $result = $api_instance->getProcesses($all_status);
+    $result = $api_instance->getProcesses($all_status, $all_time);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProcessApi->getProcesses: ', $e->getMessage(), "\n";
@@ -133,6 +134,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **all_status** | **bool**|  | [optional] 
+ **all_time** | **bool**|  | [optional] 
 
 
 ### Return type
