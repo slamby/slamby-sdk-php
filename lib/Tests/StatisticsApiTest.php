@@ -75,5 +75,25 @@ class StatisticsApiTest extends \PHPUnit_Framework_TestCase
 
     }
     
+    /**
+     * Test case for getStatistics_0
+     *
+     * 
+     *
+     */
+    public function test_getStatistics_0() {
+
+    }
+    
+    /**
+     * Test case for getStatistics_1
+     *
+     * 
+     *
+     */
+    public function test_getStatistics_1() {
+
+    }
+    
 }
 

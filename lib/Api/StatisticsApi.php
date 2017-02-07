@@ -119,7 +119,7 @@ class StatisticsApi
         
   
         // parse inputs
-        $resourcePath = "/api/Statistics/{year}/{month}";
+        $resourcePath = "/api/Statistics";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -133,6 +133,210 @@ class StatisticsApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\StatisticsWrapper'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\StatisticsWrapper', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\StatisticsWrapper', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getStatistics_0
+     *
+     * 
+     *
+     * @param int $year  (required)
+     * @return \Swagger\Client\Model\StatisticsWrapper
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getStatistics_0($year)
+    {
+        list($response) = $this->getStatistics_0WithHttpInfo ($year);
+        return $response; 
+    }
+
+
+    /**
+     * getStatistics_0WithHttpInfo
+     *
+     * 
+     *
+     * @param int $year  (required)
+     * @return Array of \Swagger\Client\Model\StatisticsWrapper, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getStatistics_0WithHttpInfo($year)
+    {
+        
+        // verify the required parameter 'year' is set
+        if ($year === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $year when calling getStatistics_0');
+        }
+  
+        // parse inputs
+        $resourcePath = "/api/Statistics/{year}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($year !== null) {
+            $resourcePath = str_replace(
+                "{" . "year" . "}",
+                $this->apiClient->getSerializer()->toPathValue($year),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\StatisticsWrapper'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\StatisticsWrapper', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\StatisticsWrapper', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getStatistics_1
+     *
+     * 
+     *
+     * @param int $year  (required)
+     * @param int $month  (required)
+     * @return \Swagger\Client\Model\StatisticsWrapper
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getStatistics_1($year, $month)
+    {
+        list($response) = $this->getStatistics_1WithHttpInfo ($year, $month);
+        return $response; 
+    }
+
+
+    /**
+     * getStatistics_1WithHttpInfo
+     *
+     * 
+     *
+     * @param int $year  (required)
+     * @param int $month  (required)
+     * @return Array of \Swagger\Client\Model\StatisticsWrapper, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getStatistics_1WithHttpInfo($year, $month)
+    {
+        
+        // verify the required parameter 'year' is set
+        if ($year === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $year when calling getStatistics_1');
+        }
+        // verify the required parameter 'month' is set
+        if ($month === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $month when calling getStatistics_1');
+        }
+  
+        // parse inputs
+        $resourcePath = "/api/Statistics/{year}/{month}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($year !== null) {
+            $resourcePath = str_replace(
+                "{" . "year" . "}",
+                $this->apiClient->getSerializer()->toPathValue($year),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($month !== null) {
+            $resourcePath = str_replace(
+                "{" . "month" . "}",
+                $this->apiClient->getSerializer()->toPathValue($month),
+                $resourcePath
+            );
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
